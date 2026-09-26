@@ -2,7 +2,7 @@ import type { ReactNode } from 'react';
 
 // Wrap exact modality terms without replacing characters or matching inside other words.
 export function coloredTerms(value: string): ReactNode {
-  const pattern = /\b(image[- ]to[- ]image|image[- ]to[- ]text|image generation|image understanding|visual understanding|understanding tasks|understanding task|generation-to-understanding|generation and understanding|generation|I2I|I2T)\b/gi;
+  const pattern = /\b(image[- ]to[- ]image|image[- ]to[- ]text|visual generation|image understanding|visual understanding|understanding tasks|understanding task|generation-to-understanding|generation and understanding|generation|I2I|I2T)\b/gi;
   return value.split(pattern).map((part, index) => {
     if (index % 2 === 0) return part;
     if (/^generation-to-understanding$/i.test(part)) {

@@ -49,7 +49,7 @@
       "text": "red: negative"
     },
     "ability_generation": {
-      "text": "Image Generation (Image to Image, I2I)",
+      "text": "Visual Generation (Image to Image, I2I)",
       "source": "Author-requested replacement for the opening modality diagram."
     },
     "ability_understanding": {
