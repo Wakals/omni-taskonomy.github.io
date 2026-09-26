@@ -1,38 +1,51 @@
 \begin{figure}[t]
-    \centering
-    \includegraphics[width=\linewidth]{iclr2026/figures/transfer_v13/transfer_map_19.pdf}
-    \caption{\textbf{Generation-to-understanding transfer across visual capabilities.}
-    Each column corresponds to an I2I task and each row to an understanding capability in \methodname.
-    Cells report the change in accuracy, in percentage points, relative to the I2T-only baseline.
-    Blue indicates positive transfer and red indicates negative transfer.
-    Cells with $p<0.05$ from paired permutation tests against the I2T-only baseline are outlined and labeled with their gains and a star.
-    We show capabilities with more than 100 evaluation samples; Appendix~\ref{app:transfer} gives the full matrix and paired significance tests.}
-    \label{fig:transfer-map}
+\centering
+\includegraphics[width=\linewidth]{iclr2026/figures/transfer_v13/transfer_map_19_v5.pdf}
+\caption{\textbf{Generation-to-understanding transfer across visual capabilities.}
+Each column corresponds to an I2I source task and each row to an understanding capability in \methodname.
+Cells report the change in I2T accuracy, in percentage points, relative to the I2T-only baseline.
+Blue indicates positive transfer and red indicates negative transfer.
+Cells with $p<0.05$ under an exact paired permutation test against the I2T-only baseline are outlined and labeled with their gains. The detailed numbers in the heat map are in Appendix~\ref{app:transfer-full}.}
+\label{fig:transfer}
 \end{figure}
 
-\section{Which generation tasks help which understanding capabilities?}
+\section{Which visual generation tasks help which visual understanding tasks?}
 \label{sec:transfer}
-\todo{may need to change the conclusion, add p-test details}
-The controlled study shows that I2I training can improve the corresponding I2T task. We now evaluate the 19 I2I tasks in \methodname across its 25 understanding capabilities.
+The controlled study shows that I2I training can improve the corresponding I2T task.
+We next ask whether this transfer extends beyond closely paired tasks, and which generation objectives benefit which understanding capabilities.
+To study this, we evaluate all 19 I2I tasks in \methodname{} against their 25 understanding capabilities.
 
 \subsection{Experimental setup}
-We follow the I2I $\rightarrow$ I2T recipe: starting from the same BAGEL checkpoint, we use approximately 50k I2I examples followed by 50k LLaVA-Instruct examples~\citep{liu2024llava}. The sources span Recognition (2), Reconstruction (9), and Reorganization (8); Appendix~\ref{app:transfer-setup} specifies the checkpoint set. The baseline is trained only on the I2T data. We evaluate all checkpoints on the same 9,444 evaluation examples and define transfer from source $t$ to capability $c$ as
+We follow the I2I $\rightarrow$ I2T recipe: starting from the same BAGEL checkpoint, we use approximately 50k I2I examples followed by 50k LLaVA-Instruct examples~\citep{liu2024llava} \ranjay{Did you do any experiment to ensure that each of the omni-taxonomy categories in I2T and I2I were sufficiently represented in this training set? Might be worth checking if the number of examples in the training set is correlated with successful transfer.}. The sources span Recognition (2), Reconstruction (9), and Reorganization (8); Appendix~\ref{app:transfer-setup} specifies the checkpoint set. The baseline is trained only on the I2T data. We evaluate all checkpoints on the same 9,444 evaluation examples and define transfer from source $s$ to capability $t$ as
 \[
-\Delta(t,c)
-=\operatorname{Acc}(M_t,\mathcal D_c)
--\operatorname{Acc}(M_{\mathrm{I2T}},\mathcal D_c),
+\Delta_{s,t}
+=\operatorname{Acc}(M_s,\mathcal D_t)
+-\operatorname{Acc}(M_{\mathrm{I2T}},\mathcal D_t),
 \]
-reported in percentage points. Figure~\ref{fig:transfer-map} shows the 19 capabilities with more than 100 evaluation examples; Appendix~\ref{app:transfer} gives all 25 capabilities and baseline accuracies. Each checkpoint uses a single I2I source, separating the observed effects of different supervision objectives.
+reported in percentage points. We assess significance using exact paired permutation tests on per-example correctness against the I2T-only baseline ($p<0.05$; Appendix~\ref{app:transfer-tests}). Figure~\ref{fig:transfer} shows the 19 capabilities with more than 100 evaluation examples and marks cells with $p<0.05$.
+Appendix~\ref{app:transfer} provides all 25 capabilities and baseline accuracies. 
 
-\subsection{Transfer depends on the source and target tasks}
-\paragraph{Useful source-target pairs can share visual requirements.}
-Counting improves with all 19 sources, with 14 gains reaching $p<0.05$. Localization and object pointing yield the largest observed gains ($+3.70$ and $+3.57$ pp, respectively; both $p<0.001$): both objectives require identifying and locating objects. Geometry supervision also benefits metric 3D relation: Z-depth, Euclidean depth, and surface normals improve accuracy by $2.90$, $2.77$, and $2.49$ pp, respectively (all $p<0.03$). These results connect shared visual requirements to useful transfer.
-
-\paragraph{Different sources benefit complementary capabilities.}
-Attribute editing improves category recognition ($+2.81$ pp, $p<0.01$), and object editing improves 2D ordering ($+8.42$ pp, $p<0.03$). Inpainting and 2.5D segmentation also improve ordering ($+9.47$ and $+11.58$ pp), while colorization gives the largest observed gain on visual correspondence ($+5.71$ pp; all three $p<0.01$). Useful generation supervision thus extends across recognition, geometry, and spatial reasoning, with different sources benefiting different capabilities.
-
-All 19 checkpoints achieve higher pooled accuracy than the I2T-only baseline. Colorization reaches $70.08\%$, compared with the baseline's $68.90\%$; colorization, 2D edges, and 2D keypoints remain significant after Holm correction across the 19 sources (Appendix~\ref{app:transfer-tests}).
+\subsection{Transfer is selective across source and target tasks}
+\paragraph{Transfer is concentrated in a subset of understanding capabilities.}
+The transfer map in Figure~\ref{fig:transfer} is highly non-uniform.
+Five of the 19 displayed capabilities improve significantly with at least one I2I source; several others show little or no positive transfer under the same recipe.
+Metric 3D relation and counting benefit significantly from the broadest set of sources: 12 I2I tasks.
+2D ordering follows with eleven sources.
+In contrast, capabilities such as OCR, text recognition, or appearance understanding show no such improvement from any tested source.
+\paragraph{Shared visual operations predict several of the strongest gains.}
+Localization and object pointing produce the largest improvements in counting ($+2.5$ and $+2.0$ pp), consistent with all three tasks requiring individual objects to be identified and spatially localized.
+Similarly, Z-depth, Euclidean depth, and surface normals improve metric 3D relation by $3.6$, $3.8$, and $3.4$ pp, respectively, connecting dense geometric reconstruction to relational 3D judgments.
+Jigsaw improves 2D ordering by $6.8$ pp, consistent with both tasks requiring the relative spatial arrangement of image regions.
+These cases suggest that transfer often follows shared visual capabilities, even when the source and target use different output modalities.
+\paragraph{Useful transfer is not confined to closely matched capabilities.}
+Several significant gains are less direct.
+Inpainting improves both counting ($+1.5$ pp) and 2D ordering ($+7.2$ pp), despite neither target explicitly requiring missing-region reconstruction.
+Solving inpainting tasks may encourage the model to infer object quantity and global spatial structure from incomplete local evidence.
+% \qin{deleted colorization}
+% Colorization likewise improves visual correspondence ($+5.71$ pp), potentially because predicting plausible colors requires associating semantically related regions across an image.
+2.5D segmentation likewise improves category recognition ($+1.2$ pp), potentially because capturing object boundaries can shape cues that support category recognition.
+These examples show that an I2I objective can also benefit targets across task families.
 
 \begin{findingbox}
-Image-generation supervision benefits complementary visual capabilities: useful transfer can follow shared visual requirements and cross task-family boundaries.
+Visual Generation supervision yields significant gains for specific visual understanding capabilities, through both related tasks and transfer across task families. \ranjay{I might have missed this. I couldn't find a definition of ``task family'' anywhere.}\ranjay{Minor: I worry a bit that the findings themselves are a little too vague to be actionable. "vision generation sometimes helps understanding". Ok, but what do I do with that information?  Either move the findings into 1.1, 1.2, 2.1, 2.2 and make them each specific or lay out why the findings should matter to someone reading them.}
 \end{findingbox}

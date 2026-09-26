@@ -1,436 +1,416 @@
 {
   "manuscript_project": "https://www.overleaf.com/project/69d99c42c6f3e61ae13f54f1",
-  "manuscript_commit": "5bc4f423bd22acd2505d62135f1aa9ffd0140a61",
+  "manuscript_commit": "1894250fa8fbec78445bdd8a1a72a0f8b50ba7c3",
   "rendering": "Contiguous source excerpts with only LaTeX typography and method macro expanded.",
   "excerpts": {
     "title": {
-      "text": "OmniTaskonomy: How Image Generation Improves Visual Understanding",
+      "text": "OmniTaskonomy: When Does Visual Generation Improve Visual Understanding",
       "source": {
         "file": "iclr2026/main.tex",
-        "start_line": 84,
-        "end_line": 84,
-        "raw_tex": "\\title{\\methodname: How Image Generation Improves Visual Understanding}",
-        "file_sha256": "b305a2fe82a65890615554f5d42bddb55abd749e718bee3518361ba02363a7de"
+        "start_line": 86,
+        "end_line": 86,
+        "raw_tex": "\\title{\\methodname: When Does Visual\\\\Generation Improve Visual Understanding}",
+        "file_sha256": "28d3244898fd4abd80fd2be4f0363901da342e36deca46dcad1b80bcbc164ce9"
       }
     },
     "description": {
-      "text": "Image generation provides dense supervision, yet its benefits for visual understanding remain unclear.",
+      "text": "We ask: when and how does visual generation supervision improve visual understanding?",
       "source": {
         "file": "iclr2026/sections/0_abstract.tex",
-        "start_line": 11,
-        "end_line": 11,
-        "raw_tex": "Image generation provides dense supervision, yet its benefits for visual understanding remain unclear.",
-        "file_sha256": "3623b4ce0e46b065c439376f21a3619177c5c46de23ac2a1c3c1356eeecc9b63"
+        "start_line": 18,
+        "end_line": 18,
+        "raw_tex": "We ask: \\xd{when and how does visual generation supervision improve visual understanding?}",
+        "file_sha256": "607a342ebd73d16bb771f25111b7110fcc3b68fa9b5035cd0012f1f8d56e4615"
       }
     },
     "tldr_question_1": {
-      "text": "Can generation supervision improve visual understanding, and under what training setup does this transfer emerge?",
+      "text": "what training curriculum enables visual generation to improve visual understanding?",
       "source": {
         "file": "iclr2026/sections/1_introduction_clean.tex",
-        "start_line": 36,
-        "end_line": 36,
-        "raw_tex": "Can generation supervision improve visual understanding, and under what training setup does this transfer emerge?",
-        "file_sha256": "f852e80bac5f6ef330c6078c5728611e8ac6e06cbfe399e94500c506f203e0df"
+        "start_line": 56,
+        "end_line": 56,
+        "raw_tex": "what training curriculum enables visual generation to improve visual understanding?",
+        "file_sha256": "4ba0a1a9b13a2ee87d0a0bbeb624d305f775c70830c15c9f929eb5437598e403"
       }
     },
     "tldr_question_2": {
-      "text": "Which kinds of generation data help which kinds of understanding tasks?",
+      "text": "which visual generation tasks help which understanding tasks?",
       "source": {
         "file": "iclr2026/sections/1_introduction_clean.tex",
-        "start_line": 46,
-        "end_line": 46,
-        "raw_tex": "Which kinds of generation data help which kinds of understanding tasks?",
-        "file_sha256": "f852e80bac5f6ef330c6078c5728611e8ac6e06cbfe399e94500c506f203e0df"
+        "start_line": 71,
+        "end_line": 71,
+        "raw_tex": "which visual generation tasks help which understanding tasks?",
+        "file_sha256": "4ba0a1a9b13a2ee87d0a0bbeb624d305f775c70830c15c9f929eb5437598e403"
       }
     },
     "tldr_question_3": {
-      "text": "What makes generation supervision transfer successfully to a particular understanding task?",
+      "text": "What explains transfer from visual generation to understanding?",
       "source": {
         "file": "iclr2026/sections/1_introduction_clean.tex",
-        "start_line": 60,
-        "end_line": 60,
-        "raw_tex": "What makes generation supervision transfer successfully to a particular understanding task?",
-        "file_sha256": "f852e80bac5f6ef330c6078c5728611e8ac6e06cbfe399e94500c506f203e0df"
+        "start_line": 90,
+        "end_line": 90,
+        "raw_tex": "What explains transfer from visual generation to understanding?",
+        "file_sha256": "4ba0a1a9b13a2ee87d0a0bbeb624d305f775c70830c15c9f929eb5437598e403"
       }
     },
     "finding_a": {
-      "text": "We find that schedules starting with I2I training scale consistently with additional generation data.",
+      "text": "An initial I2I training stage that updates parameters shared with the I2T objective provides a useful initialization for subsequent I2T learning.",
       "source": {
-        "file": "iclr2026/sections/1_introduction_clean.tex",
-        "start_line": 43,
-        "end_line": 43,
-        "raw_tex": "We find that schedules starting with I2I training scale consistently with additional generation data.",
-        "file_sha256": "f852e80bac5f6ef330c6078c5728611e8ac6e06cbfe399e94500c506f203e0df"
+        "file": "iclr2026/sections/3_poc.tex",
+        "start_line": 60,
+        "end_line": 60,
+        "raw_tex": "An initial I2I training stage that updates parameters shared with the I2T objective provides a useful initialization for subsequent I2T learning.",
+        "file_sha256": "1d3a0739c8c608834934caa60008d2e685ddfd817cd8738dbd2b0e77d86d531c"
       }
     },
     "finding_b": {
-      "text": "Image-generation supervision benefits complementary visual capabilities: useful transfer can follow shared visual requirements and cross task-family boundaries.",
+      "text": "Visual Generation supervision yields significant gains for specific visual understanding capabilities, through both related tasks and transfer across task families.",
       "source": {
         "file": "iclr2026/sections/5_analysis.tex",
-        "start_line": 37,
-        "end_line": 37,
-        "raw_tex": "Image-generation supervision benefits complementary visual capabilities: useful transfer can follow shared visual requirements and cross task-family boundaries.",
-        "file_sha256": "68029c79801715e302098b38ce0dc1fac1059b3c20f8cd0a14eee7df7a214317"
+        "start_line": 50,
+        "end_line": 50,
+        "raw_tex": "Visual Generation supervision yields significant gains for specific visual understanding capabilities, through both related tasks and transfer across task families.",
+        "file_sha256": "531b4fb7cfaa706be02275d652c912ae3edfef4366d10445989f5fd92a196b98"
       }
     },
     "alignment_finding": {
-      "text": "I2I and I2T gradients align most strongly in early pre-attention normalization layers. Across these seven capabilities, higher average alignment is associated with larger average transfer gains.",
+      "text": "Gradient alignment is concentrated in early pre-attention normalization layers and is positively associated with downstream transfer across both understanding capabilities and individual source-target pairs.",
       "source": {
         "file": "iclr2026/sections/6_gradient.tex",
-        "start_line": 91,
-        "end_line": 92,
-        "raw_tex": "I2I and I2T gradients align most strongly in early pre-attention normalization layers.\nAcross these seven capabilities, higher average alignment is associated with larger average transfer gains.",
-        "file_sha256": "a2ea56761d2ec1f825a238fcbe441dd48e68343310547a5ffa08041d7fad2a5c"
+        "start_line": 79,
+        "end_line": 79,
+        "raw_tex": "Gradient alignment is concentrated in early pre-attention normalization layers and is positively associated with downstream transfer across both understanding capabilities and individual source-target pairs.",
+        "file_sha256": "8097ca342112246b6368b2c6dec21e317828b747476ebb3cc13ef11921775623"
       }
     },
     "overview_caption_short": {
-      "text": "When does generation help understanding?",
-      "source": {
-        "file": "iclr2026/sections/1_introduction_clean.tex",
-        "start_line": 6,
-        "end_line": 6,
-        "raw_tex": "\\textbf{When does generation help understanding?}",
-        "file_sha256": "f852e80bac5f6ef330c6078c5728611e8ac6e06cbfe399e94500c506f203e0df"
-      }
-    },
-    "legend_size": {
-      "text": "Bubble sizes modestly emphasize row maxima among the shown sources.",
+      "text": "When and how does visual generation improve visual understanding?",
       "source": {
         "file": "iclr2026/sections/1_introduction_clean.tex",
         "start_line": 8,
         "end_line": 8,
-        "raw_tex": "Bubble sizes modestly emphasize row maxima among the shown sources.",
-        "file_sha256": "f852e80bac5f6ef330c6078c5728611e8ac6e06cbfe399e94500c506f203e0df"
+        "raw_tex": "When and how does visual generation improve visual understanding?",
+        "file_sha256": "4ba0a1a9b13a2ee87d0a0bbeb624d305f775c70830c15c9f929eb5437598e403"
       }
     },
     "controlled_heading": {
-      "text": "Does image generation help visual understanding?",
+      "text": "Does visual generation help visual understanding?",
       "source": {
         "file": "iclr2026/sections/3_poc.tex",
-        "start_line": 1,
-        "end_line": 1,
-        "raw_tex": "\\section{Does image generation help visual understanding?}",
-        "file_sha256": "ae2cd90c96e433aec008edda152b9b40745aed382ebfcb62c51eac94d4360141"
+        "start_line": 3,
+        "end_line": 3,
+        "raw_tex": "\\section{Does visual generation help visual understanding?}",
+        "file_sha256": "1d3a0739c8c608834934caa60008d2e685ddfd817cd8738dbd2b0e77d86d531c"
       }
     },
     "controlled_lead": {
-      "text": "To isolate the effect of output modality, we construct paired I2I and I2T tasks that require solving the same task from the same input, differing primarily in whether the answer is produced as an image or as text.",
-      "source": {
-        "file": "iclr2026/sections/3_poc.tex",
-        "start_line": 4,
-        "end_line": 4,
-        "raw_tex": "To isolate the effect of output modality, we construct paired I2I and I2T tasks that require solving the same task from the same input, differing primarily in whether the answer is produced as an image or as text.",
-        "file_sha256": "ae2cd90c96e433aec008edda152b9b40745aed382ebfcb62c51eac94d4360141"
-      }
-    },
-    "bagel_architecture_caption": {
-      "text": "We instantiate this on BAGEL, a unified multimodal model based on a Mixture-of-Transformers (MoT) architecture.",
+      "text": "To isolate the effect of confounding factors, we construct paired I2I and I2T tasks that require solving the same task from the same input, differing only in whether the answer is produced as an image or as text. This allows us to directly test whether supervision from an I2I objective transfers to the corresponding I2T task. This setup eliminates differences in annotation quality, image source, and other factors.",
       "source": {
         "file": "iclr2026/sections/3_poc.tex",
         "start_line": 6,
-        "end_line": 6,
-        "raw_tex": "We instantiate this on BAGEL, a unified multimodal model based on a Mixture-of-Transformers (MoT) architecture.",
-        "file_sha256": "ae2cd90c96e433aec008edda152b9b40745aed382ebfcb62c51eac94d4360141"
+        "end_line": 7,
+        "raw_tex": "To isolate the effect of confounding factors, we construct paired I2I and I2T tasks that require solving the same task from the same input, differing only in whether the answer is produced as an image or as text.\nThis allows us to directly test whether supervision from an I2I objective transfers to the corresponding I2T task. This setup eliminates differences in annotation quality, image source, and other factors.",
+        "file_sha256": "1d3a0739c8c608834934caa60008d2e685ddfd817cd8738dbd2b0e77d86d531c"
+      }
+    },
+    "bagel_architecture_caption": {
+      "text": "We instantiate this on BAGEL, a unified multimodal model based on a Mixture-of-Transformers (MoT) architecture, and then evaluate transfer exclusively on the paired I2T task.",
+      "source": {
+        "file": "iclr2026/sections/3_poc.tex",
+        "start_line": 30,
+        "end_line": 30,
+        "raw_tex": "We instantiate this on BAGEL, a unified multimodal model based on a Mixture-of-Transformers (MoT) architecture, and then evaluate transfer exclusively on the paired I2T task.",
+        "file_sha256": "1d3a0739c8c608834934caa60008d2e685ddfd817cd8738dbd2b0e77d86d531c"
       }
     },
     "controlled_caption": {
       "text": "(a) Controlled Jigsaw and Zoom-In tasks with image and text outputs.",
       "source": {
         "file": "iclr2026/sections/3_poc.tex",
-        "start_line": 17,
-        "end_line": 17,
+        "start_line": 19,
+        "end_line": 19,
         "raw_tex": "(a) Controlled Jigsaw and Zoom-In tasks with image and text outputs.",
-        "file_sha256": "ae2cd90c96e433aec008edda152b9b40745aed382ebfcb62c51eac94d4360141"
+        "file_sha256": "1d3a0739c8c608834934caa60008d2e685ddfd817cd8738dbd2b0e77d86d531c"
       }
     },
     "controlled_inputs": {
-      "text": "in Jigsaw, image patches are shuffled, and in Zoom-In, five views of the same image at different zoom levels are shuffled.",
-      "source": {
-        "file": "iclr2026/sections/3_poc.tex",
-        "start_line": 25,
-        "end_line": 25,
-        "raw_tex": "in Jigsaw, image patches are shuffled, and in Zoom-In, five views of the same image at different zoom levels are shuffled.",
-        "file_sha256": "ae2cd90c96e433aec008edda152b9b40745aed382ebfcb62c51eac94d4360141"
-      }
-    },
-    "controlled_output": {
-      "text": "For both tasks, the I2I objective generates the correctly ordered image, while the corresponding I2T objective predicts the correct permutation in text.",
+      "text": "In Jigsaw, patches of an image are shuffled, and the model must recover their spatial arrangement. In Zoom-In, views of the same image at different zoom levels are shuffled, and the model must recover their correct order.",
       "source": {
         "file": "iclr2026/sections/3_poc.tex",
         "start_line": 26,
-        "end_line": 26,
-        "raw_tex": "For both tasks, the I2I objective generates the correctly ordered image, while the corresponding I2T objective predicts the correct permutation in text.",
-        "file_sha256": "ae2cd90c96e433aec008edda152b9b40745aed382ebfcb62c51eac94d4360141"
+        "end_line": 27,
+        "raw_tex": "In Jigsaw, patches of an image are shuffled, and the model must recover their spatial arrangement.\nIn Zoom-In, views of the same image at different zoom levels are shuffled, and the model must recover their correct order.",
+        "file_sha256": "1d3a0739c8c608834934caa60008d2e685ddfd817cd8738dbd2b0e77d86d531c"
+      }
+    },
+    "controlled_output": {
+      "text": "For each input, the I2I objective produces the correctly ordered image, while the I2T objective predicts the same ordering as a permutation in text. The objectives require the same visual operation on the same input and differ only in output modality.",
+      "source": {
+        "file": "iclr2026/sections/3_poc.tex",
+        "start_line": 28,
+        "end_line": 29,
+        "raw_tex": "For each input, the I2I objective produces the correctly ordered image, while the I2T objective predicts the same ordering as a permutation in text. \nThe objectives require the same visual operation on the same input and differ only in output modality.",
+        "file_sha256": "1d3a0739c8c608834934caa60008d2e685ddfd817cd8738dbd2b0e77d86d531c"
       }
     },
     "recipe_heading": {
-      "text": "Which Training Recipe Transfers Best?",
+      "text": "Which training recipe transfers best?",
       "source": {
         "file": "iclr2026/sections/3_poc.tex",
-        "start_line": 40,
-        "end_line": 40,
-        "raw_tex": "\\paragraph{Which Training Recipe Transfers Best?}",
-        "file_sha256": "ae2cd90c96e433aec008edda152b9b40745aed382ebfcb62c51eac94d4360141"
+        "start_line": 43,
+        "end_line": 43,
+        "raw_tex": "\\paragraph{Which training recipe transfers best?}",
+        "file_sha256": "1d3a0739c8c608834934caa60008d2e685ddfd817cd8738dbd2b0e77d86d531c"
       }
     },
     "recipe_result": {
-      "text": "We therefore use I2I training followed by I2T finetuning as the default recipe in subsequent experiments.",
+      "text": "We therefore use I2I → I2T as the default recipe in subsequent experiments.",
       "source": {
         "file": "iclr2026/sections/3_poc.tex",
-        "start_line": 51,
-        "end_line": 51,
-        "raw_tex": "We therefore use I2I training followed by I2T finetuning as the default recipe in subsequent experiments.",
-        "file_sha256": "ae2cd90c96e433aec008edda152b9b40745aed382ebfcb62c51eac94d4360141"
+        "start_line": 58,
+        "end_line": 58,
+        "raw_tex": "We therefore use I2I $\\rightarrow$ I2T as the default recipe in subsequent experiments.",
+        "file_sha256": "1d3a0739c8c608834934caa60008d2e685ddfd817cd8738dbd2b0e77d86d531c"
       }
     },
     "recipe_finding": {
-      "text": "I2I supervision complements but does not replace direct I2T supervision, with the largest gains in low-I2T settings.",
+      "text": "An initial I2I training stage that updates parameters shared with the I2T objective provides a useful initialization for subsequent I2T learning.",
       "source": {
         "file": "iclr2026/sections/3_poc.tex",
-        "start_line": 61,
-        "end_line": 62,
-        "raw_tex": "I2I supervision complements but does not replace direct I2T supervision,\nwith the largest gains in low-I2T settings.",
-        "file_sha256": "ae2cd90c96e433aec008edda152b9b40745aed382ebfcb62c51eac94d4360141"
+        "start_line": 60,
+        "end_line": 60,
+        "raw_tex": "An initial I2I training stage that updates parameters shared with the I2T objective provides a useful initialization for subsequent I2T learning.",
+        "file_sha256": "1d3a0739c8c608834934caa60008d2e685ddfd817cd8738dbd2b0e77d86d531c"
       }
     },
     "scaling_caption": {
-      "text": "(b) I2T evaluation accuracy as the amount of I2I training data increases across different training recipes on Jigsaw and Zoom-In, with the I2T data size held fixed as 1k. (c) I2T evaluation accuracy as the amount of I2T training data increases, comparing the I2T-only baseline with I2I training followed by I2T finetuning using 100k I2I samples.",
+      "text": "(b) I2T accuracy versus I2I training examples across recipes on Jigsaw and Zoom-In, with 1k I2T examples. (c) I2T accuracy versus I2T training examples, comparing I2T-only training with I2I training followed by I2T finetuning using 100k I2I examples.",
       "source": {
         "file": "iclr2026/sections/3_poc.tex",
-        "start_line": 18,
-        "end_line": 19,
-        "raw_tex": "(b) I2T evaluation accuracy as the amount of I2I training data increases across different training recipes on Jigsaw and Zoom-In, with the I2T data size held fixed as 1k.\n    (c) I2T evaluation accuracy as the amount of I2T training data increases, comparing the I2T-only baseline with I2I training followed by I2T finetuning using 100k I2I samples.",
-        "file_sha256": "ae2cd90c96e433aec008edda152b9b40745aed382ebfcb62c51eac94d4360141"
+        "start_line": 20,
+        "end_line": 21,
+        "raw_tex": "(b) I2T accuracy versus I2I training examples across recipes on Jigsaw and Zoom-In, with 1k I2T examples.\n    (c) I2T accuracy versus I2T training examples, comparing I2T-only training with I2I training followed by I2T finetuning using 100k I2I examples.",
+        "file_sha256": "1d3a0739c8c608834934caa60008d2e685ddfd817cd8738dbd2b0e77d86d531c"
       }
     },
     "taxonomy_heading": {
-      "text": "OmniTaskonomy: A Unified Taxonomy of Visual Capabilities",
+      "text": "OmniTaskonomy: A unified taxonomy of visual capabilities",
       "source": {
         "file": "iclr2026/sections/4_taxonomy.tex",
         "start_line": 1,
         "end_line": 1,
-        "raw_tex": "\\section{\\methodname: A Unified Taxonomy of Visual Capabilities}",
-        "file_sha256": "20e481c1c954675237f1da5d401b8d694a9bd99a0b64e6496f15d2c871e52682"
+        "raw_tex": "\\section{\\methodname: A unified taxonomy of visual capabilities}",
+        "file_sha256": "7bac37f00ab176147cbbef0db8a99a4d529c6fff61e5e18d5abb7ad384f19415"
       }
     },
     "taxonomy_lead": {
-      "text": "We introduce OmniTaskonomy, a shared hierarchy that relates I2I tasks to understanding capabilities based on the visual information they require, rather than their output modality.",
+      "text": "Existing benchmarks typically organize visual tasks by task formulation or output modality, leaving visual generation and understanding tasks separated. This makes it difficult to compare and study tasks that rely on similar visual capabilities but produce different outputs. We introduce OmniTaskonomy, which organizes I2I tasks and understanding tasks in a shared hierarchy. For an visual understanding sample, we consider the primary visual capability required to solve it; for an I2I task, we consider the visual capability directly supervised by its training objective.",
       "source": {
         "file": "iclr2026/sections/4_taxonomy.tex",
-        "start_line": 8,
-        "end_line": 8,
-        "raw_tex": "We introduce \\methodname, a shared hierarchy that relates I2I tasks to understanding capabilities based on the visual information they require, rather than their output modality.",
-        "file_sha256": "20e481c1c954675237f1da5d401b8d694a9bd99a0b64e6496f15d2c871e52682"
+        "start_line": 3,
+        "end_line": 6,
+        "raw_tex": "Existing benchmarks typically organize visual tasks by task formulation or output modality, leaving visual generation and understanding tasks separated.\nThis makes it difficult to compare and study tasks that rely on similar visual capabilities but produce different outputs.\nWe introduce \\methodname{}, which organizes I2I tasks and understanding tasks in a shared hierarchy.\nFor an visual understanding sample, we consider the primary visual capability required to solve it; for an I2I task, we consider the visual capability directly supervised by its training objective.",
+        "file_sha256": "7bac37f00ab176147cbbef0db8a99a4d529c6fff61e5e18d5abb7ad384f19415"
       }
     },
     "taxonomy_caption": {
-      "text": "A unified taxonomy of visual tasks organized into three broad families: Recognition, Reconstruction, and Reorganization. Each leaf is explicitly typed as either an I2I task or an understanding capability, allowing the two modalities to share the same visual hierarchy without conflating their task identities.",
+      "text": "A unified taxonomy of visual tasks organized into three broad families: Recognition, Reconstruction, and Reorganization. I2I training objectives and understanding capabilities remain separate leaves, but share the same visual hierarchy.",
       "source": {
         "file": "iclr2026/sections/4_taxonomy.tex",
-        "start_line": 20,
-        "end_line": 20,
-        "raw_tex": "A unified taxonomy of visual tasks organized into three broad families: \\textit{Recognition}, \\textit{Reconstruction}, and \\textit{Reorganization}. Each leaf is explicitly typed as either an I2I task or an understanding capability, allowing the two modalities to share the same visual hierarchy without conflating their task identities.",
-        "file_sha256": "20e481c1c954675237f1da5d401b8d694a9bd99a0b64e6496f15d2c871e52682"
+        "start_line": 14,
+        "end_line": 15,
+        "raw_tex": "A unified taxonomy of visual tasks organized into three broad families: \\textit{Recognition}, \\textit{Reconstruction}, and \\textit{Reorganization}.\nI2I training objectives and understanding capabilities remain separate leaves, but share the same visual hierarchy.",
+        "file_sha256": "7bac37f00ab176147cbbef0db8a99a4d529c6fff61e5e18d5abb7ad384f19415"
       }
     },
     "taxonomy_annotation": {
-      "text": "Once the capability is finalized, we assign each I2T benchmark sample to a capability leaf. To scale this annotation, we use three independent LLM judges to label each sample using the finalized taxonomy definitions and annotation guidelines. We keep a sample when at least two of the three judges agree on the same capability and use the majority label as its final assignment, and samples without a two-of-three consensus are excluded.",
+      "text": "Once the taxonomy is fixed, we reassign each eligible benchmark sample to one of the finalized understanding leaves. Three VLM judges independently annotate each sample using the image, question, answer choices, reference answer, and the same capability definitions. We retain an example when at least two of the three judges assign it to the same capability and exclude examples without a majority, yielding 9,444 samples.",
       "source": {
         "file": "iclr2026/sections/4_taxonomy.tex",
-        "start_line": 63,
-        "end_line": 65,
-        "raw_tex": "Once the capability is finalized, we assign each I2T benchmark sample to a capability leaf.\nTo scale this annotation, we use three independent LLM judges to label each sample using the finalized taxonomy definitions and annotation guidelines.\nWe keep a sample when at least two of the three judges agree on the same capability and use the majority label as its final assignment, and samples without a two-of-three consensus are excluded.",
-        "file_sha256": "20e481c1c954675237f1da5d401b8d694a9bd99a0b64e6496f15d2c871e52682"
+        "start_line": 51,
+        "end_line": 53,
+        "raw_tex": "Once the taxonomy is fixed, we reassign each eligible benchmark sample to one of the finalized understanding leaves.\nThree VLM judges independently annotate each sample using the image, question, answer choices, reference answer, and the same capability definitions.\nWe retain an example when at least two of the three judges assign it to the same capability and exclude examples without a majority, yielding 9,444 samples.",
+        "file_sha256": "7bac37f00ab176147cbbef0db8a99a4d529c6fff61e5e18d5abb7ad384f19415"
       }
     },
     "transfer_heading": {
-      "text": "Which generation tasks help which understanding capabilities?",
+      "text": "Which visual generation tasks help which visual understanding tasks?",
       "source": {
         "file": "iclr2026/sections/5_analysis.tex",
-        "start_line": 13,
-        "end_line": 13,
-        "raw_tex": "\\section{Which generation tasks help which understanding capabilities?}",
-        "file_sha256": "68029c79801715e302098b38ce0dc1fac1059b3c20f8cd0a14eee7df7a214317"
+        "start_line": 12,
+        "end_line": 12,
+        "raw_tex": "\\section{Which visual generation tasks help which visual understanding tasks?}",
+        "file_sha256": "531b4fb7cfaa706be02275d652c912ae3edfef4366d10445989f5fd92a196b98"
       }
     },
     "transfer_scope": {
-      "text": "We now evaluate the 19 I2I tasks in OmniTaskonomy across its 25 understanding capabilities.",
+      "text": "To study this, we evaluate all 19 I2I tasks in OmniTaskonomy against their 25 understanding capabilities.",
       "source": {
         "file": "iclr2026/sections/5_analysis.tex",
         "start_line": 16,
         "end_line": 16,
-        "raw_tex": "We now evaluate the 19 I2I tasks in \\methodname across its 25 understanding capabilities.",
-        "file_sha256": "68029c79801715e302098b38ce0dc1fac1059b3c20f8cd0a14eee7df7a214317"
+        "raw_tex": "To study this, we evaluate all 19 I2I tasks in \\methodname{} against their 25 understanding capabilities.",
+        "file_sha256": "531b4fb7cfaa706be02275d652c912ae3edfef4366d10445989f5fd92a196b98"
       }
     },
     "taxonomy_extensions": {
-      "text": "We now evaluate the 19 I2I tasks in OmniTaskonomy across its 25 understanding capabilities.",
+      "text": "To study this, we evaluate all 19 I2I tasks in OmniTaskonomy against their 25 understanding capabilities.",
       "source": {
         "file": "iclr2026/sections/5_analysis.tex",
         "start_line": 16,
         "end_line": 16,
-        "raw_tex": "We now evaluate the 19 I2I tasks in \\methodname across its 25 understanding capabilities.",
-        "file_sha256": "68029c79801715e302098b38ce0dc1fac1059b3c20f8cd0a14eee7df7a214317"
+        "raw_tex": "To study this, we evaluate all 19 I2I tasks in \\methodname{} against their 25 understanding capabilities.",
+        "file_sha256": "531b4fb7cfaa706be02275d652c912ae3edfef4366d10445989f5fd92a196b98"
       }
     },
     "transfer_caption": {
-      "text": "Each column corresponds to an I2I task and each row to an understanding capability in OmniTaskonomy. Cells report the change in accuracy, in percentage points, relative to the I2T-only baseline. Blue indicates positive transfer and red indicates negative transfer. Cells with p<0.05 from paired permutation tests against the I2T-only baseline are outlined and labeled with their gains and a star.",
+      "text": "Each column corresponds to an I2I source task and each row to an understanding capability in OmniTaskonomy. Cells report the change in I2T accuracy, in percentage points, relative to the I2T-only baseline.",
       "source": {
         "file": "iclr2026/sections/5_analysis.tex",
         "start_line": 5,
-        "end_line": 8,
-        "raw_tex": "Each column corresponds to an I2I task and each row to an understanding capability in \\methodname.\n    Cells report the change in accuracy, in percentage points, relative to the I2T-only baseline.\n    Blue indicates positive transfer and red indicates negative transfer.\n    Cells with $p<0.05$ from paired permutation tests against the I2T-only baseline are outlined and labeled with their gains and a star.",
-        "file_sha256": "68029c79801715e302098b38ce0dc1fac1059b3c20f8cd0a14eee7df7a214317"
+        "end_line": 6,
+        "raw_tex": "Each column corresponds to an I2I source task and each row to an understanding capability in \\methodname.\nCells report the change in I2T accuracy, in percentage points, relative to the I2T-only baseline.",
+        "file_sha256": "531b4fb7cfaa706be02275d652c912ae3edfef4366d10445989f5fd92a196b98"
       }
     },
     "transfer_lead": {
-      "text": "Useful generation supervision thus extends across recognition, geometry, and spatial reasoning, with different sources benefiting different capabilities.",
+      "text": "Visual Generation supervision yields significant gains for specific visual understanding capabilities, through both related tasks and transfer across task families.",
       "source": {
         "file": "iclr2026/sections/5_analysis.tex",
-        "start_line": 32,
-        "end_line": 32,
-        "raw_tex": "Useful generation supervision thus extends across recognition, geometry, and spatial reasoning, with different sources benefiting different capabilities.",
-        "file_sha256": "68029c79801715e302098b38ce0dc1fac1059b3c20f8cd0a14eee7df7a214317"
+        "start_line": 50,
+        "end_line": 50,
+        "raw_tex": "Visual Generation supervision yields significant gains for specific visual understanding capabilities, through both related tasks and transfer across task families.",
+        "file_sha256": "531b4fb7cfaa706be02275d652c912ae3edfef4366d10445989f5fd92a196b98"
       }
     },
     "related_heading": {
-      "text": "Useful source-target pairs can share visual requirements.",
+      "text": "Shared visual operations predict several of the strongest gains.",
       "source": {
         "file": "iclr2026/sections/5_analysis.tex",
-        "start_line": 28,
-        "end_line": 28,
-        "raw_tex": "\\paragraph{Useful source-target pairs can share visual requirements.}",
-        "file_sha256": "68029c79801715e302098b38ce0dc1fac1059b3c20f8cd0a14eee7df7a214317"
+        "start_line": 35,
+        "end_line": 35,
+        "raw_tex": "\\paragraph{Shared visual operations predict several of the strongest gains.}",
+        "file_sha256": "531b4fb7cfaa706be02275d652c912ae3edfef4366d10445989f5fd92a196b98"
       }
     },
     "related_example": {
-      "text": "Counting improves with all 19 sources, with 14 gains reaching p<0.05. Localization and object pointing yield the largest observed gains (+3.70 and +3.57 pp, respectively; both p<0.001): both objectives require identifying and locating objects.",
+      "text": "Localization and object pointing produce the largest improvements in counting (+2.5 and +2.0 pp), consistent with all three tasks requiring individual objects to be identified and spatially localized.",
       "source": {
         "file": "iclr2026/sections/5_analysis.tex",
-        "start_line": 29,
-        "end_line": 29,
-        "raw_tex": "Counting improves with all 19 sources, with 14 gains reaching $p<0.05$. Localization and object pointing yield the largest observed gains ($+3.70$ and $+3.57$ pp, respectively; both $p<0.001$): both objectives require identifying and locating objects.",
-        "file_sha256": "68029c79801715e302098b38ce0dc1fac1059b3c20f8cd0a14eee7df7a214317"
+        "start_line": 36,
+        "end_line": 36,
+        "raw_tex": "Localization and object pointing produce the largest improvements in counting ($+2.5$ and $+2.0$ pp), consistent with all three tasks requiring individual objects to be identified and spatially localized.",
+        "file_sha256": "531b4fb7cfaa706be02275d652c912ae3edfef4366d10445989f5fd92a196b98"
       }
     },
     "depth_example": {
-      "text": "Geometry supervision also benefits metric 3D relation: Z-depth, Euclidean depth, and surface normals improve accuracy by 2.90, 2.77, and 2.49 pp, respectively (all p<0.03).",
+      "text": "Similarly, Z-depth, Euclidean depth, and surface normals improve metric 3D relation by 3.6, 3.8, and 3.4 pp, respectively, connecting dense geometric reconstruction to relational 3D judgments. Jigsaw improves 2D ordering by 6.8 pp, consistent with both tasks requiring the relative spatial arrangement of image regions.",
       "source": {
         "file": "iclr2026/sections/5_analysis.tex",
-        "start_line": 29,
-        "end_line": 29,
-        "raw_tex": "Geometry supervision also benefits metric 3D relation: Z-depth, Euclidean depth, and surface normals improve accuracy by $2.90$, $2.77$, and $2.49$ pp, respectively (all $p<0.03$).",
-        "file_sha256": "68029c79801715e302098b38ce0dc1fac1059b3c20f8cd0a14eee7df7a214317"
+        "start_line": 37,
+        "end_line": 38,
+        "raw_tex": "Similarly, Z-depth, Euclidean depth, and surface normals improve metric 3D relation by $3.6$, $3.8$, and $3.4$ pp, respectively, connecting dense geometric reconstruction to relational 3D judgments.\nJigsaw improves 2D ordering by $6.8$ pp, consistent with both tasks requiring the relative spatial arrangement of image regions.",
+        "file_sha256": "531b4fb7cfaa706be02275d652c912ae3edfef4366d10445989f5fd92a196b98"
       }
     },
     "cross_heading": {
-      "text": "Different sources benefit complementary capabilities.",
+      "text": "Useful transfer is not confined to closely matched capabilities.",
       "source": {
         "file": "iclr2026/sections/5_analysis.tex",
-        "start_line": 31,
-        "end_line": 31,
-        "raw_tex": "\\paragraph{Different sources benefit complementary capabilities.}",
-        "file_sha256": "68029c79801715e302098b38ce0dc1fac1059b3c20f8cd0a14eee7df7a214317"
+        "start_line": 40,
+        "end_line": 40,
+        "raw_tex": "\\paragraph{Useful transfer is not confined to closely matched capabilities.}",
+        "file_sha256": "531b4fb7cfaa706be02275d652c912ae3edfef4366d10445989f5fd92a196b98"
       }
     },
     "cross_results": {
-      "text": "Attribute editing improves category recognition (+2.81 pp, p<0.01), and object editing improves 2D ordering (+8.42 pp, p<0.03). Inpainting and 2.5D segmentation also improve ordering (+9.47 and +11.58 pp), while colorization gives the largest observed gain on visual correspondence (+5.71 pp; all three p<0.01).",
+      "text": "Inpainting improves both counting (+1.5 pp) and 2D ordering (+7.2 pp), despite neither target explicitly requiring missing-region reconstruction. Solving inpainting tasks may encourage the model to infer object quantity and global spatial structure from incomplete local evidence. 2.5D segmentation likewise improves category recognition (+1.2 pp), potentially because capturing object boundaries can shape cues that support category recognition.",
       "source": {
         "file": "iclr2026/sections/5_analysis.tex",
-        "start_line": 32,
-        "end_line": 32,
-        "raw_tex": "Attribute editing improves category recognition ($+2.81$ pp, $p<0.01$), and object editing improves 2D ordering ($+8.42$ pp, $p<0.03$). Inpainting and 2.5D segmentation also improve ordering ($+9.47$ and $+11.58$ pp), while colorization gives the largest observed gain on visual correspondence ($+5.71$ pp; all three $p<0.01$).",
-        "file_sha256": "68029c79801715e302098b38ce0dc1fac1059b3c20f8cd0a14eee7df7a214317"
+        "start_line": 42,
+        "end_line": 46,
+        "raw_tex": "Inpainting improves both counting ($+1.5$ pp) and 2D ordering ($+7.2$ pp), despite neither target explicitly requiring missing-region reconstruction.\nSolving inpainting tasks may encourage the model to infer object quantity and global spatial structure from incomplete local evidence.\n% \\qin{deleted colorization}\n% Colorization likewise improves visual correspondence ($+5.71$ pp), potentially because predicting plausible colors requires associating semantically related regions across an image.\n2.5D segmentation likewise improves category recognition ($+1.2$ pp), potentially because capturing object boundaries can shape cues that support category recognition.",
+        "file_sha256": "531b4fb7cfaa706be02275d652c912ae3edfef4366d10445989f5fd92a196b98"
       }
     },
     "alignment_heading": {
-      "text": "What Explains Generation-to-Understanding Transfer?",
+      "text": "What explains visual generation-to-understanding transfer?",
       "source": {
         "file": "iclr2026/sections/6_gradient.tex",
         "start_line": 1,
         "end_line": 1,
-        "raw_tex": "\\section{What Explains Generation-to-Understanding Transfer?}",
-        "file_sha256": "a2ea56761d2ec1f825a238fcbe441dd48e68343310547a5ffa08041d7fad2a5c"
+        "raw_tex": "\\section{What explains visual generation-to-understanding transfer?}",
+        "file_sha256": "8097ca342112246b6368b2c6dec21e317828b747476ebb3cc13ef11921775623"
       }
     },
     "alignment_setup": {
-      "text": "We sample 500 matched source pairs and compute the corresponding I2I and I2T gradients at the pretrained checkpoint.",
+      "text": "For each task, we sample 500 matched examples and compute I2I and I2T gradients at the pretrained checkpoint.",
       "source": {
         "file": "iclr2026/sections/6_gradient.tex",
-        "start_line": 59,
-        "end_line": 59,
-        "raw_tex": "We sample 500 matched source pairs and compute the corresponding I2I and I2T gradients at the pretrained checkpoint.",
-        "file_sha256": "a2ea56761d2ec1f825a238fcbe441dd48e68343310547a5ffa08041d7fad2a5c"
+        "start_line": 49,
+        "end_line": 49,
+        "raw_tex": "For each task, we sample 500 matched examples and compute I2I and I2T gradients at the pretrained checkpoint.",
+        "file_sha256": "8097ca342112246b6368b2c6dec21e317828b747476ebb3cc13ef11921775623"
       }
     },
     "alignment_results": {
-      "text": "We observe a strong positive correlation (r=0.953): capabilities whose gradients are more aligned with I2I objectives on average also receive larger average gains from I2I training.",
+      "text": "average alignment and average transfer are strongly positively correlated across the seven capabilities (r=0.795). Capabilities whose gradients are more compatible with generation objectives, on average, therefore, also tend to receive larger average gains from I2I training.",
       "source": {
         "file": "iclr2026/sections/6_gradient.tex",
-        "start_line": 83,
-        "end_line": 83,
-        "raw_tex": "We observe a strong positive correlation (\\(r=0.953\\)): capabilities whose gradients are more aligned with I2I objectives on average also receive larger average gains from I2I training.",
-        "file_sha256": "a2ea56761d2ec1f825a238fcbe441dd48e68343310547a5ffa08041d7fad2a5c"
+        "start_line": 71,
+        "end_line": 72,
+        "raw_tex": "average alignment and average transfer are strongly positively correlated across the seven capabilities ($r=0.795$).\nCapabilities whose gradients are more compatible with generation objectives, on average, therefore, also tend to receive larger average gains from I2I training.",
+        "file_sha256": "8097ca342112246b6368b2c6dec21e317828b747476ebb3cc13ef11921775623"
       }
     },
     "alignment_lead": {
-      "text": "Alignment and transfer are positively correlated across these 105 pairs (r=0.496).",
+      "text": "Alignment and transfer are positively correlated across these 133 pairs (r=0.529).",
       "source": {
         "file": "iclr2026/sections/6_gradient.tex",
-        "start_line": 87,
-        "end_line": 87,
-        "raw_tex": "Alignment and transfer are positively correlated across these 105 pairs ($r=0.496$).",
-        "file_sha256": "a2ea56761d2ec1f825a238fcbe441dd48e68343310547a5ffa08041d7fad2a5c"
+        "start_line": 76,
+        "end_line": 76,
+        "raw_tex": "Alignment and transfer are positively correlated across these 133 pairs ($r=0.529$).",
+        "file_sha256": "8097ca342112246b6368b2c6dec21e317828b747476ebb3cc13ef11921775623"
       }
     },
     "alignment_caption": {
-      "text": "(a,b) Jigsaw and Zoom-In gradients at the pretrained BAGEL checkpoint, shown as grouped bars across module groups (ViT, connector, and LLM) and individual pre-attention RMSNorm layers (500 matched pairs per task). Scores are dimension-scaled, held-out post-PCA cosines.",
+      "text": "(a,b) Gradient alignment for the controlled Jigsaw and Zoom-In pairs across model components and individual pre-attention RMSNorm layers. (c) Mean gradient alignment versus mean transfer for seven understanding capabilities, averaging over 19 I2I sources. (d) Alignment and transfer for all 133 source–target pairs.",
       "source": {
         "file": "iclr2026/sections/6_gradient.tex",
-        "start_line": 13,
+        "start_line": 11,
         "end_line": 13,
-        "raw_tex": "(a,b) Jigsaw and Zoom-In gradients at the pretrained BAGEL checkpoint, shown as grouped bars across module groups (ViT, connector, and LLM) and individual pre-attention RMSNorm layers (500 matched pairs per task). Scores are dimension-scaled, held-out post-PCA cosines.",
-        "file_sha256": "a2ea56761d2ec1f825a238fcbe441dd48e68343310547a5ffa08041d7fad2a5c"
+        "raw_tex": "(a,b) Gradient alignment for the controlled Jigsaw and Zoom-In pairs across model components and individual pre-attention RMSNorm layers.\n(c) Mean gradient alignment versus mean transfer for seven understanding capabilities, averaging over 19 I2I sources.\n(d) Alignment and transfer for all 133 source--target pairs.",
+        "file_sha256": "8097ca342112246b6368b2c6dec21e317828b747476ebb3cc13ef11921775623"
       }
     },
     "alignment_transfer_caption": {
-      "text": "(c) Mean alignment and transfer across 15 sources for seven capabilities with more than 500 evaluation examples; the line is a least-squares fit. (d) Alignment and transfer for all 105 source–target pairs, with illustrative pairs labeled. Both panels use uncentered alignment and accuracy gains over the I2T-only baseline; colors identify target families. The ellipse is a descriptive covariance contour, not a confidence region.",
+      "text": "(c) Mean gradient alignment versus mean transfer for seven understanding capabilities, averaging over 19 I2I sources. (d) Alignment and transfer for all 133 source–target pairs.",
       "source": {
         "file": "iclr2026/sections/6_gradient.tex",
-        "start_line": 14,
-        "end_line": 15,
-        "raw_tex": "(c) Mean alignment and transfer across 15 sources for seven capabilities with more than 500 evaluation examples; the line is a least-squares fit.\n(d) Alignment and transfer for all 105 source--target pairs, with illustrative pairs labeled. Both panels use uncentered alignment and accuracy gains over the I2T-only baseline; colors identify target families. The ellipse is a descriptive covariance contour, not a confidence region.",
-        "file_sha256": "a2ea56761d2ec1f825a238fcbe441dd48e68343310547a5ffa08041d7fad2a5c"
-      }
-    },
-    "alignment_scale": {
-      "text": "Scores are dimension-scaled, held-out post-PCA cosines.",
-      "source": {
-        "file": "iclr2026/sections/6_gradient.tex",
-        "start_line": 13,
+        "start_line": 12,
         "end_line": 13,
-        "raw_tex": "Scores are dimension-scaled, held-out post-PCA cosines.",
-        "file_sha256": "a2ea56761d2ec1f825a238fcbe441dd48e68343310547a5ffa08041d7fad2a5c"
+        "raw_tex": "(c) Mean gradient alignment versus mean transfer for seven understanding capabilities, averaging over 19 I2I sources.\n(d) Alignment and transfer for all 133 source--target pairs.",
+        "file_sha256": "8097ca342112246b6368b2c6dec21e317828b747476ebb3cc13ef11921775623"
       }
     },
     "nav_controlled": {
-      "text": "image generation help visual understanding?",
+      "text": "visual generation help visual understanding?",
       "source": {
         "file": "iclr2026/sections/3_poc.tex",
-        "start_line": 1,
-        "end_line": 1,
-        "raw_tex": "image generation help visual understanding?",
-        "file_sha256": "ae2cd90c96e433aec008edda152b9b40745aed382ebfcb62c51eac94d4360141"
+        "start_line": 3,
+        "end_line": 3,
+        "raw_tex": "visual generation help visual understanding?",
+        "file_sha256": "1d3a0739c8c608834934caa60008d2e685ddfd817cd8738dbd2b0e77d86d531c"
       }
     },
     "nav_training": {
-      "text": "Training Recipe",
+      "text": "training recipe",
       "source": {
         "file": "iclr2026/sections/3_poc.tex",
-        "start_line": 40,
-        "end_line": 40,
-        "raw_tex": "Training Recipe",
-        "file_sha256": "ae2cd90c96e433aec008edda152b9b40745aed382ebfcb62c51eac94d4360141"
+        "start_line": 8,
+        "end_line": 8,
+        "raw_tex": "training recipe",
+        "file_sha256": "1d3a0739c8c608834934caa60008d2e685ddfd817cd8738dbd2b0e77d86d531c"
       }
     },
     "nav_taxonomy": {
@@ -440,27 +420,27 @@
         "start_line": 1,
         "end_line": 1,
         "raw_tex": "\\methodname",
-        "file_sha256": "20e481c1c954675237f1da5d401b8d694a9bd99a0b64e6496f15d2c871e52682"
+        "file_sha256": "7bac37f00ab176147cbbef0db8a99a4d529c6fff61e5e18d5abb7ad384f19415"
       }
     },
     "nav_transfer": {
-      "text": "generation tasks help which understanding capabilities?",
+      "text": "visual generation tasks help which visual understanding tasks?",
       "source": {
         "file": "iclr2026/sections/5_analysis.tex",
-        "start_line": 13,
-        "end_line": 13,
-        "raw_tex": "generation tasks help which understanding capabilities?",
-        "file_sha256": "68029c79801715e302098b38ce0dc1fac1059b3c20f8cd0a14eee7df7a214317"
+        "start_line": 12,
+        "end_line": 12,
+        "raw_tex": "visual generation tasks help which visual understanding tasks?",
+        "file_sha256": "531b4fb7cfaa706be02275d652c912ae3edfef4366d10445989f5fd92a196b98"
       }
     },
     "nav_alignment": {
-      "text": "Generation-to-Understanding Transfer?",
+      "text": "visual generation-to-understanding transfer?",
       "source": {
         "file": "iclr2026/sections/6_gradient.tex",
         "start_line": 1,
         "end_line": 1,
-        "raw_tex": "Generation-to-Understanding Transfer?",
-        "file_sha256": "a2ea56761d2ec1f825a238fcbe441dd48e68343310547a5ffa08041d7fad2a5c"
+        "raw_tex": "visual generation-to-understanding transfer?",
+        "file_sha256": "8097ca342112246b6368b2c6dec21e317828b747476ebb3cc13ef11921775623"
       }
     }
   }

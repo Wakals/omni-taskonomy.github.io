@@ -1,23 +1,35 @@
 {
-  "manuscript_commit": "5bc4f423bd22acd2505d62135f1aa9ffd0140a61",
+  "manuscript_commit": "1894250fa8fbec78445bdd8a1a72a0f8b50ba7c3",
   "rendered_assets": {
     "overview.png": {
-      "source_pdf": "iclr2026/figures/Figure1-analysis_teaser_v11.pdf",
-      "source_sha256": "0f34a22f9ad22d9106d1f93a4ad237c75c4dc18dde2ced960b712996048a79e2",
+      "source_pdf": "iclr2026/figures/Figure1-analysis_teaser_v15.pdf",
+      "source_sha256": "b7ed887bf7426a7c1c2d5cbd736187c8844345f3bbb1ba37a5243cd4adefe9d2",
       "render": "pdftoppm -scale-to-x 1800 -scale-to-y -1, full page",
-      "output_sha256": "983da9f6bad3c6c4e82d00d429ec6ce122acd5bffbef5d59372c137bdc2b0328"
+      "output_sha256": "ad8938be77673d7e9265667204134d9298ad9e79b1d76b4a71b46dc9398c1b74"
     },
     "controlled-tasks.png": {
-      "source_pdf": "iclr2026/figures/combined_3subfigures_refined_v14.pdf",
-      "source_sha256": "f176807069f228885e145a0e0937adc7ca11c8ffce588a1c407e1fdc361ed0cc",
-      "render": "pdftoppm -r 180 -x 0 -y 0 -W 2593 -H 405",
-      "output_sha256": "18a5a47fc5eb1a69f556f6e397049e6b1c908ac784f16e59ba60a6627d9c9c00"
+      "source_pdf": "iclr2026/figures/combined_3subfigures_refined_v18.pdf",
+      "source_sha256": "708c1aa2eb814a322dbb23b50ed755d4fb872fe72d3a31c40c269014e2ce5651",
+      "render": "pdftoppm -r 180; crop pixels (0, 0, 2593, 405)",
+      "output_sha256": "d7e673b64b9935a5095349ca2edcfdd1656e2197d33e77337f2164a39f0a7aba"
     },
     "scaling.png": {
-      "source_pdf": "iclr2026/figures/combined_3subfigures_refined_v14.pdf",
-      "source_sha256": "f176807069f228885e145a0e0937adc7ca11c8ffce588a1c407e1fdc361ed0cc",
-      "render": "pdftoppm -r 180 -x 0 -y 430 -W 2593 -H 875; website panels relabeled from (b,c) to (a,b)",
-      "output_sha256": "c9332ea12d597947cedb04131cba600bc230c5a52127d1e517acac54dda34834"
+      "source_pdf": "iclr2026/figures/combined_3subfigures_refined_v18.pdf",
+      "source_sha256": "708c1aa2eb814a322dbb23b50ed755d4fb872fe72d3a31c40c269014e2ce5651",
+      "render": "pdftoppm -r 180; crop pixels (0, 430, 2593, 1305)",
+      "output_sha256": "70f6152a8befda629d08874c4b550d86d9209465cac0e4f094353a4092d41ca9"
+    },
+    "alignment-capability-final.png": {
+      "source_pdf": "iclr2026/figures/section6/gradient_transfer_overview_v2.pdf",
+      "source_sha256": "209a74f3c11cc4124b7dd4c243df85da0b3255c1e52f93a6fa35caa1eb9e35b3",
+      "render": "pdftoppm -scale-to-x 1800 -scale-to-y -1; crop pixels (0, 500, 900, 1150)",
+      "output_sha256": "6dcef6461275f78f4788fee56035c7ea796fa8dca12f4a82fcf0609378ac7832"
+    },
+    "alignment-pairs-final.png": {
+      "source_pdf": "iclr2026/figures/section6/gradient_transfer_overview_v2.pdf",
+      "source_sha256": "209a74f3c11cc4124b7dd4c243df85da0b3255c1e52f93a6fa35caa1eb9e35b3",
+      "render": "pdftoppm -scale-to-x 1800 -scale-to-y -1; crop pixels (900, 500, 1800, 1150)",
+      "output_sha256": "78a5b07ba8e092dc1f5efda51c8988c156b434a7a26a4d5f2afb463544611fb6"
     }
   }
 }

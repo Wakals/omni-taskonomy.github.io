@@ -1,75 +1,64 @@
-\section{\methodname: A Unified Taxonomy of Visual Capabilities}
-% \todo{EXP: Rebuild the taxonomy based on the info here}
-% motivation: current benchmarks do not give enouggh signal
-Existing benchmarks organize visual tasks primarily by task formulation or output modality, resulting in largely separate taxonomies for understanding and generation.
-% we want to define based on core vision capabilities （why?）motivate this
-% therefore, we first ..., then ..
-This makes it difficult to determine how seemingly different tasks relate in terms of the visual capability they require.
-We introduce \methodname, a shared hierarchy that relates I2I tasks to understanding capabilities based on the visual information they require, rather than their output modality.
-\methodname follows a two-level structure.
-At the top level, we adopt the three foundational problems of computer vision~\citep{malik2016three}: \textit{Recognition}, \textit{Reconstruction}, and
-\textit{Reorganization}.
-Within these three families, we derive a set of fine-grained capabilities from existing benchmarks.
-We then map both I2I tasks and I2T benchmark samples into this unified capability space.
-Full construction details, capability definitions, and annotation protocols are provided in Appendix~\ref{app:unitaskonomy}.
-% \subsection{Constructing \methodname}
+\section{\methodname: A unified taxonomy of visual capabilities}
+
+Existing benchmarks typically organize visual tasks by task formulation or output modality, leaving visual generation and understanding tasks separated.
+This makes it difficult to compare and study tasks that rely on similar visual capabilities but produce different outputs.
+We introduce \methodname{}, which organizes I2I tasks and understanding tasks in a shared hierarchy.
+For an visual understanding sample, we consider the primary visual capability required to solve it; for an I2I task, we consider the visual capability directly supervised by its training objective.
+At the top level, we adopt the three Rs of computer vision~\citep{malik2016three}: \textit{Recognition}, \textit{Reconstruction}, and \textit{Reorganization}.
+I2I training objectives and understanding capabilities remain separate leaves but are placed in the same hierarchy according to these shared visual capabilities.
+
 \begin{figure}[t]
 \centering
 \includegraphics[width=\linewidth]{iclr2026/figures/OmniTaskonomy-standalone.pdf}
 \caption{\textbf{\methodname.}
-A unified taxonomy of visual tasks organized into three broad families: \textit{Recognition}, \textit{Reconstruction}, and \textit{Reorganization}. Each leaf is explicitly typed as either an I2I task or an understanding capability, allowing the two modalities to share the same visual hierarchy without conflating their task identities.}
+A unified taxonomy of visual tasks organized into three broad families: \textit{Recognition}, \textit{Reconstruction}, and \textit{Reorganization}.
+I2I training objectives and understanding capabilities remain separate leaves, but share the same visual hierarchy.}
 \label{fig:taskonomy}
 \end{figure}
 
 \paragraph{Organizing visual capabilities with the 3Rs.}
-We use the three Rs of computer vision~\citep{malik2016three} as the top-level structure of \methodname.
-\textbf{Recognition} concerns identifying and assigning semantic meaning to visual content, including object and part identity, appearance and attributes, state, activity, text, and symbolic content.
-\textbf{Reconstruction} concerns recovering geometric and photometric properties of the observed scene or its image-plane projection, including 2D spatial arrangement, depth, distance and metric scale, orientation, shape and curvature, lighting, and occluded geometry.
-\textbf{Reorganization} concerns structuring visual elements into coherent groups and correspondences, including localization, grouping and segmentation, correspondence, ordering, counting, keypoints, and connectivity.
-Importantly, these categories characterize \emph{what visual capability is required}, rather than the modality in which the answer is expressed, making them a natural setup for relating I2I and I2T tasks.
-% \subsection{Building the Full Taxonomy}
-% how we do this: (1) find existing vision-centric / popular benchmarks (2) for each sample, we use gemini to extract its attributes (~100 per sample, in text (e.g. depth / low-res / etc)); then we use gemini to group these text labels again bottom up into a tree structure
-% above is the actual way we did this, if we want to go top down how can we redo this?
-% make a figure to demonstrate the taxonomy
-% benchmark selection
-% We construct the fine-grained leaf nodes of this taxonomy by analyzing tasks across both output modalities.
-\paragraph{Deriving Fine-Grained Visual Capabilities.}
-We derive the fine-grained capabilities bottom-up from existing visual understanding tasks.
-We collect samples from a diverse set of vision-language benchmarks, including BLINK~\citep{fu2024blink}, MMStar~\citep{chen2024wemmstar}, MMT-Bench~\citep{ying2024mmt}, CV-Bench~\citep{tong2024cambrian}, RealWorldQA~\citep{xai2024realworldqa}, MMVP~\citep{tong2024eyes}, and VStarBench~\citep{wu2024vstarbench}.
-For each sample, we all the visual attributions that the sample contains, such as \emph{relative depth}, \emph{size comparison}, and \emph{occlusion}.
-We then group these attributes into shared capabilities and organize them under the 3R hierarchy.
-For example, tasks that require reasoning about which object is closer to the camera or their ordering along the viewing direction are grouped under \textit{Depth Understanding} within \textit{Reconstruction}.
-We use VLMs to do this process at scale and get an initial version of the capabilities, then we manually resolve redundant concepts, ambiguous boundaries, and assignments inconsistent with the 3R definitions.
-This process yields the final set of fine-grained capabilities shown in \autoref{fig:taskonomy}.
-Details of the construction process and capability definitions are provided in Appendix~\ref{app:unitaskonomy-induction}.
+\textbf{Recognition} covers 
+% \ranjay{concerns is weird english}
+semantic content, including object and part identity, appearance, state, activity, text, and symbols.
+\textbf{Reconstruction} covers geometric and photometric properties of the scene, including spatial relations, depth, metric distance, orientation, 3D shape, lighting, and occlusion.
+\textbf{Reorganization} covers how visual elements are grouped, localized, and related, including segmentation, correspondence, ordering, counting, keypoints, and connectivity.
+The 3R families define the top level of \methodname{}; fine-grained capabilities are derived from existing visual tasks rather than specified by the three families.
+Appendix~\ref{app:unitaskonomy-definitions} lists all understanding capabilities and their definitions.
+
+\paragraph{Deriving fine-grained visual capabilities.}
+We derive the fine-grained visual understanding capabilities bottom-up from seven vision-language benchmarks: BLINK~\citep{fu2024blink}, MMStar~\citep{chen2024wemmstar}, MMT-Bench~\citep{ying2024mmt}, CV-Bench~\citep{tong2024cambrian}, RealWorldQA~\citep{xai2024realworldqa}, MMVP~\citep{tong2024eyes}, and VStarBench~\citep{wu2024vstarbench}.
+We first sample benchmark questions and use a VLM \ranjay{which one?} to describe the visual attributes and relations involved in solving each question, such as \emph{relative depth}, \emph{size comparison}, and \emph{occlusion}.
+Then we review these descriptions and consolidate them into a fixed attribute schema, a list of key--value pairs describing image attributes, which is then used to annotate the full benchmark collection so that tasks from different benchmarks are described consistently.
+We next divide the annotated samples into ten benchmark-stratified batches.
+For each batch, a VLM organizes the samples into a local task tree using their annotated attributes and assigns each sample to the leaf that best describes its primary visual requirement.
+We then merge the local trees, combining synonymous leaves across batches to form an initial set of fine-grained capabilities.
+We place the resulting capabilities under \textit{Recognition}, \textit{Reconstruction}, or \textit{Reorganization}.
+We manually review the resulting hierarchy, splitting leaves that mix distinct capabilities, merging redundant leaves, and refining definitions until the leaf categories have clear boundaries.
+Figure~\ref{fig:taskonomy} shows the resulting taxonomy.
+Appendix~\ref{app:construction-schema} describes the attribute schema, and Appendix~\ref{app:construction-trees} provides further details on tree construction and refinement.
 
 \paragraph{Integrating I2I tasks.}
-We next incorporate I2I tasks into the same 3R hierarchy.
-We collect image-editing and dense visual prediction tasks, including those formalized in Taskonomy~\citep{zamir2018taskonomy}, and identify the primary visual information directly supervised by each objective.
-Each I2I task is represented as its own typed leaf and placed under the appropriate 3R family.
-For example, Z-depth and Euclidean-depth prediction are placed under \textit{Reconstruction} alongside the understanding capability \textit{Depth Understanding}, while 2D keypoint prediction is placed under \textit{Reorganization} alongside the understanding capability \textit{2D Keypoints}.
-Object editing and attribute editing belong to \textit{Recognition}: they supervise changes to object categories and appearance attributes such as color or material, respectively.
-The resulting taxonomy contains 19 I2I task leaves and 25 understanding capability leaves, with leaf type explicitly indicating whether a node represents a training objective or an evaluation capability.
-This yields a common visual hierarchy in which generation and understanding tasks can be compared directly without asserting task equivalence.
-Appendix~\ref{app:unitaskonomy-i2i} provides the complete I2I task inventory and mappings.
-% \todo{Appendix:
-% This results in thirteen editing tasks:
-% \textbf{appearance and completion} (inpainting, colorization, and reshading);
-% \textbf{2D structure} (jigsaw, 2D edges, 2D keypoints, and 2D segmentation);
-% \textbf{geometry and 3D structure} (Z-depth, occlusion/3D edges, 3D keypoints, 2.5D segmentation, and principal curvature);
-% and \textbf{semantic structure} (semantic segmentation).
-% Figure~\ref{fig:editing-task-taxonomy} shows the selected tasks and their input-output formats.\todo{do the figure in appendix to illustrate / maybe do a table?.} \todo{add data source for each category}}
-\paragraph{Annotating Benchmark Samples.}
-Once the capability is finalized, we assign each I2T benchmark sample to a capability leaf.
-To scale this annotation, we use three independent LLM judges to label each sample using the finalized taxonomy definitions and annotation guidelines.
-We keep a sample when at least two of the three judges agree on the same capability and use the majority label as its final assignment, and samples without a two-of-three consensus are excluded.
-We validate this process with four human annotators on a subset of 250 samples covering all 25 capabilities.
-Each annotator reviews 50 examples shared across all annotators and 50 additional non-overlapping examples, yielding 400 human judgments in total.
-Annotators can either accept the capability chose by LLM, reassign the sample to another capability, or mark the assignment as unsure.
-Among definite human judgments, 97.4\% of human labels match the LLM assignment.
-Human-LLM agreement has a mean Cohen's $\kappa$ of 0.972.
-On the 50 jointly reviewed examples, human labels also show high inter-annotator agreement (Krippendorff's $\alpha=0.943$).
-These results indicate that the automated assignments closely match human judgments and are reproducible across annotators.
-Full annotation prompts, agreement statistics, and capability-level analyses are provided in Appendix~\ref{app:unitaskonomy-annotation}; capability definitions are listed in Appendix~\ref{app:unitaskonomy-definitions}.
+We next place I2I training objectives in the same 3R hierarchy.
+We collect a broad set of dense prediction, reconstruction, and image-editing tasks from existing vision and multimodal learning settings, including tasks studied in Taskonomy~\citep{zamir2018taskonomy} as well as objectives such as inpainting and object editing.
+Each I2I task is placed according to the main visual capability directly supervised by its objective.
+For example, Z-depth and Euclidean depth prediction are placed under \textit{Reconstruction}, alongside the understanding capability \textit{depth understanding}.
+2D keypoint prediction is placed under \textit{Reorganization}.
+Object editing and attribute editing are placed under \textit{Recognition}, as they directly supervise object identity and visual attributes such as color or material.
+The final taxonomy contains 19 I2I tasks and 25 understanding capabilities.
+Appendix~\ref{app:unitaskonomy-i2i} lists all I2I tasks and their assignments, and Appendix~\ref{app:i2i-training-data} describes their training data.
 
-% for an i2i task it can also be represented as an i2t, maybe this can also be trained
+\paragraph{Annotating benchmark samples.}
+Once the taxonomy is fixed, we reassign each eligible benchmark sample to one of the finalized understanding leaves.
+Three VLM judges independently annotate each sample using the image, question, answer choices, reference answer, and the same capability definitions.
+We retain an example when at least two of the three judges assign it to the same capability and exclude examples without a majority, yielding 9,444 samples.
+Appendix~\ref{app:unitaskonomy-annotation} reports unanimous agreement, majority agreement, and exclusion statistics.
+Appendix~\ref{app:prompt-annotation} provides the annotation prompts and model inputs.
+We further validate the resulting assignments through human reviews.
+Four human annotators review a stratified subset of 250 samples covering all 25 capabilities.
+Each annotator reviews 50 examples shared across all four annotators and 50 additional non-overlapping examples, yielding 400 human reviews.
+For each example, the annotator can accept the proposed capability, reassign it to another capability, or mark the assignment as unsure.
+Among definite judgments, 97.4\% of human labels match the VLM-assigned capability.
+Human-VLM agreement remains high after correcting for chance, with Cohen's $\kappa$ ranging from 0.956 to 0.989 across annotators (mean $0.972$).
+On the 50 examples reviewed by all four annotators, the resulting human capability labels also show high inter-annotator agreement (Krippendorff's $\alpha=0.943$).
+These results provide human validation of the automated sample assignments.
+Appendix~\ref{app:human-validation} gives the full review protocol and agreement analysis.

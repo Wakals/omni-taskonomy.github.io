@@ -1,13 +1,13 @@
 {
   "source": {
-    "paper_commit": "de3aeb1a3158b9785ab8f13efaee8ce5898b81cf",
+    "paper_commit": "1894250fa8fbec78445bdd8a1a72a0f8b50ba7c3",
     "data_file": "analysis/section6/data/initial_graph_data.json",
     "data_sha256": "317c104993f5ab1b9fc98970bd76a402bdd455d9ab8ac932ae2b826995942d41",
     "script_file": "analysis/section6/make_figures.py",
-    "script_sha256": "342d98915a2da733712a58be3f0d962b4556d1c6b17e5f698504ebaff030254b",
-    "figure_file": "iclr2026/figures/section6/gradient_transfer_overview.svg",
-    "figure_sha256": "8f6da945637ff0570242da0a75bcdc7a7d05e4bbb03d10c7f18af9600f33a4ae",
-    "note": "Figure vector geometry readouts, as documented in analysis/section6/README.md; plotted by make_figures.py."
+    "script_sha256": "b9d4630e70df38e1589b4c0d182f0d24441a9bede2bfcfd84385fd32ccfd8b8d",
+    "figure_file": "iclr2026/figures/section6/gradient_transfer_overview_v2.pdf",
+    "figure_sha256": "209a74f3c11cc4124b7dd4c243df85da0b3255c1e52f93a6fa35caa1eb9e35b3",
+    "note": "Module and layer bars match the final paper figure and its exact initial_graph_data.json values."
   },
   "module_labels": [
     "ViT",

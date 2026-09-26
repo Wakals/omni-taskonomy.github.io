@@ -3,7 +3,7 @@
     "type": "current-paper-inventory",
     "file": "analysis/transfer_v13/data/i2i_inventory.json",
     "sha256": "5ff1aa1e8bb3963fc664583ecf68e85826ee2d3451019fbd817a830d4a5054a5",
-    "paper_commit": "5bc4f423bd22acd2505d62135f1aa9ffd0140a61"
+    "paper_commit": "1894250fa8fbec78445bdd8a1a72a0f8b50ba7c3"
   },
   "leaf_families": {},
   "i2i_column_order": [

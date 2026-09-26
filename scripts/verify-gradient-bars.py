@@ -9,7 +9,6 @@ subprocess.check_call(['git','-C',str(PAPER),'cat-file','-e',source['paper_commi
 for field in ('data','script','figure'):
     path=PAPER/source[field+'_file']
     assert hashlib.sha256(path.read_bytes()).hexdigest()==source[field+'_sha256'],field
-assert (SITE/'public/figures/gradient-transfer-overview.svg').read_bytes()==(PAPER/source['figure_file']).read_bytes()
 raw=json.loads((PAPER/source['data_file']).read_text())
 for field,rawfield,n in (('module_values','modules',15),('layer_values','layers',28)):
     for task in ('jigsaw','zoomin'):

@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import source from '@/content/gradient-bars-v13.json';
 import clean from '@/content/jigsaw-zoomin-four-charts.json';
-import manuscript from '@/content/manuscript-excerpts.json';
 
 type View = 'modules' | 'layers';
 
@@ -35,7 +34,7 @@ export function GradientBars() {
         <button type="button" role="tab" aria-selected={view === 'layers'} onClick={() => choose('layers')}>RMSNorm layers</button>
       </div>
     </div>
-    <div className="gradient-chart-legend"><span><i className="jigsaw" />Jigsaw</span><span><i className="zoomin" />Zoom-In</span><span data-manuscript-excerpt="alignment_scale">{manuscript.excerpts.alignment_scale.text}</span></div>
+    <div className="gradient-chart-legend"><span><i className="jigsaw" />Jigsaw</span><span><i className="zoomin" />Zoom-In</span></div>
     <div className="gradient-chart-scroll" role="region" aria-label={view === 'modules' ? 'Module alignment bars' : 'RMSNorm layer alignment bars'} tabIndex={0}>
       <svg className={'gradient-chart-plot ' + view} viewBox={`0 0 ${width} ${height}`} width={width} height={height} role="img" aria-label={view === 'modules' ? 'Jigsaw and Zoom-In alignment by model module' : 'Jigsaw and Zoom-In alignment by RMSNorm layer'}>
         {ticks.map(tick => <g key={tick}>

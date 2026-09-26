@@ -23,24 +23,24 @@
       "text": "R6: I2I → Mixed. Pretrain on I2I while updating the shared understanding weights, then switch to mixed I2I–I2T training."
     },
     "scaling_caption_web": {
-      "text": "I2T evaluation accuracy as the amount of I2I training data increases across different training recipes on Jigsaw and Zoom-In, with the I2T data size held fixed as 1k. I2T evaluation accuracy as the amount of I2T training data increases, comparing the I2T-only baseline with I2I training followed by I2T finetuning using 100k I2I samples.",
-      "source": "Website-specific subfigure numbering requested by the author because the paper's panel (a) is displayed separately."
+      "text": "I2T accuracy versus I2I training examples across recipes on Jigsaw and Zoom-In, with 1k I2T examples. I2T accuracy versus I2T training examples, comparing I2T-only training with I2I training followed by I2T finetuning using 100k I2I examples.",
+      "source": "Website-specific caption updated verbatim from the final manuscript without panel markers."
     },
     "controlled_caption_web": {
       "text": "Controlled Jigsaw and Zoom-In tasks with image and text outputs.",
       "source": "Website caption requested by the author without the paper's panel marker."
     },
     "alignment_bars_caption_web": {
-      "text": "Jigsaw and Zoom-In gradients at the pretrained BAGEL checkpoint, shown as grouped bars across module groups (ViT, connector, and LLM) and individual pre-attention RMSNorm layers (500 matched pairs per task). Scores are dimension-scaled, held-out post-PCA cosines.",
-      "source": "Website caption requested by the author without the paper's panel markers."
+      "text": "Gradient alignment for the controlled Jigsaw and Zoom-In pairs across model components and individual pre-attention RMSNorm layers.",
+      "source": "Website-specific caption updated verbatim from the final manuscript without panel markers."
     },
     "alignment_capability_caption_web": {
-      "text": "Mean alignment and transfer across 15 sources for seven capabilities with more than 500 evaluation examples; the line is a least-squares fit. Both panels use uncentered alignment and accuracy gains over the I2T-only baseline; colors identify target families.",
-      "source": "Website-specific split of the paper's Figure 6 caption requested by the author."
+      "text": "Mean gradient alignment versus mean transfer for seven understanding capabilities, averaging over 19 I2I sources.",
+      "source": "Website-specific caption updated verbatim from the final manuscript without panel markers."
     },
     "alignment_pair_caption_web": {
-      "text": "Alignment and transfer for all 105 source–target pairs, with illustrative pairs labeled. The ellipse is a descriptive covariance contour, not a confidence region.",
-      "source": "Website-specific split of the paper's Figure 6 caption requested by the author."
+      "text": "Alignment and transfer for all 133 source–target pairs.",
+      "source": "Website-specific caption updated verbatim from the final manuscript without panel markers."
     },
     "legend_blue": {
       "text": "blue: positive"

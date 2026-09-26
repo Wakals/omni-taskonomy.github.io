@@ -7,22 +7,32 @@
 % Applying this recipe reveals a structured transfer map between generation and understanding: for example, depth prediction most strongly improves depth and spatial reasoning, while keypoint-based editing emerges as a broadly transferable task that benefits multiple capabilities.
 % Finally, we use these insights to train a unified model \amil{to potentially boost impact you can name your trained model and the size} that achieves stronger understanding ability by only adding more I2I data as supervision. These results suggest that image editing is not merely a generative objective, but also a useful source of supervision for visual understanding.
 % \end{abstract}
+
 \begin{abstract}
-Image generation provides dense supervision, yet its benefits for visual understanding remain unclear.
-We ask: how does generation supervision improve visual understanding?
-% \xd{should we just ask one question? lol better aligned with our title}
-% controlled study
-Using controlled pairs of image-to-image (I2I) and image-to-text (I2T) tasks that are two variants of the same puzzle, we find that \textit{only under an appropriate recipe} can I2I supervision substantially improve I2T performance, with \textit{gains increasing as more I2I data is added}.
-% taskonomy
-We next ask which kinds of generation data transfer to which understanding tasks.
-To study transfer beyond paired tasks, we introduce \methodname, a unified taxonomy spanning 15 I2I supervision tasks and 25 I2T capabilities. The resulting transfer map reveals selective benefits: some follow intuitive correspondences, such as depth supervision improving metric 3D reasoning and object pointing improving counting, while others cross capability boundaries; e.g.~keypoint supervision improves lighting understanding.
+% Training a mdoel to \textit{generate} visual content implicitly teaches it about geometry, space, objectness, and other perceptual capabilities; yet, its benefits for visual \textit{understanding} remains unclear. We ask: how does visual generation supervision improve visual understanding?
+% \xd{note from xd: all changes are directly colored as blue.}
+Training a \xd{model} to \textit{generate} visual content
+\xd{can encourage it to learn rich perceptual capabilities related to}
+geometry, \xd{spatial relationships}, \xd{and} objectness;
+yet, \xd{its benefits for visual \textit{understanding} remain unclear}.
+We ask: \xd{when and how does visual generation supervision improve visual understanding?}
+%% controlled study
+% Using controlled pairs of image-to-image (I2I) generation and image-to-text (I2T) understanding tasks that are two variants of the same problem, we find that I2T performance improves from I2I supervision under an appropriate curriculum of first pre-training I2I, with \textit{gains increasing as more I2I data is added}.
+\xd{We study controlled pairs of image-to-image (I2I) generation and
+image-to-text (I2T) understanding tasks that express the same underlying problem in different output modalities. 
+We find that I2I pretraining improves downstream I2T performance, with \textit{larger gains as the amount of I2I pretraining data increases}.}
+%% taskonomy
+% We next ask which generation tasks benefit which understanding tasks.
+% To study transfer beyond paired tasks, we introduce \methodname, a unified taxonomy spanning 19 I2I tasks and 25 T2I understanding capabilities. The resulting transfer map reveals selective benefits: some follow intuitive correspondences, such as depth supervision improving metric 3D reasoning, object pointing improving counting, and Jigsaw improving 2D ordering; meanwhile, some are less intuitive, such as colorization improving visual correspondence, 2D edges improving depth understanding.
+We next ask which generation tasks benefit which understanding \xd{capabilities}. To study transfer beyond paired tasks, we introduce \methodname, a unified taxonomy spanning 19 I2I \xd{generation} tasks and 25 \xd{I2T} understanding capabilities. The resulting transfer map reveals selective, \xd{task-dependent} benefits. \xd{Some} follow intuitive correspondences, \xd{\textit{e.g.,}} depth \xd{prediction} improving metric 3D reasoning, object pointing improving counting, and \xd{jigsaw reconstruction} improving 2D ordering. 
+\xd{Interestingly, we also uncover surprising connections}: 2.5D segmentation improving category recognition \xd{and Z-depth prediction} improving localization. 
 % We find that transfer can follow intuitive correspondences, such as depth improving metric 3D reasoning and object pointing improving counting, but can also extend to less directly related capabilities, such as keypoints improving lighting understanding.
 % The same generation task can also benefit some targets while interfering with others.
-% gradient
-To understand these transfer patterns, we analyze the gradient from generation and understanding objectives. 
-In controlled task pairs, we show that I2I and I2T gradients align most in early pre-attention normalization layers.
-Extending this analysis to \methodname, we find that capabilities with higher gradient alignment at these layers also exhibit larger downstream transfer gains.
-Together, our results show that image generation can provide effective training-time supervision for visual understanding, with benefits that depend strongly on the training recipe, the amount of direct understanding supervision, and the source–target task pairing.
+%% gradient
+% To better understand these transfer patterns, we mechanistically analyze the gradients of I2I and I2T task pairs, to find that capabilities with higher gradient alignment at these layers also exhibit larger downstream transfer gains.
+\xd{To probe these patterns, we analyze gradient alignment between generation and understanding tasks and find that stronger alignment is associated with larger downstream transfer gains.}
+% Together, our results show that generation supervision can substantially improve visual understanding with a specific training strategy, and that different generation tasks benefit different understanding capabilities. 
+Together, our results \xd{highlight visual generation as a rich source of supervision for visual understanding and provide a roadmap for unlocking its benefits through the right training curriculum and task selection}.
 \end{abstract}
 % start with "taxonomy" and "bridging" make the abs more exciting; start with stating the position
 
@@ -42,4 +52,4 @@ Together, our results show that image generation can provide effective training-
 
 % when does image editing helps image understanding?
 
-% when does image generation helps image understanding and why? 
+% when does image generation helps image understanding and why?

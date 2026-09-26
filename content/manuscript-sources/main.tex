@@ -2,7 +2,7 @@
 % Allow the existing gallery math labels to use their exact script sizes.
 \RequirePackage{fix-cm}
 \documentclass{article} % For LaTeX2e
-\usepackage{iclr2026_conference,times}
+\usepackage{iclr2027_conference,times}
 
 \usepackage{booktabs}
 % Optional math commands from https://github.com/goodfeli/dlbook_notation.
@@ -13,7 +13,7 @@
 \usepackage{tabularx}
 \usepackage{longtable}
 \usepackage{array}
-
+\usepackage{caption}
 
 \usepackage{xcolor}
 
@@ -27,6 +27,7 @@
 \usepackage{enumitem}
 \usepackage{multirow}
 \usepackage{graphicx}
+\usepackage{float}
 \input{iclr2026/paper_layout}
 
 % Prompt boxes for the appendix: \begin{promptbox}{Title}{label}...\end{promptbox}
@@ -42,6 +43,7 @@
     title={Prompt~\thetcbcounter: #1},
     label={#2},
 }
+\input{iclr2026/sections/appendix/7_prompt_styles}
 
 % Modality colors
 \definecolor{i2iblue}{HTML}{DCEBFA}
@@ -81,8 +83,9 @@
     shading=sharedcap
   },
 }
-\title{\methodname: How Image Generation Improves Visual Understanding}
-
+\title{\methodname: When Does Visual\\Generation Improve Visual Understanding}
+% Learning To See Via Generation
+% When, where, and why
 % Authors must not appear in the submitted version. They should be hidden
 % as long as the \iclrfinalcopy macro remains commented out below.
 % Non-anonymous submissions will be rejected without review.
@@ -121,6 +124,9 @@ Address \\
 \newcommand{\ranjay}[1]{\textcolor{orange}{$[$#1$]^R_K$}}
 \newcommand{\hj}[1]{\textcolor{magenta}{Haozhe: #1}}
 \newcommand{\amil}[1]{\textcolor{blue}{Amil: #1}}
+\newcommand{\bs}[1]{\textcolor{SeaGreen}{Baifeng: #1}}
+\newcommand{\lecomment}[1]{\textcolor{RoyalBlue}{Le: #1}}
+\newcommand{\xd}[1]{\textcolor{blue}{#1}}
 
 %\iclrfinalcopy % Uncomment for camera-ready version, but NOT for submission.
 \begin{document}
@@ -131,30 +137,43 @@ Address \\
 
 
 \input{sections/0_abstract}
+\begingroup
+\setlength{\parskip}{5pt plus 2pt minus 1pt}
+\setlength{\intextsep}{5pt plus 1pt minus 1pt}
+\setlength{\textfloatsep}{5pt plus 1pt minus 1pt}
+\setlength{\abovecaptionskip}{2pt}
 \input{sections/1_introduction_clean}
+\par\endgroup
 \input{sections/2_related_work}
 \input{sections/3_poc}
 \input{sections/4_taxonomy}
 \input{sections/5_analysis}
 \input{sections/6_gradient}
 \input{sections/7_conclusion}
+\clearpage
 
 % \subsubsection*{Author Contributions}
 % \subsubsection*{Acknowledgments}
 % We thank Amil Dravid, Yushi Hu for the helpful discussions
+\subsubsection*{AI Use Statement}
+During manuscript preparation, we used ChatGPT to assist with writing. We also used Codex to assist with data processing and visualization.
+The authors designed and conducted the study and take full responsibility for the paper.
+
 \subsubsection*{Reproducibility Statement}
 Appendices~\ref{app:controlled}--\ref{app:gradient_alignment} provide task definitions, training recipes, taxonomy annotations, complete transfer results, and gradient computation details. The accompanying numerical exports include evaluation counts, gradient estimates, taxonomy mappings, and figure-generation code.
 
 \bibliography{iclr2026_conference}
-\bibliographystyle{iclr2026_conference}
+\bibliographystyle{iclr2027_conference}
 
 \appendix
 \addtocontents{toc}{\protect\setcounter{tocdepth}{2}}  % show appendix sections and subsections
 \input{iclr2026/sections/appendix/0_overview}   % clickable appendix ToC
 \input{iclr2026/sections/appendix/3_controlled} % A: controlled study (Sec. 3)
+\input{iclr2026/sections/appendix/4_taskonomy_construction}
 \input{iclr2026/sections/appendix/4_taskonomy}  % B: UniTaskonomy (Sec. 4)
 \input{iclr2026/sections/appendix/5_transfer}   % C: transfer map (Sec. 5)
 \input{iclr2026/sections/appendix/6_gradient}   % D: gradient alignment (Sec. 6)
+\input{iclr2026/sections/appendix/7_prompts}
 
 
 \end{document}

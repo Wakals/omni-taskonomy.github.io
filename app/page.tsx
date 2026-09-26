@@ -4,7 +4,6 @@ import manuscriptContent from '@/content/manuscript-excerpts.json';
 import authorContent from '@/content/author-provided-copy.json';
 import { InteractiveTaxonomy, InteractiveTransferMap } from '@/components/interactive-figures';
 import { GradientBars } from '@/components/gradient-bars';
-import { GradientTransferScatter } from '@/components/gradient-transfer-scatter';
 import { coloredTerms } from '@/components/colored-terms';
 
 // The author requested resource buttons with their destinations left blank.
@@ -20,23 +19,23 @@ const sections: [string, ExcerptId][] = [
   ['transfer', 'nav_transfer'], ['alignment', 'nav_alignment'],
 ];
 const emphasis: Partial<Record<ExcerptId, string[]>> = {
-  tldr_question_1: ['improve visual understanding', 'training setup'],
-  tldr_question_2: ['generation data', 'understanding tasks'],
-  tldr_question_3: ['transfer successfully'],
-  finding_a: ['schedules starting with I2I training'],
-  finding_b: ['complementary visual capabilities'],
-  alignment_finding: ['early pre-attention normalization layers', 'larger average transfer gains'],
+  tldr_question_1: ['training curriculum', 'improve visual understanding'],
+  tldr_question_2: ['visual generation tasks', 'understanding tasks'],
+  tldr_question_3: ['explains transfer'],
+  finding_a: ['initial I2I training stage', 'useful initialization'],
+  finding_b: ['significant gains', 'across task families'],
+  alignment_finding: ['early pre-attention normalization layers', 'positively associated'],
   controlled_lead: ['paired I2I and I2T tasks'],
-  recipe_result: ['I2I training followed by I2T finetuning'],
-  recipe_finding: ['complements but does not replace', 'largest gains in low-I2T settings'],
+  recipe_result: ['I2I → I2T'],
+  recipe_finding: ['initial I2I training stage', 'useful initialization'],
   taxonomy_lead: ['OmniTaskonomy', 'shared hierarchy'],
-  taxonomy_annotation: ['three independent LLM judges', 'majority vote'],
-  transfer_lead: ['different sources benefiting different capabilities'],
-  related_example: ['Counting', 'Object pointing', '+3.57'],
-  depth_example: ['Z-depth', 'metric 3D relation'],
-  cross_results: ['Inpainting', 'Colorization', '+5.71'],
-  alignment_results: ['r=0.953'],
-  alignment_lead: ['r=0.496'],
+  taxonomy_annotation: ['Three VLM judges', 'yielding 9,444 samples'],
+  transfer_lead: ['significant gains', 'across task families'],
+  related_example: ['Localization', 'object pointing', '+2.5', '+2.0'],
+  depth_example: ['Z-depth', 'metric 3D relation', 'Jigsaw', '2D ordering'],
+  cross_results: ['Inpainting', '2.5D segmentation'],
+  alignment_results: ['r=0.795'],
+  alignment_lead: ['r=0.529'],
 };
 // Split and wrap existing characters only: emphasis never creates or edits copy.
 function formatted(value: string, highlights: string[] = []): ReactNode {
@@ -84,7 +83,6 @@ function PlotLegend() {
   return <div className="plot-legend" aria-label="Plot legend">
     <span className="legend-item"><i className="legend-dot positive" aria-hidden="true" /><span data-author-copy="legend_blue">{authorExcerpts.legend_blue.text}</span></span>
     <span className="legend-item"><i className="legend-dot negative" aria-hidden="true" /><span data-author-copy="legend_red">{authorExcerpts.legend_red.text}</span></span>
-    <span className="legend-item"><span className="bubble-key" aria-hidden="true"><i /><i /><i /></span><span data-manuscript-excerpt="legend_size" data-source={source("legend_size")}>{text("legend_size")}</span></span>
   </div>;
 }
 // Lay out the author's exact recipe strings as routes plus descriptions.
@@ -213,7 +211,10 @@ export default function Home() {
           </div>
           <figcaption className="figure-caption"><span data-author-copy="alignment_bars_caption_web">{formatted(authorExcerpts.alignment_bars_caption_web.text)}</span></figcaption>
         </figure>
-        <figure className="interactive-figure"><GradientTransferScatter /></figure>
+        <div className="final-association-grid">
+          <Figure name="alignment-capability-final" caption="alignment_transfer_caption" captionOverride="alignment_capability_caption_web" width={900} height={650} className="association-paper-panel" />
+          <Figure name="alignment-pairs-final" caption="alignment_transfer_caption" captionOverride="alignment_pair_caption_web" width={900} height={650} className="association-paper-panel" />
+        </div>
         <div className="analysis-copy prose"><Passage id="alignment_results" /><Passage id="alignment_lead" /></div>
         <blockquote className="finding"><Passage id="alignment_finding" /></blockquote>
       </div></section>
