@@ -53,8 +53,8 @@
       "source": "Author-requested replacement for the opening modality diagram."
     },
     "ability_understanding": {
-      "text": "Image Understanding (Image to Text, I2T)",
-      "source": "Author requested the corresponding Image Understanding label on the right."
+      "text": "Visual Understanding (Image to Text, I2T)",
+      "source": "Author requested the corresponding Visual Understanding label on the right."
     },
     "ability_transfer": {
       "text": "Ability Transfer",

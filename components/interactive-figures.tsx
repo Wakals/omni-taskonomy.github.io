@@ -13,7 +13,7 @@ function Value({ scope, row, model, precision = 1 }: { scope: string; row: strin
   return <span data-v12-metric={[scope, row, model, 'delta', precision].join('|')}>{number(metric(scope, row, model).delta, precision, true)}</span>;
 }
 function Modality({ role }: { role: string }) {
-  return <span className={'ut-modality ut-' + role}>{role === 'i2i' ? 'Visual Generation · I2I' : 'Image Understanding · I2T'}</span>;
+  return <span className={'ut-modality ut-' + role}>{role === 'i2i' ? 'Visual Generation · I2I' : 'Visual Understanding · I2T'}</span>;
 }
 
 export function InteractiveTaxonomy() {
