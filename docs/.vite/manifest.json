@@ -1,6 +1,6 @@
 {
-  "_Icon-Bo9jbUr1.js": {
-    "file": "_next/static/chunks/Icon-Bo9jbUr1.js",
+  "_Icon-BOYp-35j.js": {
+    "file": "_next/static/chunks/Icon-BOYp-35j.js",
     "name": "Icon",
     "imports": [
       "_rolldown-runtime-C60lm6uB.js",
@@ -18,8 +18,18 @@
     "file": "_next/static/chunks/rolldown-runtime-C60lm6uB.js",
     "name": "rolldown-runtime"
   },
+  "components/final-alignment-scatter.tsx": {
+    "file": "_next/static/chunks/final-alignment-scatter-BaGHjSFv.js",
+    "name": "final-alignment-scatter",
+    "src": "components/final-alignment-scatter.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_rolldown-runtime-C60lm6uB.js",
+      "_framework-D_rUT4EX.js"
+    ]
+  },
   "components/gradient-bars.tsx": {
-    "file": "_next/static/chunks/gradient-bars-Dd8n14lY.js",
+    "file": "_next/static/chunks/gradient-bars-CWf8FtUc.js",
     "name": "gradient-bars",
     "src": "components/gradient-bars.tsx",
     "isDynamicEntry": true,
@@ -29,18 +39,18 @@
     ]
   },
   "components/interactive-figures.tsx": {
-    "file": "_next/static/chunks/interactive-figures-C-ncWmt7.js",
+    "file": "_next/static/chunks/interactive-figures-BrjLBbJz.js",
     "name": "interactive-figures",
     "src": "components/interactive-figures.tsx",
     "isDynamicEntry": true,
     "imports": [
       "_rolldown-runtime-C60lm6uB.js",
-      "_Icon-Bo9jbUr1.js",
+      "_Icon-BOYp-35j.js",
       "_framework-D_rUT4EX.js"
     ]
   },
   "node_modules/vinext/dist/shims/internal/app-route-prefetch-policy.js": {
-    "file": "_next/static/chunks/app-route-prefetch-policy-DsCYOFDb.js",
+    "file": "_next/static/chunks/app-route-prefetch-policy-DsRFEpbm.js",
     "name": "app-route-prefetch-policy",
     "src": "node_modules/vinext/dist/shims/internal/app-route-prefetch-policy.js",
     "isDynamicEntry": true,
@@ -49,7 +59,7 @@
     ]
   },
   "node_modules/vinext/dist/shims/layout-segment-context.js": {
-    "file": "_next/static/chunks/layout-segment-context-BQ8ZRtnX.js",
+    "file": "_next/static/chunks/layout-segment-context-Bh6W0Nk_.js",
     "name": "layout-segment-context",
     "src": "node_modules/vinext/dist/shims/layout-segment-context.js",
     "isDynamicEntry": true,
@@ -60,7 +70,7 @@
     ]
   },
   "node_modules/vinext/dist/shims/streamed-icons.js": {
-    "file": "_next/static/chunks/streamed-icons-Cs-m6aYg.js",
+    "file": "_next/static/chunks/streamed-icons-B7zI55ff.js",
     "name": "streamed-icons",
     "src": "node_modules/vinext/dist/shims/streamed-icons.js",
     "isDynamicEntry": true,
@@ -70,7 +80,7 @@
     ]
   },
   "virtual:vinext-app-browser-entry": {
-    "file": "_next/static/chunks/index-Cw3gqtuD.js",
+    "file": "_next/static/chunks/index-CsiYLNKQ.js",
     "name": "index",
     "src": "virtual:vinext-app-browser-entry",
     "isEntry": true,
@@ -83,7 +93,8 @@
       "virtual:vinext-app-browser-entry",
       "components/interactive-figures.tsx",
       "node_modules/vinext/dist/shims/layout-segment-context.js",
-      "_Icon-Bo9jbUr1.js",
+      "_Icon-BOYp-35j.js",
+      "components/final-alignment-scatter.tsx",
       "node_modules/vinext/dist/shims/streamed-icons.js",
       "components/gradient-bars.tsx"
     ]

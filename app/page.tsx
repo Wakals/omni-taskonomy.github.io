@@ -5,6 +5,7 @@ import authorContent from '@/content/author-provided-copy.json';
 import paperMetadata from '@/content/paper-metadata.json';
 import { InteractiveTaxonomy, InteractiveTransferMap } from '@/components/interactive-figures';
 import { GradientBars } from '@/components/gradient-bars';
+import { FinalAlignmentScatter } from '@/components/final-alignment-scatter';
 import { coloredTerms } from '@/components/colored-terms';
 
 const resourceLinks = { paper: '/paper.pdf', github: 'https://github.com/omni-taskonomy/omni-taskonomy.github.io' };
@@ -218,10 +219,7 @@ export default function Home() {
           </div>
           <figcaption className="figure-caption"><span data-author-copy="alignment_bars_caption_web">{formatted(authorExcerpts.alignment_bars_caption_web.text)}</span></figcaption>
         </figure>
-        <div className="final-association-grid">
-          <Figure name="alignment-capability-final" caption="alignment_transfer_caption" captionOverride="alignment_capability_caption_web" width={900} height={570} className="association-paper-panel" />
-          <Figure name="alignment-pairs-final" caption="alignment_transfer_caption" captionOverride="alignment_pair_caption_web" width={900} height={570} className="association-paper-panel" />
-        </div>
+        <FinalAlignmentScatter />
         <div className="analysis-copy prose"><Passage id="alignment_results" className="standalone-capitalized" /><Passage id="alignment_lead" /></div>
         <blockquote className="finding"><Passage id="alignment_finding" /></blockquote>
       </div></section>

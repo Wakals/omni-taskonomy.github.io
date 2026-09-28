@@ -30,7 +30,7 @@ class Audit(HTMLParser):
   attrs=dict(attrs);self.depth+=1
   if tag in {'head','script','style'}: self.skip.append((tag,self.depth))
   if attrs.get('data-visual-source'):
-   assert attrs['data-visual-source'] in {'controlled-gradient-json','section6-gradient-and-transfer-csv','minibatch-gradient-html'}
+   assert attrs['data-visual-source'] in {'controlled-gradient-json','section6-gradient-and-transfer-csv','minibatch-gradient-html','final-paper-vector-pdf'}
    self.visual.append((tag,self.depth));self.visual_sources.append(attrs['data-visual-source'])
   if tag=='select': self.selects.append(attrs.get('aria-label'))
   if tag=='meta' and attrs.get('name')=='description':
@@ -95,7 +95,7 @@ assert 'Hugging Face' not in html
 assert set(audit.author_matched)==set(author_excerpts),audit.author_matched
 assert sum(k=='data-v12-metric' for k,v in audit.v12_matched)==19*19
 assert audit.selects==['Benchmark'],audit.selects
-assert audit.visual_sources==['controlled-gradient-json'],audit.visual_sources
+assert audit.visual_sources==['controlled-gradient-json','final-paper-vector-pdf'],audit.visual_sources
 assert 'Minibatch gradient alignment' not in html
 assert all(v.split('|')[3]=='delta' for k,v in audit.v12_matched if k=='data-v12-metric')
 assert len({v for k,v in audit.v12_matched if k=='data-v12-copy' and v.startswith('leaf|') and v.endswith('|name')})==44
