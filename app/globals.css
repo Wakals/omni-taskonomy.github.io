@@ -46,7 +46,7 @@ h1 .term-understanding { color:#7ca6c9; }
 .tldr-heading { text-align:center; font-size:2rem; letter-spacing:-.015em; margin:2px 0 18px; }
 .tldr-box { max-width:970px; margin:0 auto 30px; padding:25px 30px; border:1px solid #e3eaf0; border-radius:10px; background:#f7f9fb; }
 /* Animated TL;DR teaser. Sizes are design pixels scaled by --u, so the choreography keeps its proportions. */
-.tldr-teaser { container-type:inline-size; --u:min(1px, 100cqi / 900); margin-bottom:28px; }
+.tldr-teaser { position:relative; display:grid; grid-template-columns:minmax(0,1fr); container-type:inline-size; --u:min(1px, 100cqi / 900); margin-bottom:28px; }
 .tldr-teaser > .ability-transfer { margin-bottom:0; }
 .teaser-stage { position:relative; display:grid; grid-template-columns:minmax(0,1fr) max(128px, calc(150 * var(--u))) minmax(0,1fr); gap:calc(20 * var(--u)); width:min(900px,100%); margin:3px auto 0; }
 .teaser-panel { position:relative; grid-row:1; justify-self:center; width:calc(355 * var(--u)); padding:calc(12 * var(--u)) calc(14 * var(--u)) calc(17 * var(--u)); border:1px solid #dfe8f0; border-radius:calc(14 * var(--u)); background:#fff; box-shadow:0 10px 28px rgba(49,72,94,.07); }
@@ -559,23 +559,29 @@ figcaption, .teaser figcaption, .site-credit,
   .ut-cell-tooltip { display:none!important; }
   .ut-cell:hover:not(.ut-pinned) .ut-tile { transform:none; }
 }
-/* Narrow TL;DR: stack the two tasks and size each one to the full column. */
-@container (max-width:640px) {
-  .teaser-stage { --u:min(1px, 100cqi / 360); grid-template-columns:minmax(0,1fr); gap:14px; width:100%; }
+/* Narrow TL;DR: one vertical story in reading order, from the I2I task and its label,
+   through the transfer arrow, to the I2T label and task. The wrappers dissolve into the root grid.
+   Wider containers, including landscape phones, keep the shorter side-by-side layout. */
+@container (max-width:580px) {
+  .teaser-stage,.ability-transfer { display:contents; }
+  .teaser-stage { --u:min(1px, 100cqi / 360); }
   .teaser-panel { grid-column:1; grid-row:auto; width:min(100%, calc(355 * var(--u))); padding-top:max(calc(12 * var(--u)), 16px); }
-  .teaser-control { position:absolute; z-index:4; grid-column:1; top:9px; right:calc(50% - 177.5 * var(--u) + 9px); width:32px; height:32px; }
-}
-@media screen { @container (max-width:640px) { .ability-transfer { grid-template-columns:minmax(0,1fr) 100px minmax(0,1fr); gap:12px; } } }
-@media screen and (max-width:540px) {
-  .ability-flow { left:-.5px; right:auto; top:0; bottom:0; width:2px; height:auto; background:linear-gradient(180deg,#c98690,#6f9bc2); transform-origin:center top; }
-  .ability-comet { left:50%; top:0; }
-  .ability-transfer { grid-template-columns:minmax(0,1fr); gap:14px; margin:28px auto; }
-  .ability-title { font-size:2rem; }
-  .ability-definition { font-size:1.25rem; }
-  .ability-arrow { display:grid; grid-template-columns:1fr 1px 1fr; grid-template-rows:48px; gap:12px; align-items:center; padding:0; }
-  .ability-arrow > span { grid-column:3; grid-row:1; justify-self:start; text-align:left; white-space:normal; font-size:1.125rem; }
+  .teaser-title { margin-bottom:16px; }
+  .teaser-i2i { order:1; margin-top:3px; }
+  .ability-generation { order:2; margin-top:22px; }
+  .ability-arrow { order:3; display:grid; grid-template-columns:1fr 1px 1fr; grid-template-rows:48px; gap:12px; align-items:center; margin:14px 0; padding:0; }
+  .ability-arrow > span { grid-column:3; grid-row:1; justify-self:start; text-align:left; white-space:normal; }
   .ability-arrow > i { grid-column:2; grid-row:1; width:1px; height:48px; }
   .ability-arrow > i:after { top:auto; right:-4px; bottom:1px; transform:rotate(135deg); }
+  .ability-flow { left:-.5px; right:auto; top:0; bottom:0; width:2px; height:auto; background:linear-gradient(180deg,#c98690,#6f9bc2); transform-origin:center top; }
+  .ability-comet { left:50%; top:0; }
+  .ability-understanding { order:4; }
+  .teaser-i2t { order:5; margin-top:22px; }
+  .teaser-control { position:absolute; z-index:4; grid-column:auto; grid-row:auto; top:6px; right:calc(50% - 177.5 * var(--u) + 9px); width:32px; height:32px; }
+}
+@media screen and (max-width:540px) {
+  .ability-title { font-size:2rem; }
+  .ability-definition { font-size:1.25rem; }
 }
 @media print {
   .figure-actions { display:none; }

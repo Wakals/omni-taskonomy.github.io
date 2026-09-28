@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from 'react';
+import { preload } from 'react-dom';
 import { Pause, Play } from 'lucide-react';
 import teaser from '@/content/tldr-teaser.json';
 import { coloredTerms } from '@/components/colored-terms';
@@ -10,8 +11,9 @@ const labels = teaser.labels;
 type LabelId = keyof typeof labels;
 const permutation = teaser.permutation;
 const answer = Array.from(labels.i2t_answer);
-const tileImage = (index: number) => `url('/figures/tldr-crops/${teaser.tiles.files[index]}')`;
-const outputImage = `url('/figures/tldr-crops/${teaser.output.file}')`;
+const images = [...teaser.tiles.files, teaser.output.file].map(file => `/figures/tldr-crops/${file}`);
+const tileImage = (index: number) => `url('${images[index]}')`;
+const outputImage = `url('${images[4]}')`;
 const RING = 2 * Math.PI * 15;
 
 function Label({ id, className }: { id: LabelId; className?: string }) {
@@ -169,6 +171,7 @@ function build(root: HTMLElement): Animation[] {
 }
 
 export function TldrTeaser({ children }: { children: ReactNode }) {
+  images.forEach(href => preload(href, { as: 'image' }));
   const root = useRef<HTMLDivElement>(null);
   const control = useRef<{ paused: boolean; sync: () => void; rest: () => void }>({ paused: false, sync: () => {}, rest: () => {} });
   const [ready, setReady] = useState(false);
@@ -178,10 +181,10 @@ export function TldrTeaser({ children }: { children: ReactNode }) {
     const element = root.current, ctl = control.current;
     if (!element || typeof element.animate !== 'function') return;
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
-    let animations: Animation[] = [], visible = true, frame = 0, disposed = false, printing = false, resumeAt = 0;
+    let animations: Animation[] = [], visible = true, frame = 0, disposed = false, printing = false, resumeAt = 0, loaded = false;
     const clear = () => { const time = Number(animations[0]?.currentTime ?? 0) || 0; animations.forEach(a => a.cancel()); animations = []; return time; };
     const sync = () => {
-      const play = visible && !ctl.paused;
+      const play = loaded && visible && !ctl.paused;
       animations.forEach(a => (play ? a.play() : a.pause()));
       element.dataset.playing = String(play && animations.length > 0);
     };
@@ -205,6 +208,9 @@ export function TldrTeaser({ children }: { children: ReactNode }) {
     const resize = new ResizeObserver(() => { cancelAnimationFrame(frame); frame = requestAnimationFrame(() => start()); });
     const view = typeof IntersectionObserver === 'function' ? new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; sync(); }, { threshold: .2 }) : null;
     start();
+    // Hold the completed state until every patch has decoded, so no loop plays over blank tiles.
+    void Promise.all(images.map(src => { const image = new Image(); image.src = src; return image.decode().catch(() => {}); }))
+      .then(() => { if (!disposed) { loaded = true; sync(); } });
     resize.observe(element);
     view?.observe(element);
     reduce.addEventListener('change', start);
