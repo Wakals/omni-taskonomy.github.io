@@ -1,8 +1,8 @@
 {
-  "manuscript_commit": "bac824580f9c7f537eb95fbc17a35970cc5ac13e",
+  "manuscript_commit": "2034e2e9f120d249def71522acf3db3051480cc0",
   "authors": [
     {"name":"Jiaxin Ge","marks":"1*","homepage":"https://gejiaxin.org/"},
-    {"name":"Yiming Qin","marks":"2,6*‡","homepage":"https://wakals.github.io/"},
+    {"name":"Yiming Qin","marks":"2,6*","homepage":"https://wakals.github.io/"},
     {"name":"Ji Xie","marks":"3","homepage":"https://horizonwind2004.github.io/"},
     {"name":"Haozhe Jiang","marks":"1","homepage":"https://astro-eric.github.io/"},
     {"name":"Xiaochuang Han","marks":"4","homepage":"https://xhan77.github.io/"},
@@ -27,10 +27,8 @@
     {"mark":"6","name":"Impossible, Inc."}
   ],
   "notes": [
-    "* Jiaxin Ge and Yiming Qin contributed equally.",
-    "Correspondence: Jiaxin Ge (gejiaxin01@gmail.com) and Yiming Qin (ymk4474@gmail.com).",
-    "† Haiwen Feng, Le Xue, Baifeng Shi, Trevor Darrell, and XuDong Wang contributed equally.",
-    "‡ Work done during a summer internship at Impossible, Inc."
+    "* Equal contribution.",
+    "† Equal advising."
   ],
-  "display_text": "Jiaxin Ge 1* Yiming Qin 2,6*‡ Ji Xie 3 Haozhe Jiang 1 Xiaochuang Han 4 Junyi Zhang 1 Andrew M. Dai 5 Yinfei Yang 5 Jitendra Malik 1 Ranjay Krishna 4 Sewon Min 1 Haiwen Feng 1,6† Le Xue 5† Baifeng Shi 1† Trevor Darrell 1† XuDong Wang 1,2† 1 University of California, Berkeley 2 Duke University 3 Carnegie Mellon University 4 University of Washington 5 Elorian 6 Impossible, Inc. * Jiaxin Ge and Yiming Qin contributed equally. Correspondence: Jiaxin Ge (gejiaxin01@gmail.com) and Yiming Qin (ymk4474@gmail.com). † Haiwen Feng, Le Xue, Baifeng Shi, Trevor Darrell, and XuDong Wang contributed equally. ‡ Work done during a summer internship at Impossible, Inc."
+  "display_text": "Jiaxin Ge 1* Yiming Qin 2,6* Ji Xie 3 Haozhe Jiang 1 Xiaochuang Han 4 Junyi Zhang 1 Andrew M. Dai 5 Yinfei Yang 5 Jitendra Malik 1 Ranjay Krishna 4 Sewon Min 1 Haiwen Feng 1,6† Le Xue 5† Baifeng Shi 1† Trevor Darrell 1† XuDong Wang 1,2† 1 University of California, Berkeley 2 Duke University 3 Carnegie Mellon University 4 University of Washington 5 Elorian 6 Impossible, Inc. * Equal contribution. † Equal advising."
 }

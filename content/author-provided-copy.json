@@ -2,25 +2,25 @@
   "source": "Explicit user-provided website wording in the September 14, 2026 request. LaTeX arrows, dashes, itemize, and emphasis are rendered typographically; prose is unchanged.",
   "excerpts": {
     "recipe_intro": {
-      "text": "We compare an I2T-only baseline (R1) against five training recipes:"
+      "text": "We compare six training recipes:"
     },
     "recipe_r1": {
-      "text": "R1: I2T only. Train only on I2T."
+      "text": "I2T only. Train only on I2T."
     },
     "recipe_r2": {
-      "text": "R2: I2I → I2T. Pretrain on I2I while updating the shared understanding weights, then finetune on I2T."
+      "text": "I2I → I2T. Pretrain on I2I while updating the shared understanding weights, then finetune on I2T."
     },
     "recipe_r3": {
-      "text": "R3: Mixed → I2T. Jointly train on I2I and I2T, then finetune on I2T."
+      "text": "Mixed → I2T. Jointly train on I2I and I2T, then finetune on I2T."
     },
     "recipe_r4": {
-      "text": "R4: Frozen I2I → Mixed. Pretrain on I2I with the shared understanding weights frozen, then switch to mixed I2I–I2T training."
+      "text": "Frozen I2I → Mixed. Pretrain on I2I with the shared understanding weights frozen, then switch to mixed I2I–I2T training."
     },
     "recipe_r5": {
-      "text": "R5: Mixed only. Jointly train on I2I and I2T throughout training."
+      "text": "Mixed. Jointly train on I2I and I2T throughout training."
     },
     "recipe_r6": {
-      "text": "R6: I2I → Mixed. Pretrain on I2I while updating the shared understanding weights, then switch to mixed I2I–I2T training."
+      "text": "I2I → Mixed. Pretrain on I2I while updating the shared understanding weights, then switch to mixed I2I–I2T training."
     },
     "scaling_caption_web": {
       "text": "I2T accuracy versus I2I training examples across recipes, with 1k I2T examples. I2T accuracy versus I2T training examples for I2T-only and I2I → I2T training (100k I2I examples). Curves show means over three seeds. Shading indicates ±1 SEM.",

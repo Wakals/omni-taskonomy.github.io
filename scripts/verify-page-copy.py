@@ -13,7 +13,6 @@ def clean(s): return re.sub(r'\s+',' ',s).strip()
 ui={'Skip to content','Read the manuscript','↗','Top ↑','View full size ↗','→','Manuscript ↗','Back to top ↑','Abstract','Training recipes','Annotation protocol','01','02','03','04','05','TL;DR','Paper','GitHub','Hugging Face','🤗','1','2','3','Finding 1','Finding 2','Finding 3','*'}
 ui.update({'Visual Generation · I2I','Visual Understanding · I2T',
  'Click a node to explore','OmniTaskonomy','I2I','I2T',
- 'Benchmark',
  'Hover to magnify · click to pin','Negative','Positive','p < 0.05','I2I supervision task',
  'I2T capability','−15 pp','+15 pp','Close'})
 ui.update({'Swipe to explore', 'Swipe to explore · tap a cell', 'Citation', '% BibTeX pending.', 'Module groups', 'RMSNorm layers', 'Full figure ↗', 'Source code ↗', 'Jigsaw', 'Zoom-In', 'Minibatch gradient alignment'})
@@ -95,12 +94,12 @@ assert all(author.get('homepage','').startswith('https://') for author in paper_
 assert all(f'href="{author["homepage"]}"' in html for author in paper_metadata['authors'])
 assert 'href="/paper.pdf"' in html
 assert 'href="https://github.com/omni-taskonomy/omni-taskonomy.github.io"' in html
-assert 'Hugging Face' not in html
+assert 'href="https://huggingface.co/collections/Wakals/omnitaskonomy"' in html
 assert set(audit.author_matched)==set(author_excerpts),audit.author_matched
 assert set(audit.teaser_matched)==set(teaser_labels),audit.teaser_matched
 assert 'tldr-crops/jigsaw-i2i.png' not in html and 'tldr-crops/jigsaw-i2t.png' not in html
 assert sum(k=='data-v12-metric' for k,v in audit.v12_matched)==19*19
-assert audit.selects==['Benchmark'],audit.selects
+assert audit.selects==[],audit.selects
 assert audit.visual_sources==['controlled-gradient-json','section6-gradient-and-transfer-csv'],audit.visual_sources
 assert 'Minibatch gradient alignment' not in html
 assert all(v.split('|')[3]=='delta' for k,v in audit.v12_matched if k=='data-v12-metric')

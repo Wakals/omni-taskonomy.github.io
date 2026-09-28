@@ -1,8 +1,12 @@
 {
-  "paper_commit": "bac824580f9c7f537eb95fbc17a35970cc5ac13e",
-  "paired_results": {
-    "path": "analysis/transfer_v13/data/paired_results.json",
-    "sha256": "f49c52293f7682569f20cb55a0aeb8dd4a063f73cf1148515256482de6188f7e"
+  "paper_commit": "2034e2e9f120d249def71522acf3db3051480cc0",
+  "final_transfer_matrix": {
+    "path": "iclr2026/figures/transfer_v13/transfer_full_19x25_v3.pdf",
+    "sha256": "1baa605319af1c030e92d50d703b9f31ae4cceb933a7b88b2ff2417aaa2c1c9c"
+  },
+  "main_transfer_map": {
+    "path": "iclr2026/figures/transfer_v13/transfer_map_19_v5.pdf",
+    "sha256": "befee9d3ece087242ec0a70bb2fc260ec4d8eb43a4167301deac731fd3e4875f"
   },
   "i2i_inventory": {
     "path": "analysis/transfer_v13/data/i2i_inventory.json",

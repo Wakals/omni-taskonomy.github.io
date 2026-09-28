@@ -3,7 +3,6 @@
 import { useEffect, useRef, useState, type CSSProperties, type KeyboardEvent } from 'react';
 import { ChevronDown, Plus, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { NativeSelect } from '@/components/ui/native-select';
 import { Dialog, DialogClose, DialogContent, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { data, leaves, familyColors, metric, number, fill, rowsFor, modelsFor, sourceCopy, treeLeavesFor, viewLabel, type Leaf } from '@/lib/unitaskonomy';
@@ -77,13 +76,13 @@ function CellDetail({ scope, cell }: { scope: string; cell: Cell }) {
   return <>
     <div className="ut-tip-path"><strong><V id={'model|' + cell.model} /></strong><span aria-hidden="true">→</span><V id={'leaf|' + cell.row + '|name'} /></div>
     <div className={'ut-tip-score ' + (m.delta !== null && m.delta < 0 ? 'ut-negative' : '')}><Value scope={scope} row={cell.row} model={cell.model} precision={2} /><small>pp</small></div>
-    <div className="ut-tip-comparison"><span><b>{number(m.accuracy)}{m.accuracy !== null && '%'}</b>Checkpoint</span><span><b>{number(m.baseline)}{m.baseline !== null && '%'}</b>I2T-only baseline</span><span><b>{m.pair?.[1]?.toLocaleString('en-US') ?? 0}</b>Samples</span></div>
+    <div className="ut-tip-comparison"><span><b>{number(m.accuracy)}{m.accuracy !== null && '%'}</b>Checkpoint</span><span><b>{number(m.baseline)}{m.baseline !== null && '%'}</b>I2T-only baseline</span><span><b>{data.heatmap.expected[scope]?.[cell.row]?.toLocaleString('en-US') ?? 0}</b>Samples</span></div>
     <span className="ut-tip-scope"><V id={'scope|' + scope} /></span>
   </>;
 }
 
 export function InteractiveTransferMap() {
-  const [scope, setScope] = useState('ALL');
+  const scope = 'ALL';
   const [pinned, setPinned] = useState<Cell | null>(null);
   const [active, setActive] = useState<Cell | null>(null);
   const [focus, setFocus] = useState([0, 0]);
@@ -95,7 +94,6 @@ export function InteractiveTransferMap() {
     if (groups.at(-1)?.id === id) groups[groups.length - 1].count++;
     else groups.push({ id, count: 1 });
   });
-  const resetSelection = () => { setPinned(null); setActive(null); setFocus([0, 0]); };
   function navigate(e: KeyboardEvent<HTMLButtonElement>, ri: number, ci: number) {
     let r = ri, c = ci;
     if (e.key === 'Escape') { setPinned(null); return; }
@@ -114,11 +112,6 @@ export function InteractiveTransferMap() {
     next?.scrollIntoView({ block: 'nearest', inline: 'nearest' });
   }
   return <div className="ut-figure ut-transfer" aria-label="Interactive transfer heatmap">
-    <div className="ut-map-toolbar">
-      <div className="ut-filters">
-        <label><span>Benchmark</span><NativeSelect className="ut-select" aria-label="Benchmark" value={scope} onChange={e => { setScope(e.target.value); resetSelection(); }}>{data.heatmap.scopes.map(s => <option key={s.id} value={s.id} data-v12-copy={'scope|' + s.id}>{s.label}</option>)}</NativeSelect></label>
-      </div>
-    </div>
     <div className="ut-map-guide"><span className="pointer-hint">Hover to magnify · click to pin</span><span className="touch-hint">Swipe to explore · tap a cell</span><span className="ut-color-key"><span><i className="ut-swatch negative" />Negative</span><span><i className="ut-swatch positive" />Positive</span><span><i className="ut-swatch significant" />Outlined: p &lt; 0.05 (two-sided paired permutation test vs. I2T-only)</span></span></div>
     <TooltipProvider delay={70}>
       <div className="ut-map-scroll" ref={grid} tabIndex={0} role="region" aria-label="Transfer matrix; use arrow keys to move between cells">

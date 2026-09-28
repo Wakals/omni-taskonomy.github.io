@@ -314,7 +314,7 @@ h3 { font-size:1.65rem; line-height:1.2; margin:0 0 17px; color:#365872; }
 .acknowledgments { max-width:780px; padding:60px 0 48px; text-align:left; }
 .acknowledgments h2 { font-size:2rem; margin-bottom:19px; text-align:center; }
 .ack-names { font-size:1.075rem; color:var(--body-copy); }
-.site-credit { flex-basis:100%; max-width:780px; font-size:.95rem; line-height:1.8; color:var(--body-secondary); margin:10px auto 0; text-align:center; }
+.site-credit { flex-basis:100%; max-width:780px; font-size:inherit; line-height:inherit; color:var(--body-secondary); margin:10px auto 0; text-align:center; }
 footer { display:flex; justify-content:center; gap:12px 26px; flex-wrap:wrap; padding:24px 0 30px; border-top:1px solid var(--border); font-size:.75rem; color:#8a949e; }
 footer a { color:#718295; }
 .skip-link { position:fixed; top:-100px; left:16px; z-index:100; padding:10px 16px; background:#fff; }
@@ -437,7 +437,7 @@ footer a { color:#718295; }
 :root { --body-font:'Times New Roman',Times,'Liberation Serif',serif; --body-size:1.15rem; }
 p[data-manuscript-excerpt], p[data-author-copy], .tldr-questions,
 .recipe-description, .recipe-id, .recipe-route,
-figcaption, .teaser figcaption, .site-credit,
+figcaption, .teaser figcaption,
 .ut-definition, .ut-question, .ut-choices, .ut-answer, .ut-routing p, .ut-no-example {
   font-family:var(--body-font);
   font-size:var(--body-size);

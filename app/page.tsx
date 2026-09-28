@@ -105,10 +105,9 @@ function RecipeNote() {
     <div className="recipe-note-intro"><AuthorPassage id="recipe_intro" /><sup>1</sup></div>
     <ol className="recipe-list">{ids.map((id, index) => {
       const value = authorExcerpts[id].text;
-      const colon = value.indexOf(':');
       const stop = value.indexOf('. ');
       return <li key={id} className={`recipe-item recipe-${index + 1}`} data-author-copy={id}>
-        <div className="recipe-item-header"><span className="recipe-id">{value.slice(0, colon + 1)}</span>{' '}<RecipeRoute value={value.slice(colon + 2, stop + 1)} /></div>{' '}
+        <div className="recipe-item-header"><RecipeRoute value={value.slice(0, stop + 1)} /></div>{' '}
         <p className="recipe-description">{formatted(value.slice(stop + 2), ['updating the shared understanding weights', 'shared understanding weights frozen'])}</p>
       </li>;
     })}</ol>
@@ -187,7 +186,7 @@ export default function Home() {
       <section id="recipe" className="chapter chapter-tinted"><div className="shell">
         <Heading id="recipe_heading" number="02" />
         <RecipeNote />
-        <Figure name="scaling" caption="scaling_caption" captionOverride="scaling_caption_web" width={2593} height={806} note="training-recipes" />
+        <Figure name="scaling" caption="scaling_caption" captionOverride="scaling_caption_web" width={2573} height={856} note="training-recipes" />
         <Passage id="recipe_result" className="section-lead" />
         <blockquote className="finding"><Passage id="recipe_finding" /></blockquote>
       </div></section>
