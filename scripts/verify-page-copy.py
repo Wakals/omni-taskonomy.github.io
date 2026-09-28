@@ -86,6 +86,9 @@ assert 'class="task-pair"' not in html
 assert 'Original paper figure' not in html and 'class="ut-modalities"' not in html
 assert 'id="citation"' in html and '<code>% BibTeX pending.</code>' in html
 assert paper_metadata['manuscript_commit']==book['manuscript_commit']
+assert len(paper_metadata['authors'])==16
+assert all(author.get('homepage','').startswith('https://') for author in paper_metadata['authors'])
+assert all(f'href="{author["homepage"]}"' in html for author in paper_metadata['authors'])
 assert 'href="/paper.pdf"' in html
 assert 'href="https://github.com/omni-taskonomy/omni-taskonomy.github.io"' in html
 assert 'Hugging Face' not in html

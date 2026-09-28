@@ -54,7 +54,7 @@ function ResourceButton({ label, href, children }: { label: string; href: string
 }
 function PaperAuthors() {
   return <div className="paper-authors" data-paper-metadata="author-block">
-    <div className="author-list">{paperMetadata.authors.map(author => <span className="author" key={author.name}>{author.name} <sup>{author.marks}</sup>{' '}</span>)}</div>
+    <div className="author-list">{paperMetadata.authors.map(author => <span className="author" key={author.name}><a href={author.homepage} target="_blank" rel="noreferrer">{author.name}</a> <sup>{author.marks}</sup>{' '}</span>)}</div>
     <div className="affiliation-list">{paperMetadata.affiliations.map(affiliation => <span key={affiliation.mark}><sup>{affiliation.mark}</sup> {affiliation.name}{' '}</span>)}</div>
     <div className="author-notes">{paperMetadata.notes.map(note => <span key={note}>{note}{' '}</span>)}</div>
   </div>;
@@ -222,7 +222,7 @@ export default function Home() {
           <Figure name="alignment-capability-final" caption="alignment_transfer_caption" captionOverride="alignment_capability_caption_web" width={900} height={570} className="association-paper-panel" />
           <Figure name="alignment-pairs-final" caption="alignment_transfer_caption" captionOverride="alignment_pair_caption_web" width={900} height={570} className="association-paper-panel" />
         </div>
-        <div className="analysis-copy prose"><Passage id="alignment_results" /><Passage id="alignment_lead" /></div>
+        <div className="analysis-copy prose"><Passage id="alignment_results" className="standalone-capitalized" /><Passage id="alignment_lead" /></div>
         <blockquote className="finding"><Passage id="alignment_finding" /></blockquote>
       </div></section>
 

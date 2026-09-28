@@ -23,7 +23,7 @@
       "text": "R6: I2I → Mixed. Pretrain on I2I while updating the shared understanding weights, then switch to mixed I2I–I2T training."
     },
     "scaling_caption_web": {
-      "text": "I2T accuracy versus I2I training examples across recipes on Jigsaw and Zoom-In, with 1k I2T examples. I2T accuracy versus I2T training examples, comparing I2T-only training with I2I training followed by I2T finetuning using 100k I2I examples.",
+      "text": "I2T accuracy versus I2I training examples across recipes, with 1k I2T examples. I2T accuracy versus I2T training examples for I2T-only and I2I → I2T training (100k I2I examples). Curves show means over three seeds. Shading indicates ±1 SEM.",
       "source": "Website-specific caption updated verbatim from the final manuscript without panel markers."
     },
     "controlled_caption_web": {

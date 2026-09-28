@@ -27611,7 +27611,7 @@
         "sample": {
           "uid": "current-paper::i2i:object_replacement",
           "benchmark": "Object editing",
-          "question": "An image with an object replaced by one of the requested category.",
+          "question": "Swap the corn and tomatoes in the bicycle basket with a bouquet of red roses.",
           "choices": [],
           "answer": "",
           "images": [
@@ -27631,7 +27631,7 @@
         "sample": {
           "uid": "current-paper::i2i:attribute_editing",
           "benchmark": "Attribute editing",
-          "question": "An image with a specified color, material, or other appearance attribute changed.",
+          "question": "Change the black grand piano to a gold finish.",
           "choices": [],
           "answer": "",
           "images": [
