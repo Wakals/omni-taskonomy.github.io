@@ -95,3 +95,11 @@ The user requires manuscript-original wording and forbids GPT summaries or parap
 - The author requested a code-grounded BAGEL attention diagram. Treat its concise node labels as code-derived diagram annotations, not a new source of free-form research prose. Its on-page caption and alt text must be an exact active-manuscript excerpt.
 - Pin the official ByteDance-Seed/Bagel source revision and the SVG hash in `content/bagel-architecture-provenance.json`. Draw the understanding and generation Q/K/V projections, output projections, RMSNorm, and MLP as separate parameters. The token streams enter one attention computation with the supplied attention mask; do not draw shared QKV weights or unrestricted attention.
 - Preserve the scalable SVG and a full-resolution link. Mobile readers should be able to pan rather than losing legibility to page-width shrinking.
+
+## Animated TL;DR Jigsaw teaser (September 28, 2026)
+
+- The author requested turning the static TL;DR Jigsaw I2I / Jigsaw I2T crops into an auto-looping HTML animation modeled on a supplied reference, keeping the existing text unchanged. This supersedes the earlier static-crop instruction; leave `jigsaw-i2i.png` and `jigsaw-i2t.png` in place as source assets.
+- The author-supplied `public/figures/tldr-crops/jigsaw_input.png` and `jigsaw_output.png` are the unchanged sources. Tiles and the output WebP are derived by `scripts/build-tldr-teaser.py`, which also verifies that the output is the input rearranged by the figure's permutation `[3, 2, 1, 0]`. Hashes and crop boxes live in `content/tldr-teaser.json`.
+- The only rendered teaser strings are the figure's own labels (`Jigsaw I2I`, `Jigsaw I2T`, `('reorder', [3, 2, 1, 0])`) and patch indices 0–3, recorded in `content/tldr-teaser.json` and rendered with `data-teaser-copy`. The ability-transfer diagram keeps its registered author copy. Do not add captions or narration to the animation.
+- The server renders the completed state; the loop starts and ends on it. Keep the pause control, off-screen pausing, and the static completed state under `prefers-reduced-motion`.
+- Run `python scripts/build-tldr-teaser.py --check` with the other checks before publishing.

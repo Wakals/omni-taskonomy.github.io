@@ -7,6 +7,7 @@ import { InteractiveTaxonomy, InteractiveTransferMap } from '@/components/intera
 import { GradientBars } from '@/components/gradient-bars';
 import { GradientTransferScatter } from '@/components/gradient-transfer-scatter';
 import { coloredTerms } from '@/components/colored-terms';
+import { TldrTeaser } from '@/components/tldr-teaser';
 
 const resourceLinks = {
   paper: '/paper.pdf',
@@ -81,14 +82,8 @@ function AbilityNode({ id, kind }: { id: 'ability_generation' | 'ability_underst
 function AbilityTransfer() {
   return <div className="ability-transfer" role="group" aria-label="Ability Transfer">
     <AbilityNode id="ability_generation" kind="generation" />
-    <div className="ability-arrow"><span data-author-copy="ability_transfer">{authorExcerpts.ability_transfer.text}</span><i aria-hidden="true" /></div>
+    <div className="ability-arrow"><span data-author-copy="ability_transfer">{authorExcerpts.ability_transfer.text}</span><i aria-hidden="true"><span className="ability-flow" /><span className="ability-comet" /></i></div>
     <AbilityNode id="ability_understanding" kind="understanding" />
-  </div>;
-}
-function TldrPairPreview() {
-  return <div className="tldr-pair-preview" role="group" aria-label="Jigsaw I2I and Jigsaw I2T example crops from the controlled settings figure">
-    <div className="tldr-crop tldr-crop-i2i" aria-label="Jigsaw I2I crop" />
-    <div className="tldr-crop tldr-crop-i2t" aria-label="Jigsaw I2T crop" />
   </div>;
 }
 function PlotLegend() {
@@ -164,8 +159,7 @@ export default function Home() {
     <section className="overview shell" id="overview">
       <h2 className="tldr-heading">TL;DR</h2>
       <div className="tldr-box">
-        <TldrPairPreview />
-        <AbilityTransfer />
+        <TldrTeaser><AbilityTransfer /></TldrTeaser>
         <ol className="tldr-questions">
           <li><Passage id="tldr_question_1" /></li>
           <li><Passage id="tldr_question_2" /></li>

@@ -8,6 +8,7 @@ book=json.loads((BASE/'content/manuscript-excerpts.json').read_text())
 excerpts=book['excerpts']
 author_excerpts=json.loads((BASE/'content/author-provided-copy.json').read_text())['excerpts']
 paper_metadata=json.loads((BASE/'content/paper-metadata.json').read_text())
+teaser_labels=json.loads((BASE/'content/tldr-teaser.json').read_text())['labels']
 def clean(s): return re.sub(r'\s+',' ',s).strip()
 ui={'Skip to content','Read the manuscript','↗','Top ↑','View full size ↗','→','Manuscript ↗','Back to top ↑','Abstract','Training recipes','Annotation protocol','01','02','03','04','05','TL;DR','Paper','GitHub','Hugging Face','🤗','1','2','3','Finding 1','Finding 2','Finding 3','*'}
 ui.update({'Visual Generation · I2I','Visual Understanding · I2T',
@@ -25,7 +26,7 @@ ui.update(format(v,'.1f') for v in (-0.5,-0.1,0,0.2,0.4,0.5,0.6,1))
 credit='This project page’s design and presentation are inspired by Beyond Language Modeling: An Exploration of Multimodal Pretraining. We thank its authors for the inspiration.'
 class Audit(HTMLParser):
  def __init__(self):
-  super().__init__();self.depth=0;self.skip=[];self.visual=[];self.visual_sources=[];self.active=None;self.matched=[];self.author_matched=[];self.v12_matched=[];self.images=0;self.description=False;self.errors=[];self.selects=[]
+  super().__init__();self.depth=0;self.skip=[];self.visual=[];self.visual_sources=[];self.active=None;self.matched=[];self.author_matched=[];self.teaser_matched=[];self.v12_matched=[];self.images=0;self.description=False;self.errors=[];self.selects=[]
  def handle_starttag(self,tag,attrs):
   attrs=dict(attrs);self.depth+=1
   if tag in {'head','script','style'}: self.skip.append((tag,self.depth))
@@ -41,9 +42,10 @@ class Audit(HTMLParser):
   author_key=attrs.get('data-author-copy')
   v12_key=next(((kind,attrs[kind]) for kind in ('data-v12-copy','data-v12-metric','data-v12-view') if kind in attrs),None)
   metadata_key=attrs.get('data-paper-metadata')
-  if key or author_key or v12_key or attrs.get('data-site-credit') or metadata_key:
+  teaser_key=attrs.get('data-teaser-copy')
+  if key or author_key or v12_key or attrs.get('data-site-credit') or metadata_key or teaser_key:
    assert self.active is None,'Nested provenance records'
-   self.active={'depth':self.depth,'tag':tag,'key':key,'author_key':author_key,'v12_key':v12_key,'metadata_key':metadata_key,'parts':[]}
+   self.active={'depth':self.depth,'tag':tag,'key':key,'author_key':author_key,'v12_key':v12_key,'metadata_key':metadata_key,'teaser_key':teaser_key,'parts':[]}
   if tag in {'area','base','br','col','embed','hr','img','input','link','meta','param','source','track','wbr'}: self.depth-=1
  def handle_startendtag(self,tag,attrs):
   self.handle_starttag(tag,attrs)
@@ -52,7 +54,8 @@ class Audit(HTMLParser):
   if self.active and self.active['depth']==self.depth:
    record=self.active;actual=clean(''.join(record['parts']));key=record['key']
    author_key=record['author_key']
-   expected=excerpts[key]['text'] if key else author_excerpts[author_key]['text'] if author_key else paper_metadata['display_text'] if record['metadata_key']=='author-block' else credit
+   teaser_key=record['teaser_key']
+   expected=excerpts[key]['text'] if key else author_excerpts[author_key]['text'] if author_key else teaser_labels[teaser_key] if teaser_key else paper_metadata['display_text'] if record['metadata_key']=='author-block' else credit
    if record['v12_key']:
     kind,vkey=record['v12_key']
     expected={'data-v12-copy':v12_audit.copy,'data-v12-metric':v12_audit.metric,'data-v12-view':v12_audit.view}[kind](vkey)
@@ -61,6 +64,7 @@ class Audit(HTMLParser):
    if actual!=expected:self.errors.append({'key':key,'actual':actual,'expected':expected})
    if key:self.matched.append(key)
    if author_key:self.author_matched.append(author_key)
+   if teaser_key:self.teaser_matched.append(teaser_key)
    self.active=None
   if self.skip and self.skip[-1]==(tag,self.depth):self.skip.pop()
   if self.visual and self.visual[-1]==(tag,self.depth):self.visual.pop()
@@ -93,10 +97,12 @@ assert 'href="/paper.pdf"' in html
 assert 'href="https://github.com/omni-taskonomy/omni-taskonomy.github.io"' in html
 assert 'Hugging Face' not in html
 assert set(audit.author_matched)==set(author_excerpts),audit.author_matched
+assert set(audit.teaser_matched)==set(teaser_labels),audit.teaser_matched
+assert 'tldr-crops/jigsaw-i2i.png' not in html and 'tldr-crops/jigsaw-i2t.png' not in html
 assert sum(k=='data-v12-metric' for k,v in audit.v12_matched)==19*19
 assert audit.selects==['Benchmark'],audit.selects
 assert audit.visual_sources==['controlled-gradient-json','section6-gradient-and-transfer-csv'],audit.visual_sources
 assert 'Minibatch gradient alignment' not in html
 assert all(v.split('|')[3]=='delta' for k,v in audit.v12_matched if k=='data-v12-metric')
 assert len({v for k,v in audit.v12_matched if k=='data-v12-copy' and v.startswith('leaf|') and v.endswith('|name')})==44
-print(json.dumps({'source_commit':book['manuscript_commit'],'rendered_excerpt_instances':len(audit.matched),'unique_rendered_excerpts':len(set(audit.matched)),'author_provided_excerpts':len(audit.author_matched),'manuscript_derived_image_alts':audit.images,'v12_source_and_numeric_records':len(audit.v12_matched),'metadata_verbatim':audit.description,'unmapped_research_text':0},indent=2))
+print(json.dumps({'source_commit':book['manuscript_commit'],'rendered_excerpt_instances':len(audit.matched),'unique_rendered_excerpts':len(set(audit.matched)),'author_provided_excerpts':len(audit.author_matched),'teaser_figure_labels':len(audit.teaser_matched),'manuscript_derived_image_alts':audit.images,'v12_source_and_numeric_records':len(audit.v12_matched),'metadata_verbatim':audit.description,'unmapped_research_text':0},indent=2))
