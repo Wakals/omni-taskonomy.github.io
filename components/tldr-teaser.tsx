@@ -146,7 +146,7 @@ function build(root: HTMLElement): Animation[] {
   chars.forEach((char, i) => {
     const at = plan.reveal[i];
     run(char, [[0, { opacity: 1 }], [r1, { opacity: 1 }], [r1, { opacity: 0 }], [at, { opacity: 0 }], [at + 70, { opacity: 1 }]]);
-    if (/\d/.test(answer[i])) run(char, [[0, { color: '#263b4d' }], [at, { color: '#2f73b3' }], [at + 520, { color: '#2f73b3' }, EASE], [at + 1100, { color: '#263b4d' }]]);
+    if (/\d/.test(answer[i])) run(char, [[0, { color: '#263b4d' }], [at, { color: '#263b4d' }], [at, { color: '#2f73b3' }], [at + 520, { color: '#2f73b3' }, EASE], [at + 1100, { color: '#263b4d' }]]);
   });
   if (answerBox && caret && chars.length) {
     const origin = box(answerBox), border = parseFloat(getComputedStyle(answerBox).borderLeftWidth) || 0;
@@ -170,7 +170,7 @@ function build(root: HTMLElement): Animation[] {
 
 export function TldrTeaser({ children }: { children: ReactNode }) {
   const root = useRef<HTMLDivElement>(null);
-  const control = useRef<{ paused: boolean; sync: () => void }>({ paused: false, sync: () => {} });
+  const control = useRef<{ paused: boolean; sync: () => void; rest: () => void }>({ paused: false, sync: () => {}, rest: () => {} });
   const [ready, setReady] = useState(false);
   const [paused, setPaused] = useState(false);
 
@@ -178,7 +178,7 @@ export function TldrTeaser({ children }: { children: ReactNode }) {
     const element = root.current, ctl = control.current;
     if (!element || typeof element.animate !== 'function') return;
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
-    let animations: Animation[] = [], visible = true, frame = 0, disposed = false;
+    let animations: Animation[] = [], visible = true, frame = 0, disposed = false, printing = false, resumeAt = 0;
     const clear = () => { const time = Number(animations[0]?.currentTime ?? 0) || 0; animations.forEach(a => a.cancel()); animations = []; return time; };
     const sync = () => {
       const play = visible && !ctl.paused;
@@ -186,7 +186,9 @@ export function TldrTeaser({ children }: { children: ReactNode }) {
       element.dataset.playing = String(play && animations.length > 0);
     };
     const start = () => {
-      const time = clear();
+      if (printing) return;
+      const time = animations.length ? clear() : resumeAt;
+      resumeAt = 0;
       setReady(!reduce.matches);
       if (reduce.matches) { delete element.dataset.playing; return; }
       animations = build(element);
@@ -194,21 +196,35 @@ export function TldrTeaser({ children }: { children: ReactNode }) {
       sync();
     };
     ctl.sync = sync;
+    // Loop time 0 is the completed, full-contrast state that the server renders.
+    ctl.rest = () => animations.forEach(a => { a.currentTime = 0; });
+    // Print the completed state rather than whichever frame happens to be showing.
+    const beforePrint = () => { cancelAnimationFrame(frame); resumeAt = clear(); printing = true; delete element.dataset.playing; };
+    const afterPrint = () => { printing = false; start(); };
     // Geometry is measured, so rebuild at the same loop time whenever the layout changes.
-    const resize = new ResizeObserver(() => { cancelAnimationFrame(frame); frame = requestAnimationFrame(start); });
+    const resize = new ResizeObserver(() => { cancelAnimationFrame(frame); frame = requestAnimationFrame(() => start()); });
     const view = typeof IntersectionObserver === 'function' ? new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; sync(); }, { threshold: .2 }) : null;
     start();
     resize.observe(element);
     view?.observe(element);
     reduce.addEventListener('change', start);
+    window.addEventListener('beforeprint', beforePrint);
+    window.addEventListener('afterprint', afterPrint);
     void document.fonts?.ready.then(() => { if (!disposed && animations.length) start(); });
-    return () => { disposed = true; cancelAnimationFrame(frame); resize.disconnect(); view?.disconnect(); reduce.removeEventListener('change', start); clear(); ctl.sync = () => {}; };
+    return () => {
+      disposed = true; cancelAnimationFrame(frame); resize.disconnect(); view?.disconnect();
+      reduce.removeEventListener('change', start); window.removeEventListener('beforeprint', beforePrint); window.removeEventListener('afterprint', afterPrint);
+      clear(); ctl.sync = () => {}; ctl.rest = () => {};
+    };
   }, []);
 
+  // Pausing rests on the completed frame, so every label is shown at full contrast while paused.
   const toggle = () => {
-    control.current.paused = !control.current.paused;
-    setPaused(control.current.paused);
-    control.current.sync();
+    const ctl = control.current;
+    ctl.paused = !ctl.paused;
+    if (ctl.paused) ctl.rest();
+    setPaused(ctl.paused);
+    ctl.sync();
   };
 
   return <div className="tldr-teaser" ref={root}>
@@ -237,7 +253,8 @@ export function TldrTeaser({ children }: { children: ReactNode }) {
           <InputGrid />
           <Arrow />
           <span className="teaser-answer">
-            <code data-teaser-copy="i2t_answer">{answer.map((char, i) => <span key={i} className="answer-char">{char}</span>)}</code>
+            <code data-teaser-copy="i2t_answer" aria-hidden="true">{answer.map((char, i) => <span key={i} className="answer-char">{char}</span>)}</code>
+            <span className="sr-only" data-teaser-copy="i2t_answer">{labels.i2t_answer}</span>
             <span className="answer-caret" aria-hidden="true" />
           </span>
         </div>
