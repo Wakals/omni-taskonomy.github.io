@@ -30,7 +30,7 @@ class Audit(HTMLParser):
   attrs=dict(attrs);self.depth+=1
   if tag in {'head','script','style'}: self.skip.append((tag,self.depth))
   if attrs.get('data-visual-source'):
-   assert attrs['data-visual-source'] in {'controlled-gradient-json','section6-gradient-and-transfer-csv','minibatch-gradient-html','final-paper-vector-pdf'}
+   assert attrs['data-visual-source'] in {'controlled-gradient-json','section6-gradient-and-transfer-csv','minibatch-gradient-html'}
    self.visual.append((tag,self.depth));self.visual_sources.append(attrs['data-visual-source'])
   if tag=='select': self.selects.append(attrs.get('aria-label'))
   if tag=='meta' and attrs.get('name')=='description':
@@ -76,7 +76,7 @@ with urllib.request.urlopen(url) as response:
  html=response.read().decode()
 audit=Audit();audit.feed(html)
 assert not audit.errors,json.dumps(audit.errors,ensure_ascii=False,indent=2)
-assert audit.description and audit.images==5,(audit.description,audit.images)
+assert audit.description and audit.images==3,(audit.description,audit.images)
 assert len(audit.matched)>=35,audit.matched
 assert {'tldr_question_1','tldr_question_2','tldr_question_3'} <= set(audit.matched)
 assert 'tldr_taxonomy_compact' not in audit.matched
@@ -95,7 +95,7 @@ assert 'Hugging Face' not in html
 assert set(audit.author_matched)==set(author_excerpts),audit.author_matched
 assert sum(k=='data-v12-metric' for k,v in audit.v12_matched)==19*19
 assert audit.selects==['Benchmark'],audit.selects
-assert audit.visual_sources==['controlled-gradient-json','final-paper-vector-pdf'],audit.visual_sources
+assert audit.visual_sources==['controlled-gradient-json','section6-gradient-and-transfer-csv'],audit.visual_sources
 assert 'Minibatch gradient alignment' not in html
 assert all(v.split('|')[3]=='delta' for k,v in audit.v12_matched if k=='data-v12-metric')
 assert len({v for k,v in audit.v12_matched if k=='data-v12-copy' and v.startswith('leaf|') and v.endswith('|name')})==44

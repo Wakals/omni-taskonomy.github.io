@@ -31,6 +31,15 @@ assert sum(x["role"] == "i2t" for x in LEAVES.values()) == 25
 assert sum(x["n"] for x in LEAVES.values()) == 9444
 assert sum(x["type"] == "leaf" and H["expected"]["ALL"][x["id"]] > 100 for x in H["nodes"]) == 19
 
+scatter = json.loads((ROOT / "content/gradient-transfer-scatter.json").read_text())
+scatter_source = ROOT / "content/source-data/gradient-transfer"
+assert scatter["source"]["capability_csv_sha256"] == sha256((scatter_source / "capability_7.csv").read_bytes()).hexdigest()
+assert scatter["source"]["task_pairs_csv_sha256"] == sha256((scatter_source / "task_pairs_133.csv").read_bytes()).hexdigest()
+assert len(scatter["capability"]["points"]) == 7
+assert len(scatter["pairs"]["points"]) == 133
+assert round(scatter["capability"]["correlation"], 3) == 0.795
+assert round(scatter["pairs"]["correlation"], 3) == 0.529
+
 i2i_order = CORRECTIONS["i2i_column_order"]
 assert [LEAVES[x]["family"] for x in i2i_order] == ["REC"] * 2 + ["RCN"] * 9 + ["RORG"] * 8
 assert LEAVES["i2i:object_replacement"]["name"] == "Object editing"
@@ -64,16 +73,6 @@ if len(sys.argv) > 1:
     for row in paired["rows"]:
         actual = H["pvalues"][row["scope"]][row["node_id"]][row["model"]]
         assert actual == row["p_value"]
-
-    scatter = json.loads((ROOT / "content/gradient-transfer-scatter.json").read_text())
-    gradient_file = paper / "analysis/section6/data/gradient_records.csv"
-    transfer_file = paper / "analysis/section6/data/transfer_full.csv"
-    summary_file = paper / "analysis/section6/data/analysis_summary.json"
-    assert scatter["source"]["gradient_records_sha256"] == sha256(gradient_file.read_bytes()).hexdigest()
-    assert scatter["source"]["transfer_full_sha256"] == sha256(transfer_file.read_bytes()).hexdigest()
-    assert scatter["source"]["analysis_summary_sha256"] == sha256(summary_file.read_bytes()).hexdigest()
-    assert len(scatter["capability"]["points"]) == 7
-    assert len(scatter["pairs"]["points"]) == 105
 
 print(json.dumps({
     "paper_commit": provenance["paper_commit"],

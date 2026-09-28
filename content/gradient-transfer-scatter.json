@@ -1,10 +1,9 @@
 {
   "source": {
     "paper_commit": "bac824580f9c7f537eb95fbc17a35970cc5ac13e",
-    "analysis_summary_sha256": "6551d19dcc9147915505033e786ae013d1ccfa12f1cdf13dd03c84eef6206d8e",
-    "gradient_records_sha256": "d6e4ad11e75dc3bef996fb3d9418a86f707c18240337b308cc0a6bfb37005494",
-    "transfer_full_sha256": "992a1a1f0fa52e0205c58b8fe51a9c4c58a528316e510ae95cd2bfdf73076522",
-    "definition": "Adaptive post-PCA cosine at the pretrained checkpoint; transfer is accuracy gain over the I2T-only baseline."
+    "capability_csv_sha256": "dc10e1313461525a89720f605db1f076ec303c1d35530a8f4d7c69720918c40e",
+    "task_pairs_csv_sha256": "ab45fc69c1d2c8dfd0295b51b9124ba5838da23ce985f070655216e23aa65c1b",
+    "definition": "Post-PCA cosine at the pretrained checkpoint; transfer is accuracy gain over the I2T-only baseline."
   },
   "families": {
     "REC": "Recognition",
@@ -17,86 +16,135 @@
         "id": "i2t:CATEGORY_INSTANCE",
         "name": "Category recognition",
         "family": "REC",
-        "n_sources": 15,
-        "alignment": 0.09422948836110508,
-        "transfer": 1.607761607761602
+        "eval_n": 962,
+        "gradient_n": 500,
+        "n_sources": 19,
+        "alignment": 0.1077775224476933,
+        "transfer": 0.443155706313601
       },
       {
         "id": "i2t:COLOR_MATERIAL",
         "name": "Appearance understanding",
         "family": "REC",
-        "n_sources": 15,
-        "alignment": 0.01990367878254758,
-        "transfer": 0.13585638039786355
+        "eval_n": 687,
+        "gradient_n": 500,
+        "n_sources": 19,
+        "alignment": 0.018869708192330338,
+        "transfer": 0.005107382721724266
       },
       {
         "id": "i2t:DEPTH_DISTANCE",
         "name": "Depth understanding",
         "family": "RCN",
-        "n_sources": 15,
-        "alignment": -0.04776853183159436,
-        "transfer": 0.032520325203245194
+        "eval_n": 820,
+        "gradient_n": 500,
+        "n_sources": 19,
+        "alignment": -0.037871364535180384,
+        "transfer": 0.06632434745400084
       },
       {
         "id": "i2t:METRIC_3D_RELATION",
         "name": "Metric 3D relation",
         "family": "RCN",
-        "n_sources": 15,
-        "alignment": 0.01971212526472694,
-        "transfer": 1.0142923005993576
+        "eval_n": 723,
+        "gradient_n": 500,
+        "n_sources": 19,
+        "alignment": -0.004640045476946881,
+        "transfer": 1.7543859649122804
       },
       {
         "id": "i2t:RELATIVE_3D_RELATION",
         "name": "2D spatial relation",
         "family": "RCN",
-        "n_sources": 15,
-        "alignment": 0.0030049126625202828,
-        "transfer": -0.2517080186983094
+        "eval_n": 927,
+        "gradient_n": 500,
+        "n_sources": 19,
+        "alignment": -0.0010618516001145962,
+        "transfer": -0.3993262552281458
       },
       {
         "id": "i2t:OBJECT_COUNTING",
         "name": "Counting",
         "family": "RORG",
-        "n_sources": 15,
-        "alignment": 0.175606349243599,
-        "transfer": 1.8071768266320827
+        "eval_n": 1542,
+        "gradient_n": 500,
+        "n_sources": 19,
+        "alignment": 0.18591015752616408,
+        "transfer": 1.316358340728605
       },
       {
         "id": "i2t:CORRESPONDENCE_TRACKING",
         "name": "Visual correspondence",
         "family": "RORG",
-        "n_sources": 15,
-        "alignment": -0.24399308024246047,
-        "transfer": -2.060367454068244
+        "eval_n": 508,
+        "gradient_n": 500,
+        "n_sources": 19,
+        "alignment": -0.24602445355519514,
+        "transfer": -2.2482387070037295
       }
     ],
     "regression": {
-      "slope": 9.633874850557227,
-      "intercept": 0.2980227834633784
+      "slope": 7.675838069474849,
+      "intercept": 0.10879029254740452
     },
-    "correlation": 0.9525081078592629,
+    "correlation": 0.7953728704684307,
     "domain": {
       "x": [
-        -0.32,
-        0.29
+        -0.3,
+        0.23
       ],
       "y": [
         -2.65,
-        2.45
+        2.35
       ]
     }
   },
   "pairs": {
     "points": [
       {
-        "source_id": "colorization_v13",
-        "source": "Colorization",
+        "source_id": "category_v14",
+        "source": "Object editing",
+        "source_family": "REC",
+        "target_id": "i2t:CATEGORY_INSTANCE",
+        "target": "Category recognition",
+        "target_family": "REC",
+        "alignment": 0.20861750701290266,
+        "alignment_ci_low": 0.1670951887779812,
+        "alignment_ci_high": 0.2582648891276145,
+        "transfer": 0.06930006930006931,
+        "eval_n": 962,
+        "gradient_n": 500,
+        "n_seeds": 3
+      },
+      {
+        "source_id": "appearance_v14",
+        "source": "Attribute editing",
+        "source_family": "REC",
+        "target_id": "i2t:CATEGORY_INSTANCE",
+        "target": "Category recognition",
+        "target_family": "REC",
+        "alignment": 0.20202773173978458,
+        "alignment_ci_low": 0.15829486201614276,
+        "alignment_ci_high": 0.2485269600111417,
+        "transfer": 1.178101178101178,
+        "eval_n": 962,
+        "gradient_n": 500,
+        "n_seeds": 3
+      },
+      {
+        "source_id": "colorization_taskonomy_v14",
+        "source": "Colorization (Taskonomy)",
         "source_family": "RCN",
         "target_id": "i2t:CATEGORY_INSTANCE",
         "target": "Category recognition",
         "target_family": "REC",
-        "alignment": 0.07329383055915817,
-        "transfer": 1.7671517671517591
+        "alignment": 0.05059548065820355,
+        "alignment_ci_low": 0.008173418120124206,
+        "alignment_ci_high": 0.08995388441505911,
+        "transfer": 0.24255024255024257,
+        "eval_n": 962,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "taskonomy_depth_zbuffer",
@@ -106,7 +154,12 @@
         "target": "Category recognition",
         "target_family": "REC",
         "alignment": 0.12490890064687096,
-        "transfer": 3.222453222453211
+        "alignment_ci_low": 0.056980660049921604,
+        "alignment_ci_high": 0.18437508592336072,
+        "transfer": 1.0395010395010396,
+        "eval_n": 962,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "taskonomy_depth_euclidean",
@@ -116,7 +169,12 @@
         "target": "Category recognition",
         "target_family": "REC",
         "alignment": 0.13662036947785636,
-        "transfer": 2.494802494802485
+        "alignment_ci_low": 0.06564065171271984,
+        "alignment_ci_high": 0.19806508783061513,
+        "transfer": 0.9009009009009009,
+        "eval_n": 962,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "taskonomy_normal",
@@ -126,7 +184,12 @@
         "target": "Category recognition",
         "target_family": "REC",
         "alignment": 0.011258961695831776,
-        "transfer": 1.5592515592515497
+        "alignment_ci_low": -0.056514670849184656,
+        "alignment_ci_high": 0.07597723411342058,
+        "transfer": 0.13860013860013856,
+        "eval_n": 962,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "taskonomy_principal_curvature",
@@ -136,7 +199,12 @@
         "target": "Category recognition",
         "target_family": "REC",
         "alignment": 0.10513703688127315,
-        "transfer": 1.3513513513513402
+        "alignment_ci_low": 0.028431271883267724,
+        "alignment_ci_high": 0.17238140294677023,
+        "transfer": 0.03465003465003461,
+        "eval_n": 962,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "taskonomy_edge_occlusion",
@@ -146,7 +214,12 @@
         "target": "Category recognition",
         "target_family": "REC",
         "alignment": 0.07447023333234822,
-        "transfer": -0.10395010395011184
+        "alignment_ci_low": 0.007201595861691149,
+        "alignment_ci_high": 0.13478356686968668,
+        "transfer": -0.5544005544005545,
+        "eval_n": 962,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "taskonomy_keypoints3d",
@@ -155,8 +228,13 @@
         "target_id": "i2t:CATEGORY_INSTANCE",
         "target": "Category recognition",
         "target_family": "REC",
-        "alignment": 0.2470102983413312,
-        "transfer": 1.455301455301452
+        "alignment": 0.24701029834133126,
+        "alignment_ci_low": 0.19955203306284205,
+        "alignment_ci_high": 0.2772898974170503,
+        "transfer": 0.3811503811503812,
+        "eval_n": 962,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "taskonomy_reshading",
@@ -166,17 +244,42 @@
         "target": "Category recognition",
         "target_family": "REC",
         "alignment": 0.22953288413081185,
-        "transfer": 1.143451143451145
+        "alignment_ci_low": 0.17020823792156267,
+        "alignment_ci_high": 0.264187779164419,
+        "transfer": 0.20790020790020788,
+        "eval_n": 962,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
-        "source_id": "coco_semantic",
+        "source_id": "inpainting_rect_v14",
+        "source": "Inpainting",
+        "source_family": "RCN",
+        "target_id": "i2t:CATEGORY_INSTANCE",
+        "target": "Category recognition",
+        "target_family": "REC",
+        "alignment": 0.1416996803790266,
+        "alignment_ci_low": 0.10530950845282251,
+        "alignment_ci_high": 0.18102005903040083,
+        "transfer": 0.9355509355509355,
+        "eval_n": 962,
+        "gradient_n": 500,
+        "n_seeds": 3
+      },
+      {
+        "source_id": "coco_semantic_v14",
         "source": "Semantic segmentation",
         "source_family": "RORG",
         "target_id": "i2t:CATEGORY_INSTANCE",
         "target": "Category recognition",
         "target_family": "REC",
-        "alignment": 0.2729084399540689,
-        "transfer": 1.6632016632016615
+        "alignment": 0.24667176205039032,
+        "alignment_ci_low": 0.17367061143677723,
+        "alignment_ci_high": 0.3078523363833707,
+        "transfer": 0.6583506583506583,
+        "eval_n": 962,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "taskonomy_edge_texture",
@@ -185,8 +288,13 @@
         "target_id": "i2t:CATEGORY_INSTANCE",
         "target": "Category recognition",
         "target_family": "REC",
-        "alignment": -0.20528686558962692,
-        "transfer": 1.6632016632016615
+        "alignment": -0.2052868655896269,
+        "alignment_ci_low": -0.2595226110786838,
+        "alignment_ci_high": -0.14250602869975604,
+        "transfer": 0.693000693000693,
+        "eval_n": 962,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "taskonomy_keypoints2d",
@@ -196,7 +304,12 @@
         "target": "Category recognition",
         "target_family": "REC",
         "alignment": 0.04150887807407413,
-        "transfer": 1.2474012474012426
+        "alignment_ci_low": -0.01910920484733014,
+        "alignment_ci_high": 0.09700928536195631,
+        "transfer": -0.103950103950104,
+        "eval_n": 962,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "taskonomy_segment_unsup2d",
@@ -205,8 +318,13 @@
         "target_id": "i2t:CATEGORY_INSTANCE",
         "target": "Category recognition",
         "target_family": "REC",
-        "alignment": -0.0015845079396011076,
-        "transfer": 2.2869022869022757
+        "alignment": -0.001584507939601111,
+        "alignment_ci_low": -0.04887028220967513,
+        "alignment_ci_high": 0.04351561005204379,
+        "transfer": 0.3811503811503811,
+        "eval_n": 962,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "taskonomy_segment_unsup25d",
@@ -216,7 +334,12 @@
         "target": "Category recognition",
         "target_family": "REC",
         "alignment": 0.08414807882529496,
-        "transfer": 2.7027027027026946
+        "alignment_ci_low": 0.016469525219327263,
+        "alignment_ci_high": 0.13986534364013392,
+        "transfer": 1.2474012474012472,
+        "eval_n": 962,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "counting",
@@ -226,7 +349,12 @@
         "target": "Category recognition",
         "target_family": "REC",
         "alignment": 0.11286553181669233,
-        "transfer": -0.20790020790020947
+        "alignment_ci_low": 0.08057496919699637,
+        "alignment_ci_high": 0.14410121213283653,
+        "transfer": -0.13860013860013862,
+        "eval_n": 962,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "jigsaw",
@@ -236,17 +364,72 @@
         "target": "Category recognition",
         "target_family": "REC",
         "alignment": 0.10665025521019215,
-        "transfer": 1.871101871101871
+        "alignment_ci_low": 0.07411497789275664,
+        "alignment_ci_high": 0.13955400914619573,
+        "transfer": 0.7623007623007623,
+        "eval_n": 962,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
-        "source_id": "colorization_v13",
-        "source": "Colorization",
+        "source_id": "localization",
+        "source": "Localization",
+        "source_family": "RORG",
+        "target_id": "i2t:CATEGORY_INSTANCE",
+        "target": "Category recognition",
+        "target_family": "REC",
+        "alignment": 0.1309207097625159,
+        "alignment_ci_low": 0.08034255678136992,
+        "alignment_ci_high": 0.17026043934535862,
+        "transfer": 0.34650034650034645,
+        "eval_n": 962,
+        "gradient_n": 500,
+        "n_seeds": 3
+      },
+      {
+        "source_id": "category_v14",
+        "source": "Object editing",
+        "source_family": "REC",
+        "target_id": "i2t:COLOR_MATERIAL",
+        "target": "Appearance understanding",
+        "target_family": "REC",
+        "alignment": 0.05341484158200341,
+        "alignment_ci_low": 0.00374168767397712,
+        "alignment_ci_high": 0.11189033653805833,
+        "transfer": -0.8248423095584667,
+        "eval_n": 687,
+        "gradient_n": 500,
+        "n_seeds": 3
+      },
+      {
+        "source_id": "appearance_v14",
+        "source": "Attribute editing",
+        "source_family": "REC",
+        "target_id": "i2t:COLOR_MATERIAL",
+        "target": "Appearance understanding",
+        "target_family": "REC",
+        "alignment": 0.06376798847742972,
+        "alignment_ci_low": 0.011111927956280057,
+        "alignment_ci_high": 0.11800753073468467,
+        "transfer": -0.5337214944201844,
+        "eval_n": 687,
+        "gradient_n": 500,
+        "n_seeds": 3
+      },
+      {
+        "source_id": "colorization_taskonomy_v14",
+        "source": "Colorization (Taskonomy)",
         "source_family": "RCN",
         "target_id": "i2t:COLOR_MATERIAL",
         "target": "Appearance understanding",
         "target_family": "REC",
-        "alignment": 0.02771606261621289,
-        "transfer": 0.14556040756913546
+        "alignment": -0.03751825001515284,
+        "alignment_ci_low": -0.07564752451060677,
+        "alignment_ci_high": 0.0051522421082544415,
+        "transfer": -0.242600679281902,
+        "eval_n": 687,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "taskonomy_depth_zbuffer",
@@ -255,8 +438,13 @@
         "target_id": "i2t:COLOR_MATERIAL",
         "target": "Appearance understanding",
         "target_family": "REC",
-        "alignment": -0.11969673711668248,
-        "transfer": 0.5822416302765703
+        "alignment": -0.11969673711668247,
+        "alignment_ci_low": -0.19191787516418252,
+        "alignment_ci_high": -0.044389074879487705,
+        "transfer": -0.242600679281902,
+        "eval_n": 687,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "taskonomy_depth_euclidean",
@@ -266,7 +454,12 @@
         "target": "Appearance understanding",
         "target_family": "REC",
         "alignment": -0.12009352811603785,
-        "transfer": -0.5822416302765703
+        "alignment_ci_low": -0.18334619446701186,
+        "alignment_ci_high": -0.04665058290176187,
+        "transfer": -0.14556040756914118,
+        "eval_n": 687,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "taskonomy_normal",
@@ -276,7 +469,12 @@
         "target": "Appearance understanding",
         "target_family": "REC",
         "alignment": 0.04009200325209272,
-        "transfer": 0.7278020378457057
+        "alignment_ci_low": -0.012343476719734691,
+        "alignment_ci_high": 0.09515951921599605,
+        "transfer": 3.700743415417188e-17,
+        "eval_n": 687,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "taskonomy_principal_curvature",
@@ -286,7 +484,12 @@
         "target": "Appearance understanding",
         "target_family": "REC",
         "alignment": 0.13627417024499716,
-        "transfer": 0.5822416302765703
+        "alignment_ci_low": 0.08079797548359269,
+        "alignment_ci_high": 0.176055164175763,
+        "transfer": 0.19408054342552158,
+        "eval_n": 687,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "taskonomy_edge_occlusion",
@@ -296,7 +499,12 @@
         "target": "Appearance understanding",
         "target_family": "REC",
         "alignment": -0.009288389225908269,
-        "transfer": 0.14556040756913546
+        "alignment_ci_low": -0.062426830443145453,
+        "alignment_ci_high": 0.048854979597372845,
+        "transfer": 0.2911208151382824,
+        "eval_n": 687,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "taskonomy_keypoints3d",
@@ -306,7 +514,12 @@
         "target": "Appearance understanding",
         "target_family": "REC",
         "alignment": 0.22241632229204353,
-        "transfer": -0.29112081513828514
+        "alignment_ci_low": 0.16254681769978696,
+        "alignment_ci_high": 0.26172027069978426,
+        "transfer": -0.7278020378457061,
+        "eval_n": 687,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "taskonomy_reshading",
@@ -316,17 +529,42 @@
         "target": "Appearance understanding",
         "target_family": "REC",
         "alignment": 0.11492203938248513,
-        "transfer": 1.1644832605531263
+        "alignment_ci_low": 0.050569250204183167,
+        "alignment_ci_high": 0.16553098455017254,
+        "transfer": 0.09704027171276079,
+        "eval_n": 687,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
-        "source_id": "coco_semantic",
+        "source_id": "inpainting_rect_v14",
+        "source": "Inpainting",
+        "source_family": "RCN",
+        "target_id": "i2t:COLOR_MATERIAL",
+        "target": "Appearance understanding",
+        "target_family": "REC",
+        "alignment": 0.025036178340152683,
+        "alignment_ci_low": -0.024408973590165133,
+        "alignment_ci_high": 0.07638200004420617,
+        "transfer": 0.14556040756914118,
+        "eval_n": 687,
+        "gradient_n": 500,
+        "n_seeds": 3
+      },
+      {
+        "source_id": "coco_semantic_v14",
         "source": "Semantic segmentation",
         "source_family": "RORG",
         "target_id": "i2t:COLOR_MATERIAL",
         "target": "Appearance understanding",
         "target_family": "REC",
-        "alignment": 0.1384612294468767,
-        "transfer": -0.7278020378457057
+        "alignment": 0.11360482170551779,
+        "alignment_ci_low": 0.046454692923265546,
+        "alignment_ci_high": 0.18166479172197283,
+        "transfer": 0.33964095099466274,
+        "eval_n": 687,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "taskonomy_edge_texture",
@@ -336,7 +574,12 @@
         "target": "Appearance understanding",
         "target_family": "REC",
         "alignment": -0.19099443597054025,
-        "transfer": 0.4366812227074206
+        "alignment_ci_low": -0.23074517146924226,
+        "alignment_ci_high": -0.1361355862535805,
+        "transfer": 0.43668122270742354,
+        "eval_n": 687,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "taskonomy_keypoints2d",
@@ -346,7 +589,12 @@
         "target": "Appearance understanding",
         "target_family": "REC",
         "alignment": 0.09667174764542683,
-        "transfer": -0.29112081513828514
+        "alignment_ci_low": 0.03174386883216355,
+        "alignment_ci_high": 0.1464011096951173,
+        "transfer": -0.242600679281902,
+        "eval_n": 687,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "taskonomy_segment_unsup2d",
@@ -356,7 +604,12 @@
         "target": "Appearance understanding",
         "target_family": "REC",
         "alignment": -0.04811572034354114,
-        "transfer": 0.0
+        "alignment_ci_low": -0.09618843278904367,
+        "alignment_ci_high": 0.0026302202425760855,
+        "transfer": -0.19408054342552158,
+        "eval_n": 687,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "taskonomy_segment_unsup25d",
@@ -366,7 +619,12 @@
         "target": "Appearance understanding",
         "target_family": "REC",
         "alignment": 0.058613593329863864,
-        "transfer": -0.29112081513828514
+        "alignment_ci_low": 0.0017040309151966197,
+        "alignment_ci_high": 0.1085187440334496,
+        "transfer": 0.33964095099466274,
+        "eval_n": 687,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "counting",
@@ -376,7 +634,12 @@
         "target": "Appearance understanding",
         "target_family": "REC",
         "alignment": -0.025280916080926974,
-        "transfer": -1.310043668122276
+        "alignment_ci_low": -0.07465503573887051,
+        "alignment_ci_high": 0.020163686281849225,
+        "transfer": -0.2911208151382823,
+        "eval_n": 687,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "jigsaw",
@@ -385,18 +648,73 @@
         "target_id": "i2t:COLOR_MATERIAL",
         "target": "Appearance understanding",
         "target_family": "REC",
-        "alignment": -0.023142259618148163,
-        "transfer": 1.7467248908296966
+        "alignment": -0.02314225961814816,
+        "alignment_ci_low": -0.0705434461241711,
+        "alignment_ci_high": 0.023557279271894244,
+        "transfer": 1.5041242115477924,
+        "eval_n": 687,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
-        "source_id": "colorization_v13",
-        "source": "Colorization",
+        "source_id": "localization",
+        "source": "Localization",
+        "source_family": "RORG",
+        "target_id": "i2t:COLOR_MATERIAL",
+        "target": "Appearance understanding",
+        "target_family": "REC",
+        "alignment": 0.007840985889201593,
+        "alignment_ci_low": -0.04331855980036047,
+        "alignment_ci_high": 0.05571183370722834,
+        "transfer": 0.19408054342552158,
+        "eval_n": 687,
+        "gradient_n": 500,
+        "n_seeds": 3
+      },
+      {
+        "source_id": "category_v14",
+        "source": "Object editing",
+        "source_family": "REC",
+        "target_id": "i2t:DEPTH_DISTANCE",
+        "target": "Depth understanding",
+        "target_family": "RCN",
+        "alignment": 0.013902277997409033,
+        "alignment_ci_low": -0.02213380418157799,
+        "alignment_ci_high": 0.06367956341066502,
+        "transfer": -0.04065040650406504,
+        "eval_n": 820,
+        "gradient_n": 500,
+        "n_seeds": 3
+      },
+      {
+        "source_id": "appearance_v14",
+        "source": "Attribute editing",
+        "source_family": "REC",
+        "target_id": "i2t:DEPTH_DISTANCE",
+        "target": "Depth understanding",
+        "target_family": "RCN",
+        "alignment": -0.004607799993903568,
+        "alignment_ci_low": -0.045257727686500195,
+        "alignment_ci_high": 0.050277192501675304,
+        "transfer": -0.6097560975609756,
+        "eval_n": 820,
+        "gradient_n": 500,
+        "n_seeds": 3
+      },
+      {
+        "source_id": "colorization_taskonomy_v14",
+        "source": "Colorization (Taskonomy)",
         "source_family": "RCN",
         "target_id": "i2t:DEPTH_DISTANCE",
         "target": "Depth understanding",
         "target_family": "RCN",
-        "alignment": -0.15121896724074124,
-        "transfer": -1.4634146341463463
+        "alignment": -0.07297098114608022,
+        "alignment_ci_low": -0.11216210014290762,
+        "alignment_ci_high": -0.029035556540827304,
+        "transfer": 0.0,
+        "eval_n": 820,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "taskonomy_depth_zbuffer",
@@ -406,7 +724,12 @@
         "target": "Depth understanding",
         "target_family": "RCN",
         "alignment": 0.07026291682849711,
-        "transfer": 0.24390243902438158
+        "alignment_ci_low": 0.008926369489888054,
+        "alignment_ci_high": 0.13339451777256653,
+        "transfer": 0.0,
+        "eval_n": 820,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "taskonomy_depth_euclidean",
@@ -416,7 +739,12 @@
         "target": "Depth understanding",
         "target_family": "RCN",
         "alignment": 0.14747656605505546,
-        "transfer": 0.3658536585365795
+        "alignment_ci_low": 0.06624859871008536,
+        "alignment_ci_high": 0.19738732909200252,
+        "transfer": 0.8130081300813008,
+        "eval_n": 820,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "taskonomy_normal",
@@ -426,7 +754,12 @@
         "target": "Depth understanding",
         "target_family": "RCN",
         "alignment": -0.13465426686592774,
-        "transfer": -1.0975609756097668
+        "alignment_ci_low": -0.208326568416521,
+        "alignment_ci_high": -0.05878500054130553,
+        "transfer": -0.24390243902439027,
+        "eval_n": 820,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "taskonomy_principal_curvature",
@@ -436,7 +769,12 @@
         "target": "Depth understanding",
         "target_family": "RCN",
         "alignment": -0.1143421484347167,
-        "transfer": 0.24390243902438158
+        "alignment_ci_low": -0.1678733852164472,
+        "alignment_ci_high": -0.03973355687570106,
+        "transfer": 0.9349593495934959,
+        "eval_n": 820,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "taskonomy_edge_occlusion",
@@ -446,7 +784,12 @@
         "target": "Depth understanding",
         "target_family": "RCN",
         "alignment": -0.09474676320294616,
-        "transfer": 0.8536585365853568
+        "alignment_ci_low": -0.16940712794675744,
+        "alignment_ci_high": -0.019039828355253214,
+        "transfer": 0.6504065040650406,
+        "eval_n": 820,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "taskonomy_keypoints3d",
@@ -456,7 +799,12 @@
         "target": "Depth understanding",
         "target_family": "RCN",
         "alignment": -0.07967193709603779,
-        "transfer": 0.48780487804877737
+        "alignment_ci_low": -0.1289801609290873,
+        "alignment_ci_high": -0.026155013755300893,
+        "transfer": 0.4878048780487805,
+        "eval_n": 820,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "taskonomy_reshading",
@@ -466,17 +814,42 @@
         "target": "Depth understanding",
         "target_family": "RCN",
         "alignment": 0.03213471717967018,
-        "transfer": 0.6097560975609753
+        "alignment_ci_low": -0.02620876059357457,
+        "alignment_ci_high": 0.08807626061055322,
+        "transfer": -0.12195121951219512,
+        "eval_n": 820,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
-        "source_id": "coco_semantic",
+        "source_id": "inpainting_rect_v14",
+        "source": "Inpainting",
+        "source_family": "RCN",
+        "target_id": "i2t:DEPTH_DISTANCE",
+        "target": "Depth understanding",
+        "target_family": "RCN",
+        "alignment": -0.06521072332045184,
+        "alignment_ci_low": -0.10453096887094793,
+        "alignment_ci_high": -0.0192086739450042,
+        "transfer": -0.8536585365853658,
+        "eval_n": 820,
+        "gradient_n": 500,
+        "n_seeds": 3
+      },
+      {
+        "source_id": "coco_semantic_v14",
         "source": "Semantic segmentation",
         "source_family": "RORG",
         "target_id": "i2t:DEPTH_DISTANCE",
         "target": "Depth understanding",
         "target_family": "RCN",
-        "alignment": 0.07827791386505803,
-        "transfer": 0.24390243902438158
+        "alignment": 0.09309411827006096,
+        "alignment_ci_low": 0.00601973899476795,
+        "alignment_ci_high": 0.17961569501256022,
+        "transfer": -1.1788617886178863,
+        "eval_n": 820,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "taskonomy_edge_texture",
@@ -486,7 +859,12 @@
         "target": "Depth understanding",
         "target_family": "RCN",
         "alignment": -0.07585226100619943,
-        "transfer": 2.0731707317073074
+        "alignment_ci_low": -0.11556892395576475,
+        "alignment_ci_high": -0.02919709262504526,
+        "transfer": 0.7317073170731708,
+        "eval_n": 820,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "taskonomy_keypoints2d",
@@ -496,7 +874,12 @@
         "target": "Depth understanding",
         "target_family": "RCN",
         "alignment": -0.0672247558067342,
-        "transfer": -0.4878048780487916
+        "alignment_ci_low": -0.1251577134276364,
+        "alignment_ci_high": -0.0014240891398089885,
+        "transfer": 0.894308943089431,
+        "eval_n": 820,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "taskonomy_segment_unsup2d",
@@ -506,7 +889,12 @@
         "target": "Depth understanding",
         "target_family": "RCN",
         "alignment": -0.12556988913442696,
-        "transfer": 1.58536585365853
+        "alignment_ci_low": -0.1728334450461894,
+        "alignment_ci_high": -0.07330591744869962,
+        "transfer": 0.7723577235772359,
+        "eval_n": 820,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "taskonomy_segment_unsup25d",
@@ -515,8 +903,13 @@
         "target_id": "i2t:DEPTH_DISTANCE",
         "target": "Depth understanding",
         "target_family": "RCN",
-        "alignment": -0.10287584550295453,
-        "transfer": -0.4878048780487916
+        "alignment": -0.10287584550295456,
+        "alignment_ci_low": -0.16749274754045315,
+        "alignment_ci_high": -0.033388604643097855,
+        "transfer": -0.2845528455284553,
+        "eval_n": 820,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "counting",
@@ -526,7 +919,12 @@
         "target": "Depth understanding",
         "target_family": "RCN",
         "alignment": -0.03775024038960023,
-        "transfer": -3.170731707317074
+        "alignment_ci_low": -0.06947245410044409,
+        "alignment_ci_high": -0.0011960139400501654,
+        "transfer": -1.991869918699187,
+        "eval_n": 820,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "jigsaw",
@@ -536,17 +934,72 @@
         "target": "Depth understanding",
         "target_family": "RCN",
         "alignment": -0.060773016721911224,
-        "transfer": 0.48780487804877737
+        "alignment_ci_low": -0.08969649302187212,
+        "alignment_ci_high": -0.02863967353878638,
+        "transfer": 0.4065040650406504,
+        "eval_n": 820,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
-        "source_id": "colorization_v13",
-        "source": "Colorization",
+        "source_id": "localization",
+        "source": "Localization",
+        "source_family": "RORG",
+        "target_id": "i2t:DEPTH_DISTANCE",
+        "target": "Depth understanding",
+        "target_family": "RCN",
+        "alignment": -0.04017589387722927,
+        "alignment_ci_low": -0.07947298049973808,
+        "alignment_ci_high": 0.011564266330520078,
+        "transfer": 0.8943089430894308,
+        "eval_n": 820,
+        "gradient_n": 500,
+        "n_seeds": 3
+      },
+      {
+        "source_id": "category_v14",
+        "source": "Object editing",
+        "source_family": "REC",
+        "target_id": "i2t:METRIC_3D_RELATION",
+        "target": "Metric 3D relation",
+        "target_family": "RCN",
+        "alignment": -0.05936291353840348,
+        "alignment_ci_low": -0.11777617121783868,
+        "alignment_ci_high": -0.019721528248370767,
+        "transfer": 2.028584601198709,
+        "eval_n": 723,
+        "gradient_n": 500,
+        "n_seeds": 3
+      },
+      {
+        "source_id": "appearance_v14",
+        "source": "Attribute editing",
+        "source_family": "REC",
+        "target_id": "i2t:METRIC_3D_RELATION",
+        "target": "Metric 3D relation",
+        "target_family": "RCN",
+        "alignment": -0.08634325016499526,
+        "alignment_ci_low": -0.13115887126254078,
+        "alignment_ci_high": -0.04352175264528214,
+        "transfer": 0.599354541263255,
+        "eval_n": 723,
+        "gradient_n": 500,
+        "n_seeds": 3
+      },
+      {
+        "source_id": "colorization_taskonomy_v14",
+        "source": "Colorization (Taskonomy)",
         "source_family": "RCN",
         "target_id": "i2t:METRIC_3D_RELATION",
         "target": "Metric 3D relation",
         "target_family": "RCN",
-        "alignment": -0.09957237085222191,
-        "transfer": 1.9363762102351387
+        "alignment": -0.28311088921584354,
+        "alignment_ci_low": -0.31650656850419856,
+        "alignment_ci_high": -0.23301227857350848,
+        "transfer": 0.4610419548178884,
+        "eval_n": 723,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "taskonomy_depth_zbuffer",
@@ -556,7 +1009,12 @@
         "target": "Metric 3D relation",
         "target_family": "RCN",
         "alignment": 0.04512727040027166,
-        "transfer": 2.904564315352701
+        "alignment_ci_low": -0.02881613621046286,
+        "alignment_ci_high": 0.12663084520074658,
+        "transfer": 3.59612724757953,
+        "eval_n": 723,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "taskonomy_depth_euclidean",
@@ -566,7 +1024,12 @@
         "target": "Metric 3D relation",
         "target_family": "RCN",
         "alignment": 0.16863565582260642,
-        "transfer": 2.766251728907335
+        "alignment_ci_low": 0.09065037719899509,
+        "alignment_ci_high": 0.2238397695854802,
+        "transfer": 3.826648224988474,
+        "eval_n": 723,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "taskonomy_normal",
@@ -576,7 +1039,12 @@
         "target": "Metric 3D relation",
         "target_family": "RCN",
         "alignment": -0.03950336070816653,
-        "transfer": 2.489626556016603
+        "alignment_ci_low": -0.10832605707942262,
+        "alignment_ci_high": 0.026671264072221687,
+        "transfer": 3.4117104656523742,
+        "eval_n": 723,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "taskonomy_principal_curvature",
@@ -585,8 +1053,13 @@
         "target_id": "i2t:METRIC_3D_RELATION",
         "target": "Metric 3D relation",
         "target_family": "RCN",
-        "alignment": -0.0015006511107815389,
-        "transfer": -0.13831258644536604
+        "alignment": -0.0015006511107815354,
+        "alignment_ci_low": -0.07421145039068046,
+        "alignment_ci_high": 0.07786439146206055,
+        "transfer": 1.3370216689718764,
+        "eval_n": 723,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "taskonomy_edge_occlusion",
@@ -596,7 +1069,12 @@
         "target": "Metric 3D relation",
         "target_family": "RCN",
         "alignment": -0.09608847878866576,
-        "transfer": 0.6915629322268302
+        "alignment_ci_low": -0.17356317468534138,
+        "alignment_ci_high": -0.015414420919287039,
+        "transfer": 1.8441678192715536,
+        "eval_n": 723,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "taskonomy_keypoints3d",
@@ -605,8 +1083,13 @@
         "target_id": "i2t:METRIC_3D_RELATION",
         "target": "Metric 3D relation",
         "target_family": "RCN",
-        "alignment": -0.061384821783126826,
-        "transfer": -0.2766251728907321
+        "alignment": -0.06138482178312684,
+        "alignment_ci_low": -0.1072972339541384,
+        "alignment_ci_high": -0.011327393685242724,
+        "transfer": 1.383125864453665,
+        "eval_n": 723,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "taskonomy_reshading",
@@ -616,17 +1099,42 @@
         "target": "Metric 3D relation",
         "target_family": "RCN",
         "alignment": 0.09412573298629963,
-        "transfer": 0.6915629322268302
+        "alignment_ci_low": 0.037558644023436685,
+        "alignment_ci_high": 0.1409738113450659,
+        "transfer": 1.751959428307976,
+        "eval_n": 723,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
-        "source_id": "coco_semantic",
+        "source_id": "inpainting_rect_v14",
+        "source": "Inpainting",
+        "source_family": "RCN",
+        "target_id": "i2t:METRIC_3D_RELATION",
+        "target": "Metric 3D relation",
+        "target_family": "RCN",
+        "alignment": -0.07158802493604453,
+        "alignment_ci_low": -0.11368802090167601,
+        "alignment_ci_high": -0.033979573406640956,
+        "transfer": 1.0142923005993545,
+        "eval_n": 723,
+        "gradient_n": 500,
+        "n_seeds": 3
+      },
+      {
+        "source_id": "coco_semantic_v14",
         "source": "Semantic segmentation",
         "source_family": "RORG",
         "target_id": "i2t:METRIC_3D_RELATION",
         "target": "Metric 3D relation",
         "target_family": "RCN",
-        "alignment": 0.03376271334919244,
-        "transfer": 2.351313969571237
+        "alignment": 0.07001596672672787,
+        "alignment_ci_low": 0.005636491608145309,
+        "alignment_ci_high": 0.12841951508245325,
+        "transfer": 1.9363762102351314,
+        "eval_n": 723,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "taskonomy_edge_texture",
@@ -636,7 +1144,12 @@
         "target": "Metric 3D relation",
         "target_family": "RCN",
         "alignment": 0.07986469522085446,
-        "transfer": 0.0
+        "alignment_ci_low": 0.01688283800585738,
+        "alignment_ci_high": 0.14521175256065555,
+        "transfer": 1.1987090825265099,
+        "eval_n": 723,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "taskonomy_keypoints2d",
@@ -646,7 +1159,12 @@
         "target": "Metric 3D relation",
         "target_family": "RCN",
         "alignment": 0.13697119323439008,
-        "transfer": -0.4149377593360981
+        "alignment_ci_low": 0.06632037445482704,
+        "alignment_ci_high": 0.1950414478128323,
+        "transfer": 0.9681881051175657,
+        "eval_n": 723,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "taskonomy_segment_unsup2d",
@@ -656,7 +1174,12 @@
         "target": "Metric 3D relation",
         "target_family": "RCN",
         "alignment": 0.03206206349521344,
-        "transfer": -0.4149377593360981
+        "alignment_ci_low": -0.022282457754268757,
+        "alignment_ci_high": 0.08270990354913352,
+        "transfer": 1.0603964960811434,
+        "eval_n": 723,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "taskonomy_segment_unsup25d",
@@ -666,7 +1189,12 @@
         "target": "Metric 3D relation",
         "target_family": "RCN",
         "alignment": 0.043519969150102145,
-        "transfer": 1.9363762102351387
+        "alignment_ci_low": -0.009665567831010663,
+        "alignment_ci_high": 0.09150925652230381,
+        "transfer": 2.1668971876440755,
+        "eval_n": 723,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "counting",
@@ -676,7 +1204,12 @@
         "target": "Metric 3D relation",
         "target_family": "RCN",
         "alignment": -0.02118335469543946,
-        "transfer": -0.8298755186721962
+        "alignment_ci_low": -0.05120599996860246,
+        "alignment_ci_high": 0.011612321179539066,
+        "transfer": 0.3227293683725219,
+        "eval_n": 723,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "jigsaw",
@@ -686,17 +1219,72 @@
         "target": "Metric 3D relation",
         "target_family": "RCN",
         "alignment": -0.01915437674962414,
-        "transfer": 1.5214384508990406
+        "alignment_ci_low": -0.04948759978697163,
+        "alignment_ci_high": 0.012070202385327213,
+        "transfer": 2.627939142461964,
+        "eval_n": 723,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
-        "source_id": "colorization_v13",
-        "source": "Colorization",
+        "source_id": "localization",
+        "source": "Localization",
+        "source_family": "RORG",
+        "target_id": "i2t:METRIC_3D_RELATION",
+        "target": "Metric 3D relation",
+        "target_family": "RCN",
+        "alignment": -0.019263289407365408,
+        "alignment_ci_low": -0.05589110552061847,
+        "alignment_ci_high": 0.025646046038566295,
+        "transfer": 1.798063623789765,
+        "eval_n": 723,
+        "gradient_n": 500,
+        "n_seeds": 3
+      },
+      {
+        "source_id": "category_v14",
+        "source": "Object editing",
+        "source_family": "REC",
+        "target_id": "i2t:RELATIVE_3D_RELATION",
+        "target": "2D spatial relation",
+        "target_family": "RCN",
+        "alignment": 0.03714845207310142,
+        "alignment_ci_low": -0.025289311962648362,
+        "alignment_ci_high": 0.09404974418697529,
+        "transfer": -1.6181229773462784,
+        "eval_n": 927,
+        "gradient_n": 500,
+        "n_seeds": 3
+      },
+      {
+        "source_id": "appearance_v14",
+        "source": "Attribute editing",
+        "source_family": "REC",
+        "target_id": "i2t:RELATIVE_3D_RELATION",
+        "target": "2D spatial relation",
+        "target_family": "RCN",
+        "alignment": 0.04466060873660997,
+        "alignment_ci_low": -0.012735002241042804,
+        "alignment_ci_high": 0.0966423340186457,
+        "transfer": -0.5753326141675656,
+        "eval_n": 927,
+        "gradient_n": 500,
+        "n_seeds": 3
+      },
+      {
+        "source_id": "colorization_taskonomy_v14",
+        "source": "Colorization (Taskonomy)",
         "source_family": "RCN",
         "target_id": "i2t:RELATIVE_3D_RELATION",
         "target": "2D spatial relation",
         "target_family": "RCN",
-        "alignment": 0.04477536032881563,
-        "transfer": -0.10787486515641831
+        "alignment": -0.1760949955839328,
+        "alignment_ci_low": -0.21394663762456878,
+        "alignment_ci_high": -0.12723699452596418,
+        "transfer": -1.2225818051060768,
+        "eval_n": 927,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "taskonomy_depth_zbuffer",
@@ -706,7 +1294,12 @@
         "target": "2D spatial relation",
         "target_family": "RCN",
         "alignment": -0.13655663826278278,
-        "transfer": -0.43149946062567324
+        "alignment_ci_low": -0.22108145174075,
+        "alignment_ci_high": -0.04260118738138458,
+        "transfer": -0.7910823444804027,
+        "eval_n": 927,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "taskonomy_depth_euclidean",
@@ -716,7 +1309,12 @@
         "target": "2D spatial relation",
         "target_family": "RCN",
         "alignment": -0.10159279542016839,
-        "transfer": -0.8629989212513465
+        "alignment_ci_low": -0.17556001832138224,
+        "alignment_ci_high": -0.025669195858365485,
+        "transfer": -0.5753326141675655,
+        "eval_n": 927,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "taskonomy_normal",
@@ -726,7 +1324,12 @@
         "target": "2D spatial relation",
         "target_family": "RCN",
         "alignment": 0.00833661833877352,
-        "transfer": -0.3236245954692549
+        "alignment_ci_low": -0.04016865373796934,
+        "alignment_ci_high": 0.05613737085989067,
+        "transfer": -0.5753326141675656,
+        "eval_n": 927,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "taskonomy_principal_curvature",
@@ -736,7 +1339,12 @@
         "target": "2D spatial relation",
         "target_family": "RCN",
         "alignment": 0.07880360046726217,
-        "transfer": 0.0
+        "alignment_ci_low": 0.012867227846726568,
+        "alignment_ci_high": 0.13120281469328557,
+        "transfer": 0.39554117224020136,
+        "eval_n": 927,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "taskonomy_edge_occlusion",
@@ -746,7 +1354,12 @@
         "target": "2D spatial relation",
         "target_family": "RCN",
         "alignment": -0.07786036341441649,
-        "transfer": -0.9708737864077648
+        "alignment_ci_low": -0.1270887056352727,
+        "alignment_ci_high": -0.012646060380628082,
+        "transfer": -1.1147069399496583,
+        "eval_n": 927,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "taskonomy_keypoints3d",
@@ -756,7 +1369,12 @@
         "target": "2D spatial relation",
         "target_family": "RCN",
         "alignment": 0.16416596873065264,
-        "transfer": 0.43149946062567324
+        "alignment_ci_low": 0.09754825579192403,
+        "alignment_ci_high": 0.21047054433946688,
+        "transfer": 0.07191657677094572,
+        "eval_n": 927,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "taskonomy_reshading",
@@ -766,17 +1384,42 @@
         "target": "2D spatial relation",
         "target_family": "RCN",
         "alignment": 0.06826373053183019,
-        "transfer": 0.0
+        "alignment_ci_low": -0.005042029568726331,
+        "alignment_ci_high": 0.13150029753977782,
+        "transfer": 0.0,
+        "eval_n": 927,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
-        "source_id": "coco_semantic",
+        "source_id": "inpainting_rect_v14",
+        "source": "Inpainting",
+        "source_family": "RCN",
+        "target_id": "i2t:RELATIVE_3D_RELATION",
+        "target": "2D spatial relation",
+        "target_family": "RCN",
+        "alignment": 0.035389806651104944,
+        "alignment_ci_low": -0.021101652294576816,
+        "alignment_ci_high": 0.0853922102917674,
+        "transfer": -0.39554117224020136,
+        "eval_n": 927,
+        "gradient_n": 500,
+        "n_seeds": 3
+      },
+      {
+        "source_id": "coco_semantic_v14",
         "source": "Semantic segmentation",
         "source_family": "RORG",
         "target_id": "i2t:RELATIVE_3D_RELATION",
         "target": "2D spatial relation",
         "target_family": "RCN",
-        "alignment": 0.0932901514062476,
-        "transfer": -0.9708737864077648
+        "alignment": 0.10762328739250182,
+        "alignment_ci_low": 0.02947349380984057,
+        "alignment_ci_high": 0.1838100458721251,
+        "transfer": -0.32362459546925565,
+        "eval_n": 927,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "taskonomy_edge_texture",
@@ -785,8 +1428,13 @@
         "target_id": "i2t:RELATIVE_3D_RELATION",
         "target": "2D spatial relation",
         "target_family": "RCN",
-        "alignment": -0.16969848906054633,
-        "transfer": 0.5393743257820915
+        "alignment": -0.1696984890605463,
+        "alignment_ci_low": -0.20607046998288067,
+        "alignment_ci_high": -0.11649086283300382,
+        "transfer": 0.5034160373966199,
+        "eval_n": 927,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "taskonomy_keypoints2d",
@@ -795,8 +1443,13 @@
         "target_id": "i2t:RELATIVE_3D_RELATION",
         "target": "2D spatial relation",
         "target_family": "RCN",
-        "alignment": 0.13956820261616365,
-        "transfer": 0.43149946062567324
+        "alignment": 0.13956820261616362,
+        "alignment_ci_low": 0.07146384750580592,
+        "alignment_ci_high": 0.18615699465137098,
+        "transfer": 0.32362459546925565,
+        "eval_n": 927,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "taskonomy_segment_unsup2d",
@@ -806,7 +1459,12 @@
         "target": "2D spatial relation",
         "target_family": "RCN",
         "alignment": -0.060099798052985764,
-        "transfer": -0.3236245954692549
+        "alignment_ci_low": -0.11200066309815582,
+        "alignment_ci_high": -0.008292387436058384,
+        "transfer": -0.0719165767709457,
+        "eval_n": 927,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "taskonomy_segment_unsup25d",
@@ -816,7 +1474,12 @@
         "target": "2D spatial relation",
         "target_family": "RCN",
         "alignment": 0.006220790674473111,
-        "transfer": -0.5393743257820915
+        "alignment_ci_low": -0.050274338214029546,
+        "alignment_ci_high": 0.06014923888467377,
+        "transfer": -0.6832074793239841,
+        "eval_n": 927,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "counting",
@@ -826,7 +1489,12 @@
         "target": "2D spatial relation",
         "target_family": "RCN",
         "alignment": -0.007653461691610696,
-        "transfer": -0.21574973031283662
+        "alignment_ci_low": -0.06023956036964978,
+        "alignment_ci_high": 0.04492357721491438,
+        "transfer": -0.1438331535418914,
+        "eval_n": 927,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "jigsaw",
@@ -835,18 +1503,73 @@
         "target_id": "i2t:RELATIVE_3D_RELATION",
         "target": "2D spatial relation",
         "target_family": "RCN",
-        "alignment": -0.004889187253903839,
-        "transfer": -0.43149946062567324
+        "alignment": -0.004889187253903832,
+        "alignment_ci_low": -0.05693271463989321,
+        "alignment_ci_high": 0.04842363214246575,
+        "transfer": -0.2157497303128371,
+        "eval_n": 927,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
-        "source_id": "colorization_v13",
-        "source": "Colorization",
+        "source_id": "localization",
+        "source": "Localization",
+        "source_family": "RORG",
+        "target_id": "i2t:RELATIVE_3D_RELATION",
+        "target": "2D spatial relation",
+        "target_family": "RCN",
+        "alignment": 0.02408948212569633,
+        "alignment_ci_low": -0.035110887514052336,
+        "alignment_ci_high": 0.0768402819061298,
+        "transfer": -0.5753326141675656,
+        "eval_n": 927,
+        "gradient_n": 500,
+        "n_seeds": 3
+      },
+      {
+        "source_id": "category_v14",
+        "source": "Object editing",
+        "source_family": "REC",
+        "target_id": "i2t:OBJECT_COUNTING",
+        "target": "Counting",
+        "target_family": "RORG",
+        "alignment": 0.281729390421339,
+        "alignment_ci_low": 0.21840303100080272,
+        "alignment_ci_high": 0.32782494510722016,
+        "transfer": 1.0808473843493298,
+        "eval_n": 1542,
+        "gradient_n": 500,
+        "n_seeds": 3
+      },
+      {
+        "source_id": "appearance_v14",
+        "source": "Attribute editing",
+        "source_family": "REC",
+        "target_id": "i2t:OBJECT_COUNTING",
+        "target": "Counting",
+        "target_family": "RORG",
+        "alignment": 0.26986022355022776,
+        "alignment_ci_low": 0.2081672037807038,
+        "alignment_ci_high": 0.315886905040537,
+        "transfer": 1.448335495028102,
+        "eval_n": 1542,
+        "gradient_n": 500,
+        "n_seeds": 3
+      },
+      {
+        "source_id": "colorization_taskonomy_v14",
+        "source": "Colorization (Taskonomy)",
         "source_family": "RCN",
         "target_id": "i2t:OBJECT_COUNTING",
         "target": "Counting",
         "target_family": "RORG",
-        "alignment": 0.09823939898165318,
-        "transfer": 1.815823605706882
+        "alignment": 0.08483596275137303,
+        "alignment_ci_low": 0.03089078743282083,
+        "alignment_ci_high": 0.13480581291680202,
+        "transfer": 0.7349762213575444,
+        "eval_n": 1542,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "taskonomy_depth_zbuffer",
@@ -856,7 +1579,12 @@
         "target": "Counting",
         "target_family": "RORG",
         "alignment": 0.2593184812509338,
-        "transfer": 2.269779507133592
+        "alignment_ci_low": 0.17483669105422842,
+        "alignment_ci_high": 0.3184965861343783,
+        "transfer": 1.5780371811500216,
+        "eval_n": 1542,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "taskonomy_depth_euclidean",
@@ -866,7 +1594,12 @@
         "target": "Counting",
         "target_family": "RORG",
         "alignment": 0.24498305452304278,
-        "transfer": 1.1024643320363197
+        "alignment_ci_low": 0.14552891206170424,
+        "alignment_ci_high": 0.3155300114184808,
+        "transfer": 0.972762645914397,
+        "eval_n": 1542,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "taskonomy_normal",
@@ -876,7 +1609,12 @@
         "target": "Counting",
         "target_family": "RORG",
         "alignment": 0.08570756105350358,
-        "transfer": 1.945525291828801
+        "alignment_ci_low": -0.006263534618263566,
+        "alignment_ci_high": 0.16797489578633795,
+        "transfer": 1.2753999135322092,
+        "eval_n": 1542,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "taskonomy_principal_curvature",
@@ -886,7 +1624,12 @@
         "target": "Counting",
         "target_family": "RORG",
         "alignment": 0.1952235523563116,
-        "transfer": 0.9727626459144005
+        "alignment_ci_low": 0.10305475493556375,
+        "alignment_ci_high": 0.2609789598758237,
+        "transfer": 0.8214440121054908,
+        "eval_n": 1542,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "taskonomy_edge_occlusion",
@@ -896,7 +1639,12 @@
         "target": "Counting",
         "target_family": "RORG",
         "alignment": 0.1398761874355289,
-        "transfer": 1.2970168612191983
+        "alignment_ci_low": 0.049052113011397586,
+        "alignment_ci_high": 0.20533998331552533,
+        "transfer": 1.0159965412883702,
+        "eval_n": 1542,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "taskonomy_keypoints3d",
@@ -906,7 +1654,12 @@
         "target": "Counting",
         "target_family": "RORG",
         "alignment": 0.310610164435658,
-        "transfer": 2.658884565499349
+        "alignment_ci_low": 0.2471889771859988,
+        "alignment_ci_high": 0.33977066335327916,
+        "transfer": 1.4915693904020753,
+        "eval_n": 1542,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "taskonomy_reshading",
@@ -916,17 +1669,42 @@
         "target": "Counting",
         "target_family": "RORG",
         "alignment": 0.30300033976764773,
-        "transfer": 2.2049286640726393
+        "alignment_ci_low": 0.2163118679549686,
+        "alignment_ci_high": 0.34740329753776467,
+        "transfer": 1.1889321227842629,
+        "eval_n": 1542,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
-        "source_id": "coco_semantic",
+        "source_id": "inpainting_rect_v14",
+        "source": "Inpainting",
+        "source_family": "RCN",
+        "target_id": "i2t:OBJECT_COUNTING",
+        "target": "Counting",
+        "target_family": "RORG",
+        "alignment": 0.19955141038080598,
+        "alignment_ci_low": 0.1480226766242296,
+        "alignment_ci_high": 0.2485204199250752,
+        "transfer": 1.4915693904020753,
+        "eval_n": 1542,
+        "gradient_n": 500,
+        "n_seeds": 3
+      },
+      {
+        "source_id": "coco_semantic_v14",
         "source": "Semantic segmentation",
         "source_family": "RORG",
         "target_id": "i2t:OBJECT_COUNTING",
         "target": "Counting",
         "target_family": "RORG",
-        "alignment": 0.3541551001479885,
-        "transfer": -0.12970168612191912
+        "alignment": 0.31664765407922957,
+        "alignment_ci_low": 0.20761793130059256,
+        "alignment_ci_high": 0.39156307159194437,
+        "transfer": 1.0808473843493298,
+        "eval_n": 1542,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "taskonomy_edge_texture",
@@ -935,8 +1713,13 @@
         "target_id": "i2t:OBJECT_COUNTING",
         "target": "Counting",
         "target_family": "RORG",
-        "alignment": -0.1610940616894636,
-        "transfer": 2.4643320363164776
+        "alignment": -0.16109406168946366,
+        "alignment_ci_low": -0.21751867863273253,
+        "alignment_ci_high": -0.09327557493800302,
+        "transfer": 1.5348032857760485,
+        "eval_n": 1542,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "taskonomy_keypoints2d",
@@ -946,7 +1729,12 @@
         "target": "Counting",
         "target_family": "RORG",
         "alignment": 0.07365551144357833,
-        "transfer": 2.269779507133592
+        "alignment_ci_low": -0.0019955134329568054,
+        "alignment_ci_high": 0.13663158729089267,
+        "transfer": 1.405101599654129,
+        "eval_n": 1542,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "taskonomy_segment_unsup2d",
@@ -956,7 +1744,12 @@
         "target": "Counting",
         "target_family": "RORG",
         "alignment": 0.16005396403702374,
-        "transfer": 1.8806744487678344
+        "alignment_ci_low": 0.0907889054322463,
+        "alignment_ci_high": 0.20491745231493536,
+        "transfer": 1.4267185473411157,
+        "eval_n": 1542,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "taskonomy_segment_unsup25d",
@@ -966,7 +1759,12 @@
         "target": "Counting",
         "target_family": "RORG",
         "alignment": 0.20633127179291397,
-        "transfer": 1.491569390402077
+        "alignment_ci_low": 0.11631734779189747,
+        "alignment_ci_high": 0.27182047391250996,
+        "transfer": 1.0592304366623433,
+        "eval_n": 1542,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "counting",
@@ -975,8 +1773,13 @@
         "target_id": "i2t:OBJECT_COUNTING",
         "target": "Counting",
         "target_family": "RORG",
-        "alignment": 0.19073860098472858,
-        "transfer": 3.5667963683527972
+        "alignment": 0.19073860098472856,
+        "alignment_ci_low": 0.13895557043232235,
+        "alignment_ci_high": 0.23349192602750393,
+        "transfer": 1.9671422395157805,
+        "eval_n": 1542,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "jigsaw",
@@ -986,17 +1789,72 @@
         "target": "Counting",
         "target_family": "RORG",
         "alignment": 0.17329611213293555,
-        "transfer": 1.2970168612191983
+        "alignment_ci_low": 0.12257190674139866,
+        "alignment_ci_high": 0.21605845739119453,
+        "transfer": 0.9511456982274104,
+        "eval_n": 1542,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
-        "source_id": "colorization_v13",
-        "source": "Colorization",
+        "source_id": "localization",
+        "source": "Localization",
+        "source_family": "RORG",
+        "target_id": "i2t:OBJECT_COUNTING",
+        "target": "Counting",
+        "target_family": "RORG",
+        "alignment": 0.19796761228979895,
+        "alignment_ci_low": 0.12386695031379763,
+        "alignment_ci_high": 0.24836489104723572,
+        "transfer": 2.4859489840034588,
+        "eval_n": 1542,
+        "gradient_n": 500,
+        "n_seeds": 3
+      },
+      {
+        "source_id": "category_v14",
+        "source": "Object editing",
+        "source_family": "REC",
+        "target_id": "i2t:CORRESPONDENCE_TRACKING",
+        "target": "Visual correspondence",
+        "target_family": "RORG",
+        "alignment": -0.31936879716350114,
+        "alignment_ci_low": -0.34638758743294307,
+        "alignment_ci_high": -0.24575140322211636,
+        "transfer": -2.0341207349081363,
+        "eval_n": 508,
+        "gradient_n": 500,
+        "n_seeds": 3
+      },
+      {
+        "source_id": "appearance_v14",
+        "source": "Attribute editing",
+        "source_family": "REC",
+        "target_id": "i2t:CORRESPONDENCE_TRACKING",
+        "target": "Visual correspondence",
+        "target_family": "RORG",
+        "alignment": -0.2871004541150007,
+        "alignment_ci_low": -0.32253028198209344,
+        "alignment_ci_high": -0.22273728268799234,
+        "transfer": -2.2965879265091864,
+        "eval_n": 508,
+        "gradient_n": 500,
+        "n_seeds": 3
+      },
+      {
+        "source_id": "colorization_taskonomy_v14",
+        "source": "Colorization (Taskonomy)",
         "source_family": "RCN",
         "target_id": "i2t:CORRESPONDENCE_TRACKING",
         "target": "Visual correspondence",
         "target_family": "RORG",
-        "alignment": -0.18534663244228888,
-        "transfer": 5.70866141732283
+        "alignment": -0.05172631802193341,
+        "alignment_ci_low": -0.10380829090571435,
+        "alignment_ci_high": 0.0005797437327778705,
+        "transfer": -0.9186351706036745,
+        "eval_n": 508,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "taskonomy_depth_zbuffer",
@@ -1005,8 +1863,13 @@
         "target_id": "i2t:CORRESPONDENCE_TRACKING",
         "target": "Visual correspondence",
         "target_family": "RORG",
-        "alignment": -0.5202114033353096,
-        "transfer": -2.7559055118110294
+        "alignment": -0.5202114033353095,
+        "alignment_ci_low": -0.5745108947626356,
+        "alignment_ci_high": -0.4299466375252732,
+        "transfer": -1.3779527559055118,
+        "eval_n": 508,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "taskonomy_depth_euclidean",
@@ -1015,8 +1878,13 @@
         "target_id": "i2t:CORRESPONDENCE_TRACKING",
         "target": "Visual correspondence",
         "target_family": "RORG",
-        "alignment": -0.5011302961900344,
-        "transfer": -4.527559055118111
+        "alignment": -0.5011302961900342,
+        "alignment_ci_low": -0.5671444918010055,
+        "alignment_ci_high": -0.37755214200703535,
+        "transfer": -4.593175853018372,
+        "eval_n": 508,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "taskonomy_normal",
@@ -1025,8 +1893,13 @@
         "target_id": "i2t:CORRESPONDENCE_TRACKING",
         "target": "Visual correspondence",
         "target_family": "RORG",
-        "alignment": -0.02592766076242124,
-        "transfer": -2.9527559055118147
+        "alignment": -0.02592766076242125,
+        "alignment_ci_low": -0.09555612308258482,
+        "alignment_ci_high": 0.06626311381152729,
+        "transfer": -2.887139107611549,
+        "eval_n": 508,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "taskonomy_principal_curvature",
@@ -1035,8 +1908,13 @@
         "target_id": "i2t:CORRESPONDENCE_TRACKING",
         "target": "Visual correspondence",
         "target_family": "RORG",
-        "alignment": 0.0388321210879901,
-        "transfer": -1.5748031496063035
+        "alignment": 0.038832121087990105,
+        "alignment_ci_low": -0.0613280045472347,
+        "alignment_ci_high": 0.12010576192180948,
+        "transfer": -1.3123359580052494,
+        "eval_n": 508,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "taskonomy_edge_occlusion",
@@ -1046,7 +1924,12 @@
         "target": "Visual correspondence",
         "target_family": "RORG",
         "alignment": -0.1732831572908727,
-        "transfer": -1.3779527559055111
+        "alignment_ci_low": -0.23204288579689492,
+        "alignment_ci_high": -0.08356442044279702,
+        "transfer": -0.5905511811023622,
+        "eval_n": 508,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "taskonomy_keypoints3d",
@@ -1056,7 +1939,12 @@
         "target": "Visual correspondence",
         "target_family": "RORG",
         "alignment": -0.2065165888540212,
-        "transfer": -5.905511811023622
+        "alignment_ci_low": -0.26384244103782667,
+        "alignment_ci_high": -0.13604589325996197,
+        "transfer": -4.330708661417322,
+        "eval_n": 508,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "taskonomy_reshading",
@@ -1065,18 +1953,43 @@
         "target_id": "i2t:CORRESPONDENCE_TRACKING",
         "target": "Visual correspondence",
         "target_family": "RORG",
-        "alignment": -0.28914800701795873,
-        "transfer": -2.9527559055118147
+        "alignment": -0.2891480070179587,
+        "alignment_ci_low": -0.3486628006997674,
+        "alignment_ci_high": -0.19804410016640392,
+        "transfer": -3.0183727034120733,
+        "eval_n": 508,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
-        "source_id": "coco_semantic",
+        "source_id": "inpainting_rect_v14",
+        "source": "Inpainting",
+        "source_family": "RCN",
+        "target_id": "i2t:CORRESPONDENCE_TRACKING",
+        "target": "Visual correspondence",
+        "target_family": "RORG",
+        "alignment": -0.27255820628097505,
+        "alignment_ci_low": -0.3101629836813145,
+        "alignment_ci_high": -0.21202077750613807,
+        "transfer": -1.837270341207349,
+        "eval_n": 508,
+        "gradient_n": 500,
+        "n_seeds": 3
+      },
+      {
+        "source_id": "coco_semantic_v14",
         "source": "Semantic segmentation",
         "source_family": "RORG",
         "target_id": "i2t:CORRESPONDENCE_TRACKING",
         "target": "Visual correspondence",
         "target_family": "RORG",
-        "alignment": -0.2177398007223702,
-        "transfer": -1.1811023622047259
+        "alignment": -0.18618088654547135,
+        "alignment_ci_low": -0.24791909465762454,
+        "alignment_ci_high": -0.07698304064516696,
+        "transfer": -4.00262467191601,
+        "eval_n": 508,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "taskonomy_edge_texture",
@@ -1086,7 +1999,12 @@
         "target": "Visual correspondence",
         "target_family": "RORG",
         "alignment": -0.24445125908558574,
-        "transfer": -1.3779527559055111
+        "alignment_ci_low": -0.2931891025375835,
+        "alignment_ci_high": -0.18366392843954416,
+        "transfer": -2.6246719160104988,
+        "eval_n": 508,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "taskonomy_keypoints2d",
@@ -1096,7 +2014,12 @@
         "target": "Visual correspondence",
         "target_family": "RORG",
         "alignment": -0.15474916128373595,
-        "transfer": -0.39370078740157766
+        "alignment_ci_low": -0.22626425344138448,
+        "alignment_ci_high": -0.06480043408311917,
+        "transfer": -0.26246719160104987,
+        "eval_n": 508,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "taskonomy_segment_unsup2d",
@@ -1106,7 +2029,12 @@
         "target": "Visual correspondence",
         "target_family": "RORG",
         "alignment": -0.2732325768612711,
-        "transfer": -4.330708661417326
+        "alignment_ci_low": -0.32666929514711285,
+        "alignment_ci_high": -0.19029159109371183,
+        "transfer": -3.608923884514436,
+        "eval_n": 508,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "taskonomy_segment_unsup25d",
@@ -1116,7 +2044,12 @@
         "target": "Visual correspondence",
         "target_family": "RORG",
         "alignment": -0.2558280861604821,
-        "transfer": -6.6929133858267775
+        "alignment_ci_low": -0.31296757626777694,
+        "alignment_ci_high": -0.16775425725383475,
+        "transfer": -5.511811023622047,
+        "eval_n": 508,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "counting",
@@ -1126,7 +2059,12 @@
         "target": "Visual correspondence",
         "target_family": "RORG",
         "alignment": -0.33269387453220955,
-        "transfer": 1.7716535433070817
+        "alignment_ci_low": -0.3607659037031861,
+        "alignment_ci_high": -0.2992571464567022,
+        "transfer": 1.7060367454068242,
+        "eval_n": 508,
+        "gradient_n": 500,
+        "n_seeds": 3
       },
       {
         "source_id": "jigsaw",
@@ -1135,285 +2073,305 @@
         "target_id": "i2t:CORRESPONDENCE_TRACKING",
         "target": "Visual correspondence",
         "target_family": "RORG",
-        "alignment": -0.31846982018633596,
-        "transfer": -2.3622047244094517
+        "alignment": -0.3184698201863361,
+        "alignment_ci_low": -0.3432566101088173,
+        "alignment_ci_high": -0.2850158766644244,
+        "transfer": -2.887139107611548,
+        "eval_n": 508,
+        "gradient_n": 500,
+        "n_seeds": 3
+      },
+      {
+        "source_id": "localization",
+        "source": "Localization",
+        "source_family": "RORG",
+        "target_id": "i2t:CORRESPONDENCE_TRACKING",
+        "target": "Visual correspondence",
+        "target_family": "RORG",
+        "alignment": -0.30072018494957875,
+        "alignment_ci_low": -0.3506661641032829,
+        "alignment_ci_high": -0.22258797497708924,
+        "transfer": -0.32808398950131235,
+        "eval_n": 508,
+        "gradient_n": 500,
+        "n_seeds": 3
       }
     ],
     "regression": {
-      "slope": 5.724057675659967,
-      "intercept": 0.3095818464069777
+      "slope": 4.8750880922408735,
+      "intercept": 0.11797662163719749
     },
     "ellipse": [
       [
-        0.08418206801975013,
-        2.2052957375004323
+        0.08999985569997163,
+        1.6331673745184787
       ],
       [
-        0.06995959644724857,
-        2.196846814186329
+        0.07609878143529622,
+        1.6267282538927517
       ],
       [
-        0.05509184766098034,
-        2.1703854725971334
+        0.06149642204871797,
+        1.6059130233113301
       ],
       [
-        0.039722006209295425,
-        2.1261665499175906
+        0.04633340624359124,
+        1.5709221448234756
       ],
       [
-        0.02399809206738359,
-        2.0646158985456258
+        0.03075576215106702,
+        1.5220925997169865
       ],
       [
-        0.00807153512399722,
-        1.98632628490096
+        0.014913510999362806,
+        1.4598946432041828
       ],
       [
-        -0.007904283171157211,
-        1.8920516807604475
+        -0.0010407776726751305,
+        1.384927275607144
       ],
       [
-        -0.02377550695462674,
-        1.7827000020977026
+        -0.016953455343633697,
+        1.2979124736571621
       ],
       [
-        -0.03938928766528307,
-        1.6593243653559553
+        -0.0326712742287871,
+        1.1996882374641438
       ],
       [
-        -0.054595256059521875,
-        1.5231129453610124
+        -0.048042863140037514,
+        1.0912005201174577
       ],
       [
-        -0.06924697034927871,
-        1.3753775325481616
+        -0.06292018527320431,
+        0.9734941176405714
       ],
       [
-        -0.08320332651650147,
-        1.217540899703182
+        -0.07715996388337354,
+        0.8477026070342022
       ],
       [
-        -0.0963299172219795,
-        1.051123099882651
+        -0.09062506211827452,
+        0.7150374293101234
       ],
       [
-        -0.10850032622149464,
-        0.8777268274720637
+        -0.10318580372113369,
+        0.5767762226519813
       ],
       [
-        -0.11959734582335918,
-        0.6990219833627788
+        -0.11472122188391567,
+        0.43425051806115783
       ],
       [
-        -0.12951410566255922,
-        0.5167295928935732
+        -0.1251202242238119,
+        0.28883291598533806
       ],
       [
-        -0.13815510192079097,
-        0.33260523143582243
+        -0.13428266266361624,
+        0.1419238674258589
       ],
       [
-        -0.14543711708043855,
-        0.14842211724297924
+        -0.14212029791245503,
+        -0.005061813170996306
       ],
       [
-        -0.1512900213547601,
-        -0.03404596561054685
+        -0.14855764925839468,
+        -0.15070857335053334
       ],
       [
-        -0.15565744807607107,
-        -0.2130417497396764
+        -0.1535327214889596,
+        -0.29361375519360555
       ],
       [
-        -0.15849733653756684,
-        -0.38684140789419746
+        -0.15699760193891837,
+        -0.43240110367914575
       ],
       [
-        -0.15978233706092232,
-        -0.5537711543575239
+        -0.15891892191544157,
+        -0.5657340207723557
       ],
       [
-        -0.15950007438864483,
-        -0.7122233644181316
+        -0.15927817805685485,
+        -0.6923284375944403
       ],
       [
-        -0.15765326686456888,
-        -0.8606720566743494
+        -0.1580719105301271,
+        -0.8109651807078567
       ],
       [
-        -0.154259700254719,
-        -0.997687589069439
+        -0.15531173635095355,
+        -0.9205017134229814
       ],
       [
-        -0.14935205646066027,
-        -1.1219504271261274
+        -0.1510242375055444,
+        -1.0198831390510081
       ],
       [
-        -0.14297759877492044,
-        -1.232263851784951
+        -0.14525070495156617,
+        -1.108152360135725
       ],
       [
-        -0.13519771670964628,
-        -1.3275654844629934
+        -0.13804674096364764,
+        -1.1844592958252216
       ],
       [
-        -0.12608733478204248,
-        -1.4069375183403934
+        -0.12948172365307972,
+        -1.2480690686151945
       ],
       [
-        -0.11573419095031318,
-        -1.4696155573417444
+        -0.11963813881867796,
+        -1.2983690816210374
       ],
       [
-        -0.10423799164916218,
-        -1.514995977688162
+        -0.10861078556344853,
+        -1.3348749182207194
       ],
       [
-        -0.09170945156232119,
-        -1.542641741124249
+        -0.09650586332740362,
+        -1.3572350072516655
       ],
       [
-        -0.07826922737962327,
-        -1.5522866038354044
+        -0.08343994912890003,
+        -1.36523400883324
       ],
       [
-        -0.0640467558071217,
-        -1.5438376805213014
+        -0.06953887486422462,
+        -1.358794888207513
       ],
       [
-        -0.049179007020853455,
-        -1.5173763389321058
+        -0.054936515477646344,
+        -1.3379796576260914
       ],
       [
-        -0.0338091655691686,
-        -1.473157416252563
+        -0.03977349967251967,
+        -1.302988779138237
       ],
       [
-        -0.01808525142725674,
-        -1.411606764880598
+        -0.024195855579995443,
+        -1.254159234031748
       ],
       [
-        -0.0021586944838703492,
-        -1.333317151235932
+        -0.008353604428291195,
+        -1.191961277518944
       ],
       [
-        0.013817123811284013,
-        -1.23904254709542
+        0.0076006842437467,
+        -1.1169939099219055
       ],
       [
-        0.02968834759475355,
-        -1.129690868432675
+        0.02351336191470528,
+        -1.0299791079719234
       ],
       [
-        0.04530212830540991,
-        -1.0063152316909276
+        0.039231180799858704,
+        -0.931754871778905
       ],
       [
-        0.06050809669964867,
-        -0.870103811695985
+        0.05460276971110907,
+        -0.8232671544322191
       ],
       [
-        0.07515981098940558,
-        -0.7223683988831334
+        0.06948009184427595,
+        -0.7055607519553323
       ],
       [
-        0.08911616715662832,
-        -0.5645317660381544
+        0.08371987045444515,
+        -0.5797692413489635
       ],
       [
-        0.1022427578621063,
-        -0.398113966217624
+        0.09718496868934608,
+        -0.4471040636248851
       ],
       [
-        0.11441316686162151,
-        -0.22471769380703596
+        0.10974571029220531,
+        -0.3088428569667425
       ],
       [
-        0.12551018646348602,
-        -0.046012849697751546
+        0.12128112845498727,
+        -0.16631715237591949
       ],
       [
-        0.13542694630268612,
-        0.13627954077145515
+        0.13168013079488355,
+        -0.02089955030009865
       ],
       [
-        0.14406794256091782,
-        0.3204039022292051
+        0.14084256923468785,
+        0.1260094982593798
       ],
       [
-        0.15134995772056536,
-        0.5045870164220475
+        0.1486802044835266,
+        0.27299517885623437
       ],
       [
-        0.15720286199488698,
-        0.6870550992755748
+        0.15511755582946632,
+        0.41864193903577246
       ],
       [
-        0.1615702887161979,
-        0.8660508834047039
+        0.16009262806003122,
+        0.5615471208788443
       ],
       [
-        0.16441017717769368,
-        1.0398505415592256
+        0.16355750850999004,
+        0.7003344693643851
       ],
       [
-        0.1656951777010492,
-        1.2067802880225516
+        0.16547882848651319,
+        0.8336673864575944
       ],
       [
-        0.1654129150287717,
-        1.3652324980831592
+        0.16583808462792649,
+        0.960261803279679
       ],
       [
-        0.16356610750469575,
-        1.5136811903393779
+        0.1646318171011987,
+        1.0788985463930958
       ],
       [
-        0.16017254089484587,
-        1.6506967227344667
+        0.16187164292202516,
+        1.18843507910822
       ],
       [
-        0.15526489710078717,
-        1.7749595607911546
+        0.15758414407661603,
+        1.2878165047362462
       ],
       [
-        0.14889043941504732,
-        1.8852729854499786
+        0.15181061152263775,
+        1.3760857258209636
       ],
       [
-        0.14111055734977318,
-        1.980574618128021
+        0.14460664753471925,
+        1.45239266151046
       ],
       [
-        0.13200017542216938,
-        2.0599466520054204
+        0.1360416302241514,
+        1.516002434300433
       ],
       [
-        0.12164703159044006,
-        2.1226246910067723
+        0.12619804538974957,
+        1.566302447306276
       ],
       [
-        0.11015083228928906,
-        2.1680051113531897
+        0.11517069213452014,
+        1.6028082839059579
       ],
       [
-        0.09762229220244803,
-        2.195650874789277
+        0.10306576989847518,
+        1.6251683729369044
       ],
       [
-        0.08418206801975016,
-        2.2052957375004323
+        0.08999985569997165,
+        1.6331673745184787
       ]
     ],
-    "correlation": 0.49605361414869914,
+    "correlation": 0.5287843948171823,
     "domain": {
       "x": [
         -0.55,
         0.39
       ],
       "y": [
-        -7.4,
-        7.4
+        -6.6,
+        4.2
       ]
     }
   }

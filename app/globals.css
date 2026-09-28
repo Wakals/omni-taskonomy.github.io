@@ -26,8 +26,8 @@ h1>span { display:block; }
 .paper-authors { max-width:1040px; margin:27px auto 0; color:#3e5265; }
 .author-list,.affiliation-list,.author-notes { display:flex; justify-content:center; flex-wrap:wrap; }
 .author-list { display:grid; grid-template-columns:repeat(8,max-content); gap:7px 23px; align-items:baseline; font-size:1.2rem; line-height:1.65; }
-.author { white-space:nowrap; }
-.author a { color:#334e66; text-decoration-thickness:1px; text-decoration-color:transparent; transition:color .15s ease,text-decoration-color .15s ease; }
+.author { color:#000; white-space:nowrap; }
+.author a { color:#000; text-decoration-thickness:1px; text-decoration-color:transparent; transition:color .15s ease,text-decoration-color .15s ease; }
 .author a:hover { color:#326eb1; text-decoration-color:currentColor; }
 .paper-authors sup { color:#5f7890; font-size:.66em; line-height:0; }
 .affiliation-list { gap:5px 20px; margin-top:12px; color:#5b6c7b; font-size:1.06rem; line-height:1.65; }
@@ -171,18 +171,6 @@ h3 { font-size:1.65rem; line-height:1.2; margin:0 0 17px; color:#365872; }
 .association-paper-panel { min-width:0; margin:0; }
 .association-paper-panel .figure-frame { padding:8px; }
 .association-paper-panel .figure-caption { min-height:74px; margin-top:12px; }
-.final-scatter-card { overflow:hidden; }
-.final-scatter-stage { position:relative; overflow:hidden; padding:8px; border:1px solid #e7ebf0; border-radius:10px; background:#fff; }
-.final-scatter-stage > img { display:block; width:100%; height:auto; }
-.final-scatter-overlay { position:absolute; inset:8px; width:calc(100% - 16px); height:calc(100% - 16px); }
-.final-scatter-hit { fill-opacity:0; stroke:transparent; stroke-width:3; cursor:pointer; transition:fill-opacity .12s ease,stroke .12s ease,r .12s ease; outline:none; }
-.final-scatter-hit:hover,.final-scatter-hit:focus-visible,.final-scatter-hit.active { fill-opacity:.22; stroke:#223d55; }
-.final-scatter-tooltip { position:absolute; z-index:2; display:grid; gap:1px; min-width:190px; max-width:250px; padding:8px 11px; border:1px solid #d2dde7; border-radius:7px; background:rgba(255,255,255,.97); color:#344b5d; font-family:'Times New Roman',Times,serif; font-size:.93rem; line-height:1.35; box-shadow:0 8px 24px rgba(42,61,78,.16); pointer-events:none; transform:translate(12px,calc(-100% - 12px)); }
-.final-scatter-tooltip.align-right { transform:translate(calc(-100% - 12px),calc(-100% - 12px)); }
-.final-scatter-tooltip.below { transform:translate(12px,12px); }
-.final-scatter-tooltip.align-right.below { transform:translate(calc(-100% - 12px),12px); }
-.final-scatter-tooltip strong { color:#233746; font-size:1rem; }
-.final-scatter-tooltip span:first-of-type { color:#61778a; }
 .gradient-chart { width:100%; margin:0; border:1px solid #dfe7ef; border-radius:12px; overflow:hidden; background:#fff; color:var(--body-copy); box-shadow:0 12px 32px #334e6910; }
 .gradient-chart-head { display:flex; justify-content:space-between; align-items:center; gap:16px; padding:16px 20px; border-bottom:1px solid #e6edf3; }
 .gradient-chart-head strong { color:#263e54; font-family:'Cormorant Garamond',Georgia,serif; font-size:1.55rem; }
@@ -235,7 +223,21 @@ h3 { font-size:1.65rem; line-height:1.2; margin:0 0 17px; color:#365872; }
 .association-fit { stroke:#61768b; stroke-width:1.6; }
 .association-ellipse { fill:#0064e0; fill-opacity:.1; stroke:#0064e0; stroke-opacity:.18; stroke-width:1.2; }
 .association-point,.association-pair { cursor:pointer; outline:none; }
-.association-point circle,.association-pair { stroke:#fff; stroke-width:1.5; transition:r .12s ease,stroke-width .12s ease; }
+.association-point circle,.association-pair circle { stroke:#fff; stroke-width:1.5; transition:r .12s ease,stroke-width .12s ease; }
+.association-point:hover circle,.association-point:focus-visible circle { r:8px; stroke:#233c53; stroke-width:2.5; }
+.association-pair:hover>circle,.association-pair:focus-visible>circle { r:7px; stroke:#233c53; stroke-width:2.5; }
+.association-hover-tip { opacity:0; pointer-events:none; transition:opacity .12s ease; }
+.association-point:hover .association-hover-tip,.association-point:focus-visible .association-hover-tip,.association-pair:hover .association-hover-tip,.association-pair:focus-visible .association-hover-tip { opacity:1; }
+.association-hover-tip rect { fill:#fff; fill-opacity:.97; stroke:#c8d5df; stroke-width:1.2; filter:drop-shadow(0 4px 7px rgba(35,60,83,.18)); }
+.association-hover-tip text { fill:#3c5366; stroke:none; font-family:'Times New Roman',Times,serif; font-size:12px; font-weight:400; }
+.association-hover-tip text.tip-title { fill:#233c53; font-weight:700; }
+.association-html-hit-wrap { overflow:visible; pointer-events:none; }
+.association-html-hit-area { position:relative; width:100%; height:100%; pointer-events:none; }
+.association-html-hit { position:absolute; z-index:2; width:18px; height:18px; margin:0; padding:0; border:0; border-radius:50%; background:transparent; cursor:pointer; pointer-events:auto; }
+.association-html-hit:focus-visible { outline:2px solid #233c53; outline-offset:1px; }
+.association-html-tooltip { position:absolute; z-index:3; display:flex; flex-direction:column; justify-content:center; gap:1px; box-sizing:border-box; padding:6px 10px; border:1px solid #c8d5df; border-radius:6px; background:rgba(255,255,255,.97); color:#3c5366; font-family:'Times New Roman',Times,serif; font-size:12px; line-height:14px; box-shadow:0 4px 9px rgba(35,60,83,.18); opacity:0; pointer-events:none; transition:opacity .12s ease; }
+.association-html-tooltip .tip-title { color:#233c53; font-weight:700; }
+.association-html-hit:hover + .association-html-tooltip,.association-html-hit:focus + .association-html-tooltip { opacity:1; }
 .association-point text { fill:#354d60; font-size:13px; pointer-events:none; paint-order:stroke; stroke:#fff; stroke-width:3px; stroke-linejoin:round; }
 .association-annotation { pointer-events:none; }
 .association-annotation line { stroke:#899aa8; stroke-width:1.35; }
@@ -554,5 +556,4 @@ figcaption, .teaser figcaption, .site-credit,
 }
 @media screen and (max-width:540px) {
   .author-list { grid-template-columns:repeat(2,max-content); gap:4px 18px; }
-  .final-scatter-tooltip { min-width:165px; max-width:210px; font-size:.86rem; }
 }

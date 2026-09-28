@@ -5,7 +5,7 @@ import authorContent from '@/content/author-provided-copy.json';
 import paperMetadata from '@/content/paper-metadata.json';
 import { InteractiveTaxonomy, InteractiveTransferMap } from '@/components/interactive-figures';
 import { GradientBars } from '@/components/gradient-bars';
-import { FinalAlignmentScatter } from '@/components/final-alignment-scatter';
+import { GradientTransferScatter } from '@/components/gradient-transfer-scatter';
 import { coloredTerms } from '@/components/colored-terms';
 
 const resourceLinks = { paper: '/paper.pdf', github: 'https://github.com/omni-taskonomy/omni-taskonomy.github.io' };
@@ -219,7 +219,7 @@ export default function Home() {
           </div>
           <figcaption className="figure-caption"><span data-author-copy="alignment_bars_caption_web">{formatted(authorExcerpts.alignment_bars_caption_web.text)}</span></figcaption>
         </figure>
-        <FinalAlignmentScatter />
+        <GradientTransferScatter />
         <div className="analysis-copy prose"><Passage id="alignment_results" className="standalone-capitalized" /><Passage id="alignment_lead" /></div>
         <blockquote className="finding"><Passage id="alignment_finding" /></blockquote>
       </div></section>
