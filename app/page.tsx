@@ -1,4 +1,4 @@
-import { FileText, Code } from 'lucide-react';
+import { FileText, Code, Boxes } from 'lucide-react';
 import type { CSSProperties, ReactNode } from 'react';
 import manuscriptContent from '@/content/manuscript-excerpts.json';
 import authorContent from '@/content/author-provided-copy.json';
@@ -8,7 +8,11 @@ import { GradientBars } from '@/components/gradient-bars';
 import { GradientTransferScatter } from '@/components/gradient-transfer-scatter';
 import { coloredTerms } from '@/components/colored-terms';
 
-const resourceLinks = { paper: '/paper.pdf', github: 'https://github.com/omni-taskonomy/omni-taskonomy.github.io' };
+const resourceLinks = {
+  paper: '/paper.pdf',
+  github: 'https://github.com/omni-taskonomy/omni-taskonomy.github.io',
+  huggingface: 'https://huggingface.co/collections/Wakals/omnitaskonomy',
+};
 const excerpts = manuscriptContent.excerpts;
 const authorExcerpts = authorContent.excerpts;
 type AuthorId = keyof typeof authorExcerpts;
@@ -153,6 +157,7 @@ export default function Home() {
       <div className="resource-buttons" aria-label="Project resources">
         <ResourceButton label="Paper" href={resourceLinks.paper}><FileText size={17} aria-hidden="true" /></ResourceButton>
         <ResourceButton label="GitHub" href={resourceLinks.github}><Code size={18} aria-hidden="true" /></ResourceButton>
+        <ResourceButton label="Hugging Face" href={resourceLinks.huggingface}><Boxes size={18} aria-hidden="true" /></ResourceButton>
       </div>
     </header>
 
