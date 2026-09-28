@@ -26,10 +26,10 @@
       "output_sha256": "d7e673b64b9935a5095349ca2edcfdd1656e2197d33e77337f2164a39f0a7aba"
     },
     "scaling.png": {
-      "source_pdf": "iclr2026/figures/combined_3subfigures_refined_v18.pdf",
-      "source_sha256": "708c1aa2eb814a322dbb23b50ed755d4fb872fe72d3a31c40c269014e2ce5651",
-      "render": "pdftoppm -r 180; crop pixels (0, 430, 2593, 1305)",
-      "output_sha256": "70f6152a8befda629d08874c4b550d86d9209465cac0e4f094353a4092d41ca9"
+      "source_pdf": "iclr2026/figures/combined_3subfigures_refined_v13.pdf",
+      "source_sha256": "03207391a1a02dcef8b2d43fb4653f74d3c23e8eee3d5c881baf606781302314",
+      "render": "pdftoppm -r 180; crop pixels (0, 440, 2593, 1246)",
+      "output_sha256": "ef8709b16c2862a82edec421659dbacee219bb5700a41acef44b1efc7dd22b76"
     }
   }
 }

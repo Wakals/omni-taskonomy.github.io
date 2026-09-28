@@ -188,7 +188,7 @@ export default function Home() {
       <section id="recipe" className="chapter chapter-tinted"><div className="shell">
         <Heading id="recipe_heading" number="02" />
         <RecipeNote />
-        <Figure name="scaling" caption="scaling_caption" captionOverride="scaling_caption_web" width={2593} height={875} note="training-recipes" />
+        <Figure name="scaling" caption="scaling_caption" captionOverride="scaling_caption_web" width={2593} height={806} note="training-recipes" />
         <Passage id="recipe_result" className="section-lead" />
         <blockquote className="finding"><Passage id="recipe_finding" /></blockquote>
       </div></section>
