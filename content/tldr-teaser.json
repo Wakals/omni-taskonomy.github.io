@@ -1,0 +1,84 @@
+{
+  "request": "Author request on September 28, 2026: turn the static TL;DR Jigsaw teaser into an auto-looping HTML animation modeled on an author-supplied reference, keeping the existing text unchanged.",
+  "labels_source": "Exact labels of the Jigsaw I2I and Jigsaw I2T panels in the controlled-tasks figure (iclr2026/figures/combined_3subfigures_refined_v18.pdf), previously shown as public/figures/tldr-crops/jigsaw-i2i.png and jigsaw-i2t.png.",
+  "tile_label_note": "Patch indices 0-3 in raster order, the indexing used by the figure's permutation answer and by the author's reference animation.",
+  "labels": {
+    "i2i_title": "Jigsaw I2I",
+    "i2t_title": "Jigsaw I2T",
+    "i2t_answer": "('reorder', [3, 2, 1, 0])",
+    "tile_0": "0",
+    "tile_1": "1",
+    "tile_2": "2",
+    "tile_3": "3"
+  },
+  "permutation": [
+    3,
+    2,
+    1,
+    0
+  ],
+  "source_images": {
+    "jigsaw_input.png": {
+      "sha256": "e3cb8f320aa766cc3e0b5d67b5338643fb89c17d0a3f6bd51e0ed44d262a0218",
+      "size": [
+        510,
+        510
+      ],
+      "role": "Author-supplied shuffled Jigsaw input"
+    },
+    "jigsaw_output.png": {
+      "sha256": "7f042e46a6ea5d325b576d77a5323a3d6038973ce92308bb45932ae2720ae2c2",
+      "size": [
+        510,
+        510
+      ],
+      "role": "Author-supplied correctly ordered I2I output"
+    }
+  },
+  "tiles": {
+    "source": "jigsaw_input.png",
+    "crop_boxes": [
+      [
+        3,
+        5,
+        251,
+        253
+      ],
+      [
+        258,
+        5,
+        506,
+        253
+      ],
+      [
+        3,
+        259,
+        251,
+        507
+      ],
+      [
+        258,
+        259,
+        506,
+        507
+      ]
+    ],
+    "files": [
+      "jigsaw-tile-0.webp",
+      "jigsaw-tile-1.webp",
+      "jigsaw-tile-2.webp",
+      "jigsaw-tile-3.webp"
+    ],
+    "sha256": [
+      "4ed4781645e355cccf11f7ec1eb3509c847713e216a11c6c2133d00dc48d8267",
+      "ccaf140dc2b00bf649c5f8d3a78f9be72c50b4b7b047f716fcd024e076534de3",
+      "e59debf1f2504820ba3278a77b837eba5bea2bba070b0b0cef6b2f8b4e95e63f",
+      "1b7354420ba58654bfa667b494b8a72cef2a048ecb19db54c1c359c66a285309"
+    ]
+  },
+  "output": {
+    "source": "jigsaw_output.png",
+    "file": "jigsaw-output.webp",
+    "sha256": "3af627f02ae28c820976c8d586af50d37698a600fe9b49ae29a55a923829ebe0"
+  }
+}
