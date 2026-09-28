@@ -44,6 +44,13 @@ i2i_order = CORRECTIONS["i2i_column_order"]
 assert [LEAVES[x]["family"] for x in i2i_order] == ["REC"] * 2 + ["RCN"] * 9 + ["RORG"] * 8
 assert LEAVES["i2i:object_replacement"]["name"] == "Object editing"
 assert LEAVES["i2i:attribute_editing"]["name"] == "Attribute editing"
+assert LEAVES["i2i:attribute_editing"]["sample"]["question"] == (
+    "Add glowing cyan light accents to the astronaut's spacesuit."
+)
+assert LEAVES["i2i:attribute_editing"]["sample"]["images"] == [
+    "/interactive/examples/i2i_attribute_editing-input.jpg",
+    "/interactive/examples/i2i_attribute_editing-target.jpg",
+]
 assert LEAVES["i2i:semantic_segmentation"]["family"] == "RORG"
 assert LEAVES["i2t:SEMANTIC_SCENE_PARSING"]["family"] == "REC"
 

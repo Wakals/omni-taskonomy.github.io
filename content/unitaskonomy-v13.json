@@ -27631,7 +27631,7 @@
         "sample": {
           "uid": "current-paper::i2i:attribute_editing",
           "benchmark": "Attribute editing",
-          "question": "Change the black grand piano to a gold finish.",
+          "question": "Add glowing cyan light accents to the astronaut's spacesuit.",
           "choices": [],
           "answer": "",
           "images": [
