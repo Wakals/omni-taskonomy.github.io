@@ -83,32 +83,39 @@
     shading=sharedcap
   },
 }
-\title{\methodname: When Does Visual\\Generation Improve Visual Understanding}
+\title{\methodname: When Does Visual\\Generation Improve Visual Understanding\par\vspace{0.55em}}
 % Learning To See Via Generation
 % When, where, and why
 % Authors must not appear in the submitted version. They should be hidden
 % as long as the \iclrfinalcopy macro remains commented out below.
 % Non-anonymous submissions will be rejected without review.
 
-\author{Antiquus S.~Hippocampus, Natalia Cerebro \& Amelie P. Amygdale \thanks{ Use footnote for providing furtherinformation
-about author (webpage, alternative address)---\emph{not} for acknowledging
-funding agencies.  Funding acknowledgements go at the end of the paper.} \\
-Department of Computer Science\\
-Cranberry-Lemon University\\
-Pittsburgh, PA 15213, USA \\
-\texttt{\{hippo,brain,jen\}@cs.cranberry-lemon.edu} \\
-\And
-Ji Q. Ren \& Yevgeny LeNet \\
-Department of Computational Neuroscience \\
-University of the Witwatersrand \\
-Joburg, South Africa \\
-\texttt{\{robot,net\}@wits.ac.za} \\
-\AND
-Coauthor \\
-Affiliation \\
-Address \\
-\texttt{email}
-}
+\author{\hspace*{-\tabcolsep}\begin{minipage}{5.2in}
+\raggedright\normalfont\normalsize
+Jiaxin Ge\textsuperscript{1*}\enspace
+Yiming Qin\textsuperscript{2,6*\textdaggerdbl}\enspace
+Ji Xie\textsuperscript{3}\enspace
+Haozhe Jiang\textsuperscript{1}\enspace
+Xiaochuang Han\textsuperscript{4}\\[0.1em]
+Junyi Zhang\textsuperscript{1}\enspace
+Andrew M. Dai\textsuperscript{5}\enspace
+Yinfei Yang\textsuperscript{5}\enspace
+Jitendra Malik\textsuperscript{1}\enspace
+Ranjay Krishna\textsuperscript{4}\enspace
+Sewon Min\textsuperscript{1}\\[0.1em]
+Haiwen Feng\textsuperscript{1,6\textdagger}\enspace
+Le Xue\textsuperscript{5\textdagger}\enspace
+Baifeng Shi\textsuperscript{1\textdagger}\enspace
+Trevor Darrell\textsuperscript{1\textdagger}\enspace
+XuDong Wang\textsuperscript{1,2\textdagger}\\[0.8em]
+{\small
+\textsuperscript{1}University of California, Berkeley\quad
+\textsuperscript{2}Duke University\quad
+\textsuperscript{3}Carnegie Mellon University\\
+\textsuperscript{4}University of Washington\quad
+\textsuperscript{5}Elorian\quad
+\textsuperscript{6}Impossible, Inc.}
+\end{minipage}}
 
 % The \author macro works with any number of authors. There are two commands
 % used to separate the names and addresses of multiple authors: \And and \AND.
@@ -128,11 +135,23 @@ Address \\
 \newcommand{\lecomment}[1]{\textcolor{RoyalBlue}{Le: #1}}
 \newcommand{\xd}[1]{\textcolor{blue}{#1}}
 
-%\iclrfinalcopy % Uncomment for camera-ready version, but NOT for submission.
+\iclrfinalcopy % Show authors and remove review-only line numbers.
 \begin{document}
 
 
 \maketitle
+\begingroup
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+\footnotetext[1]{Jiaxin Ge and Yiming Qin contributed equally. Correspondence: Jiaxin Ge (\href{mailto:gejiaxin01@gmail.com}{\texttt{gejiaxin01@gmail.com}}) and Yiming Qin (\href{mailto:ymk4474@gmail.com}{\texttt{ymk4474@gmail.com}}).}
+\footnotetext[2]{Haiwen Feng, Le Xue, Baifeng Shi, Trevor Darrell, and XuDong Wang contributed equally.}
+\footnotetext[3]{Work done during a summer internship at Impossible, Inc.}
+\endgroup
+\lhead{} % The arXiv preprint has no ICLR submission or publication header.
+\hypersetup{
+  pdftitle={OmniTaskonomy: When Does Visual Generation Improve Visual Understanding},
+  pdfauthor={Jiaxin Ge, Yiming Qin, Ji Xie, Haozhe Jiang, Xiaochuang Han, Junyi Zhang, Andrew M. Dai, Yinfei Yang, Jitendra Malik, Ranjay Krishna, Sewon Min, Haiwen Feng, Le Xue, Baifeng Shi, Trevor Darrell, XuDong Wang},
+  pdfkeywords={visual generation, visual understanding, transfer learning, unified multimodal models}
+}
 \addtocontents{toc}{\protect\setcounter{tocdepth}{-1}} % hide main-text sections from the appendix ToC
 
 
@@ -150,17 +169,16 @@ Address \\
 \input{sections/5_analysis}
 \input{sections/6_gradient}
 \input{sections/7_conclusion}
-\clearpage
 
 % \subsubsection*{Author Contributions}
-% \subsubsection*{Acknowledgments}
-% We thank Amil Dravid, Yushi Hu for the helpful discussions
+\subsubsection*{Acknowledgments}
+We thank Amil Dravid and Yushi Hu for helpful discussions.
 \subsubsection*{AI Use Statement}
 During manuscript preparation, we used ChatGPT to assist with writing. We also used Codex to assist with data processing and visualization.
 The authors designed and conducted the study and take full responsibility for the paper.
 
 \subsubsection*{Reproducibility Statement}
-Appendices~\ref{app:controlled}--\ref{app:gradient_alignment} provide task definitions, training recipes, taxonomy annotations, complete transfer results, and gradient computation details. The accompanying numerical exports include evaluation counts, gradient estimates, taxonomy mappings, and figure-generation code.
+Appendices~\ref{app:controlled}--\ref{app:prompts} provide task definitions, training recipes, taxonomy annotations, complete transfer results, gradient computation details, and prompts. The accompanying numerical exports include evaluation counts, gradient estimates, taxonomy mappings, and figure-generation code.
 
 \bibliography{iclr2026_conference}
 \bibliographystyle{iclr2027_conference}

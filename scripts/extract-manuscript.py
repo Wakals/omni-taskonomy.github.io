@@ -12,6 +12,8 @@ def visible(raw):
 
 def render(raw):
     s = re.sub(r'\\methodname(?:\{\})?', 'OmniTaskonomy', visible(raw))
+    s = re.sub(r'\\vspace\{[^{}]*\}', '', s)
+    s = re.sub(r'\\par\b', ' ', s)
     previous = None
     while previous != s:
         previous = s
@@ -34,13 +36,13 @@ def take(key, filename, start, end=None):
         'raw_tex': snippet, 'file_sha256': hashlib.sha256(raw.encode()).hexdigest()}}
 
 A='0_abstract.tex'; I='1_introduction_clean.tex'; P='3_poc.tex'; T='4_taxonomy.tex'; X='5_analysis.tex'; G='6_gradient.tex'
-take('title','main.tex',r'\title{\methodname: When Does Visual\\Generation Improve Visual Understanding}')
-take('description',A,r'We ask: \xd{when and how does visual generation supervision improve visual understanding?}')
+take('title','main.tex',r'\title{\methodname: When Does Visual\\Generation Improve Visual Understanding\par\vspace{0.55em}}')
+take('description',A,r'We ask: when and how does visual generation supervision improve visual understanding?')
 take('tldr_question_1',I,r'what training curriculum enables visual generation to improve visual understanding?')
 take('tldr_question_2',I,r'which visual generation tasks help which understanding tasks?')
 take('tldr_question_3',I,r'What explains transfer from visual generation to understanding?')
 take('finding_a',P,'An initial I2I training stage that updates parameters shared with the I2T objective provides a useful initialization for subsequent I2T learning.')
-take('finding_b',X,'Visual Generation supervision yields significant gains for specific visual understanding capabilities, through both related tasks and transfer across task families.')
+take('finding_b',X,'Visual generation supervision yields significant gains for specific visual understanding capabilities, through both related tasks and transfer across tasks.')
 take('alignment_finding',G,'Gradient alignment is concentrated in early pre-attention normalization layers and is positively associated with downstream transfer across both understanding capabilities and individual source-target pairs.')
 take('overview_caption_short',I,r'When and how does visual generation improve visual understanding?')
 take('controlled_heading',P,r'\section{Does visual generation help visual understanding?}')
@@ -52,16 +54,16 @@ take('controlled_output',P,'For each input, the I2I objective produces the corre
 take('recipe_heading',P,r'\paragraph{Which training recipe transfers best?}')
 take('recipe_result',P,r'We therefore use I2I $\rightarrow$ I2T as the default recipe in subsequent experiments.')
 take('recipe_finding',P,'An initial I2I training stage that updates parameters shared with the I2T objective provides a useful initialization for subsequent I2T learning.')
-take('scaling_caption',P,'(b) I2T accuracy versus I2I training examples','100k I2I examples.')
+take('scaling_caption',P,'(b) I2T accuracy versus I2I training examples','100k I2I examples).')
 take('taxonomy_heading',T,r'\section{\methodname: A unified taxonomy of visual capabilities}')
 take('taxonomy_lead',T,'Existing benchmarks typically organize visual tasks','training objective.')
 take('taxonomy_caption',T,'A unified taxonomy of visual tasks organized into three broad families:','same visual hierarchy.')
 take('taxonomy_annotation',T,'Once the taxonomy is fixed,','yielding 9,444 samples.')
-take('transfer_heading',X,r'\section{Which visual generation tasks help which visual understanding tasks?}')
+take('transfer_heading',X,r'\section{Which generation tasks help which capabilities?}')
 take('transfer_scope',X,'To study this, we evaluate all 19 I2I tasks','25 understanding capabilities.')
 take('taxonomy_extensions',X,'To study this, we evaluate all 19 I2I tasks','25 understanding capabilities.')
 take('transfer_caption',X,'Each column corresponds to an I2I source task','relative to the I2T-only baseline.')
-take('transfer_lead',X,'Visual Generation supervision yields significant gains for specific visual understanding capabilities, through both related tasks and transfer across task families.')
+take('transfer_lead',X,'Visual generation supervision yields significant gains for specific visual understanding capabilities, through both related tasks and transfer across tasks.')
 take('related_heading',X,r'\paragraph{Shared visual operations predict several of the strongest gains.}')
 take('related_example',X,'Localization and object pointing produce the largest improvements in counting','spatially localized.')
 take('depth_example',X,'Similarly, Z-depth, Euclidean depth, and surface normals improve metric 3D relation','relative spatial arrangement of image regions.')
@@ -69,14 +71,14 @@ take('cross_heading',X,r'\paragraph{Useful transfer is not confined to closely m
 take('cross_results',X,'Inpainting improves both counting','support category recognition.')
 take('alignment_heading',G,r'\section{What explains visual generation-to-understanding transfer?}')
 take('alignment_setup',G,'For each task, we sample 500 matched examples and compute I2I and I2T gradients at the pretrained checkpoint.')
-take('alignment_results',G,'average alignment and average transfer are strongly positively correlated','larger average gains from I2I training.')
+take('alignment_results',G,'average alignment and average transfer are strongly positively correlated','larger gains from I2I training.')
 take('alignment_lead',G,'Alignment and transfer are positively correlated across these 133 pairs ($r=0.529$).')
 take('alignment_caption',G,'(a,b) Gradient alignment for the controlled Jigsaw and Zoom-In pairs','all 133 source--target pairs.')
 take('alignment_transfer_caption',G,'(c) Mean gradient alignment versus mean transfer','all 133 source--target pairs.')
 take('nav_controlled',P,'visual generation help visual understanding?')
 take('nav_training',P,'training recipe')
 take('nav_taxonomy',T,r'\methodname')
-take('nav_transfer',X,'visual generation tasks help which visual understanding tasks?')
+take('nav_transfer',X,'generation tasks help which capabilities?')
 take('nav_alignment',G,'visual generation-to-understanding transfer?')
 result={'manuscript_project':'https://www.overleaf.com/project/69d99c42c6f3e61ae13f54f1','manuscript_commit':REV,'rendering':'Contiguous source excerpts with only LaTeX typography and method macro expanded.','excerpts':entries}
 out=BASE/'content/manuscript-excerpts.json'

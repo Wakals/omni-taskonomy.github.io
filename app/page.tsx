@@ -2,12 +2,12 @@ import { FileText, Code } from 'lucide-react';
 import type { CSSProperties, ReactNode } from 'react';
 import manuscriptContent from '@/content/manuscript-excerpts.json';
 import authorContent from '@/content/author-provided-copy.json';
+import paperMetadata from '@/content/paper-metadata.json';
 import { InteractiveTaxonomy, InteractiveTransferMap } from '@/components/interactive-figures';
 import { GradientBars } from '@/components/gradient-bars';
 import { coloredTerms } from '@/components/colored-terms';
 
-// The author requested resource buttons with their destinations left blank.
-const resourceLinks = { paper: '', github: '', huggingface: '' };
+const resourceLinks = { paper: '/paper.pdf', github: 'https://github.com/omni-taskonomy/omni-taskonomy.github.io' };
 const excerpts = manuscriptContent.excerpts;
 const authorExcerpts = authorContent.excerpts;
 type AuthorId = keyof typeof authorExcerpts;
@@ -50,7 +50,14 @@ function formatted(value: string, highlights: string[] = []): ReactNode {
   });
 }
 function ResourceButton({ label, href, children }: { label: string; href: string; children: ReactNode }) {
-  return <a className="resource-button" href={href || undefined} role="link" aria-disabled={!href} tabIndex={href ? undefined : -1}>{children}<span>{label}</span></a>;
+  return <a className="resource-button" href={href} target={href.startsWith('http') ? '_blank' : undefined} rel={href.startsWith('http') ? 'noreferrer' : undefined}>{children}<span>{label}</span></a>;
+}
+function PaperAuthors() {
+  return <div className="paper-authors" data-paper-metadata="author-block">
+    <div className="author-list">{paperMetadata.authors.map(author => <span className="author" key={author.name}>{author.name} <sup>{author.marks}</sup>{' '}</span>)}</div>
+    <div className="affiliation-list">{paperMetadata.affiliations.map(affiliation => <span key={affiliation.mark}><sup>{affiliation.mark}</sup> {affiliation.name}{' '}</span>)}</div>
+    <div className="author-notes">{paperMetadata.notes.map(note => <span key={note}>{note}{' '}</span>)}</div>
+  </div>;
 }
 function Passage({ id, className }: { id: ExcerptId; className?: string }) {
   return <p className={className} data-manuscript-excerpt={id} data-source={source(id)}>{formatted(text(id), emphasis[id])}</p>;
@@ -141,10 +148,10 @@ export default function Home() {
     <a className="skip-link" href="#overview">Skip to content</a>
     <header className="paper-header shell" id="top">
       <h1 data-manuscript-excerpt="title" data-source={source('title')}><span>{formatted(title.slice(0, titleBreak))}</span><span className="title-second">{formatted(title.slice(titleBreak))}</span></h1>
+      <PaperAuthors />
       <div className="resource-buttons" aria-label="Project resources">
         <ResourceButton label="Paper" href={resourceLinks.paper}><FileText size={17} aria-hidden="true" /></ResourceButton>
         <ResourceButton label="GitHub" href={resourceLinks.github}><Code size={18} aria-hidden="true" /></ResourceButton>
-        <ResourceButton label="Hugging Face" href={resourceLinks.huggingface}><span className="hf-icon" aria-hidden="true">🤗</span></ResourceButton>
       </div>
     </header>
 
@@ -164,7 +171,7 @@ export default function Home() {
         <div><h3 className="finding-label">Finding 2</h3><Passage id="finding_b" /></div>
         <div><h3 className="finding-label">Finding 3</h3><Passage id="alignment_finding" /></div>
       </div>
-      <Figure name="overview" caption="overview_caption_short" width={1800} height={625} eager className="teaser" showCaption={false} />
+      <Figure name="overview" caption="overview_caption_short" width={1800} height={645} eager className="teaser" showCaption={false} />
       <PlotLegend />
     </section>
 
@@ -212,8 +219,8 @@ export default function Home() {
           <figcaption className="figure-caption"><span data-author-copy="alignment_bars_caption_web">{formatted(authorExcerpts.alignment_bars_caption_web.text)}</span></figcaption>
         </figure>
         <div className="final-association-grid">
-          <Figure name="alignment-capability-final" caption="alignment_transfer_caption" captionOverride="alignment_capability_caption_web" width={900} height={650} className="association-paper-panel" />
-          <Figure name="alignment-pairs-final" caption="alignment_transfer_caption" captionOverride="alignment_pair_caption_web" width={900} height={650} className="association-paper-panel" />
+          <Figure name="alignment-capability-final" caption="alignment_transfer_caption" captionOverride="alignment_capability_caption_web" width={900} height={570} className="association-paper-panel" />
+          <Figure name="alignment-pairs-final" caption="alignment_transfer_caption" captionOverride="alignment_pair_caption_web" width={900} height={570} className="association-paper-panel" />
         </div>
         <div className="analysis-copy prose"><Passage id="alignment_results" /><Passage id="alignment_lead" /></div>
         <blockquote className="finding"><Passage id="alignment_finding" /></blockquote>

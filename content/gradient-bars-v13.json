@@ -1,12 +1,12 @@
 {
   "source": {
-    "paper_commit": "1894250fa8fbec78445bdd8a1a72a0f8b50ba7c3",
+    "paper_commit": "bac824580f9c7f537eb95fbc17a35970cc5ac13e",
     "data_file": "analysis/section6/data/initial_graph_data.json",
     "data_sha256": "317c104993f5ab1b9fc98970bd76a402bdd455d9ab8ac932ae2b826995942d41",
     "script_file": "analysis/section6/make_figures.py",
     "script_sha256": "b9d4630e70df38e1589b4c0d182f0d24441a9bede2bfcfd84385fd32ccfd8b8d",
-    "figure_file": "iclr2026/figures/section6/gradient_transfer_overview_v2.pdf",
-    "figure_sha256": "209a74f3c11cc4124b7dd4c243df85da0b3255c1e52f93a6fa35caa1eb9e35b3",
+    "figure_file": "iclr2026/figures/section6/gradient_transfer_overview_v5.pdf",
+    "figure_sha256": "3fb16b00a1d56da24ca923a2afc5816372bf17bfe5356e063284e618946e9ad7",
     "note": "Module and layer bars match the final paper figure and its exact initial_graph_data.json values."
   },
   "module_labels": [

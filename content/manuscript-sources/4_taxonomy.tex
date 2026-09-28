@@ -3,7 +3,7 @@
 Existing benchmarks typically organize visual tasks by task formulation or output modality, leaving visual generation and understanding tasks separated.
 This makes it difficult to compare and study tasks that rely on similar visual capabilities but produce different outputs.
 We introduce \methodname{}, which organizes I2I tasks and understanding tasks in a shared hierarchy.
-For an visual understanding sample, we consider the primary visual capability required to solve it; for an I2I task, we consider the visual capability directly supervised by its training objective.
+For a visual understanding sample, we consider the primary visual capability required to solve it; for an I2I task, we consider the visual capability directly supervised by its training objective.
 At the top level, we adopt the three Rs of computer vision~\citep{malik2016three}: \textit{Recognition}, \textit{Reconstruction}, and \textit{Reorganization}.
 I2I training objectives and understanding capabilities remain separate leaves but are placed in the same hierarchy according to these shared visual capabilities.
 
@@ -27,7 +27,7 @@ Appendix~\ref{app:unitaskonomy-definitions} lists all understanding capabilities
 
 \paragraph{Deriving fine-grained visual capabilities.}
 We derive the fine-grained visual understanding capabilities bottom-up from seven vision-language benchmarks: BLINK~\citep{fu2024blink}, MMStar~\citep{chen2024wemmstar}, MMT-Bench~\citep{ying2024mmt}, CV-Bench~\citep{tong2024cambrian}, RealWorldQA~\citep{xai2024realworldqa}, MMVP~\citep{tong2024eyes}, and VStarBench~\citep{wu2024vstarbench}.
-We first sample benchmark questions and use a VLM \ranjay{which one?} to describe the visual attributes and relations involved in solving each question, such as \emph{relative depth}, \emph{size comparison}, and \emph{occlusion}.
+We first sample benchmark questions and use \texttt{gemini-3-flash-preview}~\citep{gemini3flash} to describe the visual attributes and relations involved in solving each question, such as \emph{relative depth}, \emph{size comparison}, and \emph{occlusion}.
 Then we review these descriptions and consolidate them into a fixed attribute schema, a list of key--value pairs describing image attributes, which is then used to annotate the full benchmark collection so that tasks from different benchmarks are described consistently.
 We next divide the annotated samples into ten benchmark-stratified batches.
 For each batch, a VLM organizes the samples into a local task tree using their annotated attributes and assigns each sample to the leaf that best describes its primary visual requirement.

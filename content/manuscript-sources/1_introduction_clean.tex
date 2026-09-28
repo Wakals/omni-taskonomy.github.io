@@ -2,24 +2,24 @@
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=\linewidth]{iclr2026/figures/Figure1-analysis_teaser_v15.pdf}
+    \includegraphics[width=\linewidth]{iclr2026/figures/Figure1-analysis_teaser_v19.pdf}
 \caption{
 % \textbf{When does generation help understanding?}
-\textbf{\xd{When and how does visual generation improve visual understanding?}}
-% (a) I2I pre-training followed by I2T finetuning scales with more I2I data, while mixed training does not.
-(a) \xd{I2I pretraining followed by I2T fine-tuning yields increasing gains
+\textbf{When and how does visual generation improve visual understanding?}
+% (a) I2I training followed by I2T finetuning scales with more I2I data, while mixed training does not.
+(a) I2I training followed by I2T fine-tuning yields increasing gains
 as more I2I data is added, whereas mixed training shows no consistent
-scaling benefit.}
+scaling benefit.
 % (b) Different I2I tasks transfer to different understanding tasks. Blue/red indicate gains/drops over I2T-only training (percentage points).
-\xd{Different generation tasks (I2I) benefit different understanding capabilities.}
-\xd{Blue and red indicate accuracy gains and drops relative to I2T-only
-training (percentage points).}
+(b) Different generation tasks (I2I) benefit different understanding capabilities.
+Blue and red indicate accuracy gains and drops relative to I2T-only
+training (percentage points).
 % (c) Capabilities with higher average gradient alignment show larger average transfer gains. 
 % \bs{align when which how}
 % \bs{Also the x-axis of figure c, should we say "mean gradient alignment at pre-attention layer"? Otherwise it feels like it's mean gradient over the whole network which is less interesting. Same issue in the caption of figure (c)!}\bs{in the first figure maybe add all lines but make some of them more opacity}}
-(c) \xd{Higher average gradient alignment in the understanding branch's
+(c) Higher average gradient alignment in the understanding branch's
 pre-attention RMSNorm parameters is associated with larger mean transfer
-gains across capabilities.}
+gains across capabilities.
 }
     \label{fig:teaser}
 \end{figure}
@@ -34,16 +34,16 @@ This has led to a standpoint that generation provides substantially less benefit
 However, this asymmetry is counterintuitive: visual generation provides dense pixel-level supervision over object appearance, spatial relationships, and geometry, which are also essential for visual understanding tasks such as recognition, counting, spatial reasoning, and 3D perception.
 At the same time, recent evidence suggests that generative pretraining can learn representations useful across a broad range of downstream vision tasks~\citep{visionbanana2026}.
 % These findings raise a central question: when and how generative supervision transfers to understanding tasks?
-\xd{These findings leave an important question open: \textit{when and how does visual generation supervision improve visual understanding?}}
+These findings leave an important question open: \textit{when and how does visual generation supervision improve visual understanding?}
 % We therefore revisit this assumption and systematically study when generation supervision improves visual understanding.
 
 We investigate this question systematically with unified multimodal models (``omni models''). 
 Omni models provide a natural setting for studying this transfer, as visual generation and understanding are learned within the same model~\citep{metaqueries,wu2025harmonizing,bagel}.
 % We study the conditions under which generation improves understanding, which visual capabilities transfer from generation to understanding, and what internal mechanisms are indicative of a successful transfer.
-\xd{Our study addresses three questions:
+Our study addresses three questions:
 which training curricula enable generation-to-understanding transfer,
 which generation tasks benefit which understanding capabilities,
-and whether gradient alignment offers a signal of successful transfer.}
+and whether gradient alignment offers a signal of successful transfer.
 
 % \bs{Let's make the last two sentences clearer. iiuc we are trying to throw out the three questions we are exploring? We can probably say something like "We study the conditions under whic generation improves understanding, which visual capabilities can transfer from generation to understanding, and then internal mechanism that explains the successful transfer."}
 % study: (1) whether such transfer occurs and how it depends on the training recipe and amount of generation supervision, (2) which generation tasks benefit which understanding capabilities, and (3) 
@@ -53,22 +53,22 @@ and whether gradient alignment offers a signal of successful transfer.}
 
 
 % We first ask: \emph{what training curriculum with visual generation supervision improves visual understanding?}
-\xd{We first ask: \textbf{\textit{what training curriculum enables visual generation to improve visual understanding?}}}
+We first ask: \textbf{\textit{what training curriculum enables visual generation to improve visual understanding?}}
 % To isolate generation-to-understanding transfer from confounding factors, we construct paired image-to-image (I2I) generation and image-to-text (I2T) understanding tasks that are two variants of the same puzzle. 
-\xd{To study transfer in a controlled setting, we construct paired image-to-image (I2I) generation and image-to-text (I2T) understanding tasks that express the same underlying problem in different output modalities.}
+To study transfer in a controlled setting, we construct paired image-to-image (I2I) generation and image-to-text (I2T) understanding tasks that express the same underlying problem in different output modalities.
 For example, given a shuffled image, the I2I task reconstructs the correctly ordered image, while the corresponding I2T task predicts the patch order \textit{of the same image} in text (Figure~\ref{fig:scaling}(a)).
 % After training with the I2I objective, we evaluate the model on its corresponding I2T task.
-\xd{This design holds the input and underlying visual problem fixed
-while varying the form of supervision.}
-We compare six training strategies for combining I2I and I2T data, including mixed I2I--I2T training and two-stage training with I2I pretraining followed by I2T 
+This design holds the input and underlying visual problem fixed
+while varying the form of supervision.
+We compare six training strategies for combining I2I and I2T data, including mixed I2I--I2T training and two-stage training with I2I training followed by I2T 
 % finetraining.
-\xd{fine-tuning}. 
+fine-tuning. 
 % We find that the training strategies that start with I2I training followed by I2T training can scale consistently with additional I2I data, whereas other training recipes such as directly mixing the two types of data from the beginning do not yield similar gains, as illustrated in Figure~\ref{fig:teaser}(a). 
-\xd{We find that the training pipeline beginning with I2I pretraining that updates shared parameters yield gains that grow consistently with additional I2I data.
+We find that the training pipeline beginning with I2I training that updates shared parameters yields gains that grow consistently with additional I2I data.
 Directly mixing the two objectives from the outset does not produce the same scaling benefits (Figure~\ref{fig:teaser}(a)).
-Moreover, I2I pretraining reduces the amount of I2T supervision needed to reach a given level of understanding performance, with the largest benefits when I2T data is limited.}
+Moreover, I2I training reduces the amount of I2T supervision needed to reach a given level of understanding performance, with the largest benefits when I2T data is limited.
 
-\xd{We next ask: \textbf{\textit{which visual generation tasks help which understanding tasks?}}}
+We next ask: \textbf{\textit{which visual generation tasks help which understanding tasks?}}
 Prior work has studied transfer relationships among visual tasks~\citep{zamir2018taskonomy},
 but answering this question across generation and understanding requires a common taxonomy that spans both output modalities.
 We therefore introduce \methodname, a unified taxonomy that organizes I2I and I2T tasks sharing the same visual capability space.
@@ -77,36 +77,36 @@ We therefore introduce \methodname, a unified taxonomy that organizes I2I and I2
 Within each family, we derive fine-grained understanding capabilities bottom-up from existing benchmarks and place both understanding capabilities and I2I tasks within the same taxonomy.
 This shared taxonomy allows us to systematically measure transfer from each I2I task to each understanding capability.
 Applying this training strategy across \methodname reveals a generation-to-understanding transfer map (Figure~\ref{fig:teaser}(b)).
-Some gains follow intuitive capability correspondences, such as Euclidean depth improving metric 3D reasoning and object pointing improving counting.
+Some gains follow intuitive capability correspondences, such as Z-depth improving metric 3D reasoning and object pointing improving counting.
 % Others are less intuitive, such as colorization improving
 % visual correspondence and 2D edges improving depth understanding.
 % Moreover, the same generation task can help some capabilities while interfering with others \ranjay{Give an example here.}. % maybe say the resultiong taskonomy contains xxs
-\xd{Interestingly, we also uncover surprising connections:
-colorization improves visual correspondence, and edge prediction
-improves depth understanding. These findings show that useful transfer extends beyond closely matched tasks, revealing opportunities to support understanding through a broader range of generation objectives.}
+Interestingly, we also uncover surprising connections:
+2.5D segmentation improves category recognition, and Z-depth prediction
+improves localization. These findings show that useful transfer extends beyond closely matched tasks, revealing opportunities to support understanding through a broader range of generation objectives.
 
 % last talk about gradients analysis, and how this guides experiments (with results)
 % \xd{how about start with: If transfer arises from compatible representation learning, successful I2I tasks should induce parameter updates aligned with those from the corresponding I2T tasks.}
-Finally, we ask: \xd{\textbf{\textit{What explains transfer from visual generation to understanding?}}} 
+Finally, we ask: \textbf{\textit{What explains transfer from visual generation to understanding?}} 
 % \ranjay{I don't think the gradient alignment is a ``causal'' explanation of this transfer behavior. It is an indicator of positive transfer. I would be worried about overclaiming something causal. I would instead ask ``Can we mechanistically predict successful transfer from generation to understanding?}
 % If transfer arises from compatible representation learning, successful I2I--I2T pairs should induce parameter updates aligned across the two objectives.
-\xd{Our hypothesis is that generation and understanding objectives are more likely to support each other when they favor compatible parameter updates.}
+Our hypothesis is that generation and understanding objectives are more likely to support each other when they favor compatible parameter updates.
 This hypothesis is motivated by prior work showing that conflicting task gradients can impair multi-task optimization and that gradients can be used to estimate task affinity~\citep{yu2020gradient,fifty2021efficient}.
 % We therefore measure gradient alignment between I2I and I2T objectives.
-\xd{In controlled task pairs, we find that I2I and I2T gradients align most strongly in the understanding branch's pre-attention normalization parameters, particularly in early layers (Figure~\ref{fig:grad_analysis}(a,b)).}
+In controlled task pairs, we find that I2I and I2T gradients align most strongly in the understanding branch's pre-attention normalization parameters, particularly in early layers (Figure~\ref{fig:grad_analysis}(a,b)).
 % We find that in controlled task pairs, gradient alignment between paired tasks is strongest in pre-attention normalization parameters, particularly in early layers~(Figure~\ref{fig:grad_analysis}(a,b)).
 % Extending this analysis to \methodname, we find that visual
 % understanding capabilities with higher average alignment in these layers also exhibit larger average transfer gains~(Figure~\ref{fig:teaser}(c)).
 % These results suggest that optimization compatibility between I2I and I2T objectives may be one factor associated with the observed successful transfer.
-\xd{We then examine these parameters across \methodname. Understanding capabilities with higher mean alignment across generation tasks also exhibit larger mean transfer gains (Figure~\ref{fig:teaser}(c)). 
-This positive association also holds across individual source-target pairs (Figure~\ref{fig:grad_analysis}(d)), suggesting that gradient alignment offers a promising sigfnal for identifying beneficial generation-understanding task pairings.}
+We then examine these parameters across \methodname. Understanding capabilities with higher mean alignment across generation tasks also exhibit larger mean transfer gains (Figure~\ref{fig:teaser}(c)). 
+This positive association also holds across individual source-target pairs (Figure~\ref{fig:grad_analysis}(d)), suggesting that gradient alignment offers a promising signal for identifying beneficial generation-understanding task pairings.
 
 % impact statement
 % Taken together, our results suggest that visual generation should not be treated as an auxiliary capability that is merely co-trained alongside understanding. Under the right curriculum, generation can provide useful supervision for visual understanding, but its benefits are highly capability-dependent and can be obscured by training recipes that mix objectives indiscriminately. 
 % This points to a different way of building omni models: select generation tasks for the understanding capabilities they support, stage generation and understanding objectives to encourage transfer, and use mechanistic signals such as gradient alignment to identify promising task pairings before expensive downstream evaluation.
-\xd{Together, our findings highlight visual generation as a rich source of supervision for visual understanding. Realizing its benefits depends on both how the objectives are trained and which visual capabilities they share.
-Our study provides a roadmap for exploring this potential: use generation pretraining to establish a useful initialization, select generation tasks for the understanding capabilities they support, and investigate gradient alignment as a signal for identifying promising task pairings.
-\methodname makes these relationships explicit, opening up opportunities to design omni models in which learning to generate strengthens learning to understand.}
+Together, our findings highlight visual generation as a rich source of supervision for visual understanding. Realizing its benefits depends on both how the objectives are trained and which visual capabilities they share.
+Our study provides a roadmap for exploring this potential: use generation training to establish a useful initialization, select generation tasks for the understanding capabilities they support, and investigate gradient alignment as a signal for identifying promising task pairings.
+\methodname makes these relationships explicit, opening up opportunities to design omni models in which learning to generate strengthens learning to understand.
 
 
 % \ranjay{Deleted this paragraph and replaced with an implications paragraph.}

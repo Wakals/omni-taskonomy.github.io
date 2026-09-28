@@ -79,13 +79,16 @@ The user requires manuscript-original wording and forbids GPT summaries or parap
 - The supplied I2I sample instructions and pair definitions may be displayed verbatim as author data. Do not invent new task descriptions or answers. Distinguish the 15 taxonomy I2I leaves from the 17 transfer checkpoints. Do not claim 50k examples for the two added checkpoints; they use 38.4k each.
 - Verify the updated data with `scripts/verify-interactive-data.py`, passing the source v13 HTML when available. Run the manuscript and rendered-copy audits before publishing.
 
-## Final paper refresh (September 26, 2026)
+## Final paper refresh (September 28, 2026)
 
 - The active manuscript is pinned in `content/manuscript-revision.txt`. The title/method macro is OmniTaskonomy. Extract from active `6_gradient.tex`, never the retired `6_overall.tex`.
 - The final taxonomy and transfer map have 19 I2I tasks and 25 I2T capability leaves: two Recognition, nine Reconstruction, and eight Reorganization sources. The interactive tree and heatmap use this same inventory.
 - Colorization's exact representative images come from the manuscript example manifest. All 42 displayed leaves have image files; verify them and the v13 data before publishing.
 - The gradient bars use the current paper's exact plotting data and round to two decimals. The final paper's two transfer scatter panels report 19 sources, 133 pairs, and correlations 0.795 and 0.529. Since the checkout lacks the complete raw 19-source alignment table, display exact crops from the final paper figure rather than relabeling the older 15-source interactive payload.
 - Use the current teaser and controlled/scaling figures, and keep captions and claims exactly aligned to the current manuscript. The interactive map does not show significance stars, so do not quote the paper's star-caption clause as its on-page caption.
+- The final author list, six affiliations, contribution notes, and correspondence are rendered from `content/paper-metadata.json`, pinned to manuscript commit `bac824580f9c7f537eb95fbc17a35970cc5ac13e`.
+- The public Paper button serves the compiled final manuscript at `/paper.pdf`; the GitHub button points to the public site repository. Keep the Hugging Face button absent until an authoritative destination exists.
+- The final manuscript is public and names this project page, so the site is indexable. Keep the pending BibTeX placeholder until an authoritative citation is supplied.
 
 ## BAGEL architecture figure
 

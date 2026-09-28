@@ -1,12 +1,14 @@
 \section{What explains visual generation-to-understanding transfer?}
 \label{sec:gradient}
 Our transfer map shows that gains from visual generation supervision depend on the source task and target capability.
-We next ask whether these differences can be explained \ranjay{Again, I would refrain from using language that implies a causal link.} by the compatibility of their optimization signals.
+We next ask whether these differences are associated
+% \ranjay{Again, I would refrain from using language that implies a causal link.}
+with the compatibility of their optimization signals.
 An I2I objective should transfer more strongly to an understanding capability when the two objectives favor similar parameter updates.
 We test this by measuring where I2I and I2T gradients align in controlled paired tasks, then examining whether alignment tracks transfer across tasks in \methodname.
 \begin{figure}[t]
 \centering
-\includegraphics[width=\linewidth]{iclr2026/figures/section6/gradient_transfer_overview_v2.pdf}
+\includegraphics[width=\linewidth]{iclr2026/figures/section6/gradient_transfer_overview_v5.pdf}
 \caption{\textbf{Gradient alignment and downstream transfer.}
 (a,b) Gradient alignment for the controlled Jigsaw and Zoom-In pairs across model components and individual pre-attention RMSNorm layers.
 (c) Mean gradient alignment versus mean transfer for seven understanding capabilities, averaging over 19 I2I sources.
@@ -16,13 +18,13 @@ We test this by measuring where I2I and I2T gradients align in controlled paired
 \end{figure}
 
 \subsection{Measuring gradient alignment}
-We measure whether I2I and I2T objectives induce aligned updates to the same model parameters.
+We measure whether I2I and I2T objectives induce aligned updates to the same parameters.
 For a paired example \(i\), objective \(o\in\{\mathrm{I2I},\mathrm{I2T}\}\), and parameter block \(b\) (e.g., an input RMSNorm weight or an attention query-projection weight), we compute the gradients at the pretrained checkpoint \(\boldsymbol{\theta}_0\):
 \[
 \mathbf{g}^{o}_{b,i}
 =\left.\nabla_{\boldsymbol{\theta}_b}\mathcal L_o(x^{o}_i;\boldsymbol{\theta})\right|_{\boldsymbol{\theta}=\boldsymbol{\theta}_0},
 \qquad
-\mathbf{u}^{o}_{b,i}=\frac{\mathbf{g}^{o}_{b,i}}{\|\mathbf{g}^{o}_{b,i}\|_2}.
+\mathbf{u}^{o}_{b,i}=\mathbf{g}^{o}_{b,i}/\|\mathbf{g}^{o}_{b,i}\|_2.
 \]
 Here \(\boldsymbol{\theta}_b\) denotes the parameters in block \(b\), \(x_i^o\) denotes the example for the objective \(o\), and \(\mathbf{u}^{o}_{b,i}\) denotes its normalized gradient direction.
 Gradients are high-dimensional, and their dimensions vary across parameter blocks. We therefore fit a shared uncentered PCA basis to each block's normalized I2I and I2T gradients, retaining the fewest components whose eigenvalues sum to at least \(99\%\) of the total.
@@ -43,6 +45,11 @@ Full details are provided in Appendix~\ref{app:gradient-method}.
 
 
 
+% Local vertical spacing for the final main-text page.
+\begingroup
+\setlength{\parskip}{4pt}
+\setlength{\abovedisplayskip}{4pt plus 1pt minus 1pt}
+\setlength{\belowdisplayskip}{4pt plus 1pt minus 1pt}
 \subsection{Gradient structure in the controlled setting}
 \label{sec:gradient-controlled}
 We first study the controlled Jigsaw and Zoom-In pairs from Section~\ref{sec:controlled_settings}.
@@ -69,7 +76,7 @@ To compare the overall benefit to each visual understanding capability \(t\), we
 \bar{\Delta}_t=\frac{1}{19}\sum_{s=1}^{19}\Delta_{s,t}.
 \]
 As shown in Figure~\ref{fig:grad_analysis}(c), average alignment and average transfer are strongly positively correlated across the seven capabilities ($r=0.795$).
-Capabilities whose gradients are more compatible with generation objectives, on average, therefore, also tend to receive larger average gains from I2I training.
+Capabilities whose gradients are more compatible with generation objectives, on average, therefore, also tend to receive larger gains from I2I training.
 \paragraph{Does alignment track transfer across task pairs?}
 We next examine all $19\times7=133$ source–target pairs individually.
 Figure~\ref{fig:grad_analysis}(d) plots each pair according to its gradient alignment ($G_{s,t}$) and downstream transfer gain ($\Delta_{s,t}$).
@@ -78,8 +85,9 @@ Together, these results identify gradient alignment as an optimization-level sig
 \begin{findingbox}
 Gradient alignment is concentrated in early pre-attention normalization layers and is positively associated with downstream transfer across both understanding capabilities and individual source-target pairs.
 \end{findingbox}
+\par\endgroup
 
-\ranjay{There is no mention of other layers and their alignment. Might be worth a mention what the baseline alignment is across other layers.}
+% \ranjay{There is no mention of other layers and their alignment. Might be worth a mention what the baseline alignment is across other layers.}
 
 % \subsection{Gradient alignment across layers and modules}
 

@@ -4,24 +4,23 @@
 \caption{\textbf{Generation-to-understanding transfer across visual capabilities.}
 Each column corresponds to an I2I source task and each row to an understanding capability in \methodname.
 Cells report the change in I2T accuracy, in percentage points, relative to the I2T-only baseline.
+Results are averaged over three seeds.
 Blue indicates positive transfer and red indicates negative transfer.
 Cells with $p<0.05$ under an exact paired permutation test against the I2T-only baseline are outlined and labeled with their gains. The detailed numbers in the heat map are in Appendix~\ref{app:transfer-full}.}
 \label{fig:transfer}
 \end{figure}
 
-\section{Which visual generation tasks help which visual understanding tasks?}
+\section{Which generation tasks help which capabilities?}
 \label{sec:transfer}
 The controlled study shows that I2I training can improve the corresponding I2T task.
 We next ask whether this transfer extends beyond closely paired tasks, and which generation objectives benefit which understanding capabilities.
 To study this, we evaluate all 19 I2I tasks in \methodname{} against their 25 understanding capabilities.
 
 \subsection{Experimental setup}
-We follow the I2I $\rightarrow$ I2T recipe: starting from the same BAGEL checkpoint, we use approximately 50k I2I examples followed by 50k LLaVA-Instruct examples~\citep{liu2024llava} \ranjay{Did you do any experiment to ensure that each of the omni-taxonomy categories in I2T and I2I were sufficiently represented in this training set? Might be worth checking if the number of examples in the training set is correlated with successful transfer.}. The sources span Recognition (2), Reconstruction (9), and Reorganization (8); Appendix~\ref{app:transfer-setup} specifies the checkpoint set. The baseline is trained only on the I2T data. We evaluate all checkpoints on the same 9,444 evaluation examples and define transfer from source $s$ to capability $t$ as
-\[
-\Delta_{s,t}
-=\operatorname{Acc}(M_s,\mathcal D_t)
--\operatorname{Acc}(M_{\mathrm{I2T}},\mathcal D_t),
-\]
+We follow the I2I $\rightarrow$ I2T recipe: starting from the same BAGEL checkpoint, we use approximately 50k I2I examples followed by 50k LLaVA-Instruct examples~\citep{liu2024llava}
+% \ranjay{Did you do any experiment to ensure that each of the omni-taxonomy categories in I2T and I2I were sufficiently represented in this training set? Might be worth checking if the number of examples in the training set is correlated with successful transfer.}
+. The sources span Recognition (2), Reconstruction (9), and Reorganization (8); Appendix~\ref{app:transfer-setup} specifies the checkpoint set. The baseline is trained only on the I2T data. We evaluate all checkpoints on the same 9,444 evaluation examples and define transfer from source $s$ to capability $t$ as
+$\Delta_{s,t}=\operatorname{Acc}(M_s,\mathcal D_t)-\operatorname{Acc}(M_{\mathrm{I2T}},\mathcal D_t)$,
 reported in percentage points. We assess significance using exact paired permutation tests on per-example correctness against the I2T-only baseline ($p<0.05$; Appendix~\ref{app:transfer-tests}). Figure~\ref{fig:transfer} shows the 19 capabilities with more than 100 evaluation examples and marks cells with $p<0.05$.
 Appendix~\ref{app:transfer} provides all 25 capabilities and baseline accuracies. 
 
@@ -44,8 +43,9 @@ Solving inpainting tasks may encourage the model to infer object quantity and gl
 % \qin{deleted colorization}
 % Colorization likewise improves visual correspondence ($+5.71$ pp), potentially because predicting plausible colors requires associating semantically related regions across an image.
 2.5D segmentation likewise improves category recognition ($+1.2$ pp), potentially because capturing object boundaries can shape cues that support category recognition.
-These examples show that an I2I objective can also benefit targets across task families.
+These examples show that an I2I objective can also benefit targets across tasks.
 
 \begin{findingbox}
-Visual Generation supervision yields significant gains for specific visual understanding capabilities, through both related tasks and transfer across task families. \ranjay{I might have missed this. I couldn't find a definition of ``task family'' anywhere.}\ranjay{Minor: I worry a bit that the findings themselves are a little too vague to be actionable. "vision generation sometimes helps understanding". Ok, but what do I do with that information?  Either move the findings into 1.1, 1.2, 2.1, 2.2 and make them each specific or lay out why the findings should matter to someone reading them.}
+Visual generation supervision yields significant gains for specific visual understanding capabilities, through both related tasks and transfer across tasks.
+% \ranjay{I might have missed this. I couldn't find a definition of ``task family'' anywhere.}\ranjay{Minor: I worry a bit that the findings themselves are a little too vague to be actionable. "vision generation sometimes helps understanding". Ok, but what do I do with that information?  Either move the findings into 1.1, 1.2, 2.1, 2.2 and make them each specific or lay out why the findings should matter to someone reading them.}
 \end{findingbox}

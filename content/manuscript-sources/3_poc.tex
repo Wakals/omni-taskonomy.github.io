@@ -1,5 +1,12 @@
 \begingroup
 \setlength{\parskip}{3pt}
+\setlength{\textfloatsep}{7pt plus 1pt minus 1pt}
+\setlength{\abovecaptionskip}{3pt}
+% Compact only the vertical gap before Section 3's run-in headings.
+\makeatletter
+\def\section{\@startsection{section}{1}{\z@}{-1.5ex plus -.3ex minus -.2ex}{1ex plus .2ex minus .2ex}{\large\sc\raggedright}}
+\def\paragraph{\@startsection{paragraph}{4}{\z@}{5pt plus 1pt minus .5pt}{-1em}{\normalsize\bf}}
+\makeatother
 \section{Does visual generation help visual understanding?}
 \label{sec:controlled_settings}
 We first ask whether visual generation can improve visual understanding.
@@ -17,8 +24,9 @@ We study how the training recipe affects transfer, how I2I supervision reduces t
     \includegraphics[width=\linewidth]{iclr2026/figures/combined_3subfigures_refined_v18.pdf}
     \caption{\textbf{Scaling I2I and I2T supervision.}
     (a) Controlled Jigsaw and Zoom-In tasks with image and text outputs.
-    (b) I2T accuracy versus I2I training examples across recipes on Jigsaw and Zoom-In, with 1k I2T examples.
-    (c) I2T accuracy versus I2T training examples, comparing I2T-only training with I2I training followed by I2T finetuning using 100k I2I examples.}
+    (b) I2T accuracy versus I2I training examples across recipes, with 1k I2T examples.
+    (c) I2T accuracy versus I2T training examples for I2T-only and I2I $\rightarrow$ I2T training (100k I2I examples).
+    Curves show means over three seeds. Shading indicates $\pm1$ SEM.}
     \label{fig:scaling}
 \end{figure}
 \paragraph{Controlled paired tasks.}
@@ -39,7 +47,6 @@ We instantiate this on BAGEL, a unified multimodal model based on a Mixture-of-T
 % For I2T, the model takes a rendered scene and outputs its structured description, including the attributes and coordinates of each object. For T2I, the model takes the same description and generates the corresponding scene.
 % The two objectives therefore learn opposite directions of the same deterministic text-image mapping.
 % experiment results, we found i2i help t2i does not; (why? any insight? i2i is learninng a delta, but for very toy t2i settings why does it not help)
-\par\endgroup
 \paragraph{Which training recipe transfers best?}
 % show the scaling curve of I2I toy tasks under different recipes;
 % show the curve udner different I2T data budgeste, enough I2I can appriximate I2T on toy settings
@@ -51,7 +58,6 @@ We use $\rightarrow$ to denote sequential training stages.
 \textbf{Frozen I2I} denotes visual generation training in which these shared parameters are frozen, and only visual generation-specific parameters are updated.
 Architecture and training details are provided in Appendix~\ref{app:controlled-method}.
 We fix the I2T budget at 1k examples with identical I2T training epochs across recipes and vary the amount of I2I data.
-
 As shown in Figure~\ref{fig:scaling}(b), I2I $\rightarrow$ I2T and I2I $\rightarrow$ Mixed scale consistently as the I2I data increases.
 Both recipes begin with an I2I-only training stage that updates parameters shared with I2T.
 In contrast, freezing these weights during the I2I training stage or directly mixing the two objectives from the beginning leads to weaker or less stable gains.
@@ -73,9 +79,9 @@ Training details are in Appendix~\ref{app:controlled-recipes}.
 % I2I supervision complements but does not replace direct I2T supervision,
 % with the largest gains in low-I2T settings.
 % \end{findingbox}
-% Keep the passage and its wrapped table together on one page.
-\par\addvspace{\medskipamount}
-\noindent\begin{minipage}{\linewidth}
+% Keep the table wrapped while allowing the paragraph to continue across pages.
+\par\addvspace{3pt}
+\begingroup
 \setlength{\intextsep}{2pt}
 \setlength{\columnsep}{5pt}
 \begin{wraptable}[7]{r}{0.38\linewidth}
@@ -103,9 +109,10 @@ Training details are in Appendix~\ref{app:controlled-recipes}.
 \noindent
 \mbox{\textbf{Instance-level correspondence.}}\quad
 Beyond aggregated transfer, we ask whether success on paired I2I and I2T tasks also corresponds at the level of individual examples.
-We evaluate both I2I and I2T outputs from the same final I2I $\rightarrow$ I2T checkpoint for each of two training seeds, trained on 30k I2I and 1k I2T examples, using our 1k evaluation paired inputs.
+We evaluate both I2I and I2T outputs from the same final I2I $\rightarrow$ I2T checkpoint for each of three training seeds, trained on 30k I2I and 1k I2T examples, using our 1k evaluation paired inputs.
 We then compare I2T accuracy conditioned on whether the I2I prediction for the same input is correct.
 As shown in Table~\ref{tab:controlled_instance_alignment}, I2T performance is higher on examples for which the corresponding I2I prediction is correct and lower on those that were wrong.
 This indicates that the correspondence between paired I2I and I2T tasks extends to individual examples. More evaluation details are in Appendix~\ref{app:controlled-eval}
 \par
-\end{minipage}\par
+\endgroup
+\par\endgroup
