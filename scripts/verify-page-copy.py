@@ -30,6 +30,9 @@ class Audit(HTMLParser):
  def handle_starttag(self,tag,attrs):
   attrs=dict(attrs);self.depth+=1
   if tag in {'head','script','style'}: self.skip.append((tag,self.depth))
+  if 'data-math-source' in attrs:
+   if self.active: self.active['parts'].append(attrs['data-math-source'])
+   self.skip.append((tag,self.depth))
   if attrs.get('data-visual-source'):
    assert attrs['data-visual-source'] in {'controlled-gradient-json','section6-gradient-and-transfer-csv','minibatch-gradient-html'}
    self.visual.append((tag,self.depth));self.visual_sources.append(attrs['data-visual-source'])

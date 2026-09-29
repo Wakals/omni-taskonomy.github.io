@@ -1,3 +1,4 @@
+import 'katex/dist/katex.min.css';
 import type { Metadata } from 'next';
 import manuscriptContent from '@/content/manuscript-excerpts.json';
 import paperMetadata from '@/content/paper-metadata.json';

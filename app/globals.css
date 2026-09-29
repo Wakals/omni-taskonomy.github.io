@@ -650,3 +650,7 @@ figcaption, .teaser figcaption,
 #alignment .alignment-experiment-setup p { display:inline; margin:0; }
 #alignment .alignment-experiment-setup p + p::before { content:' '; }
 @media(max-width:760px) { #alignment .association-figure > .association-grid { grid-template-columns:1fr; } }
+
+.inline-math { white-space:nowrap; }
+.inline-math .katex { font-size:1em; }
+strong .inline-math .katex { font-weight:700; }
