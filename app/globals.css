@@ -589,3 +589,19 @@ figcaption, .teaser figcaption,
   .author-notes { display:block; font-size:11px; }
   .author-notes span { display:block; margin-top:3px; }
 }
+
+/* Analysis layout: adjacent explanations and charts, following Playful RATs. */
+#alignment .section-heading { text-align:left; max-width:860px; margin:0 0 32px; }
+#alignment .section-heading::after { margin-left:0; }
+#alignment .section-heading h2 { font-size:clamp(2rem,3.5vw,2.8rem); line-height:1.15; text-wrap:balance; }
+.alignment-analysis-row { display:grid; grid-template-columns:minmax(230px,.75fr) minmax(0,1.6fr); gap:36px; align-items:center; padding:32px 0 40px; border-top:1px solid var(--border); }
+.alignment-explanation p { font-size:1rem; line-height:1.7; }
+#alignment .alignment-composite { width:100%; max-width:none; margin:0; }
+#alignment .figure-caption { font-size:.94rem; line-height:1.55; }
+.alignment-associations { padding-top:32px; border-top:1px solid var(--border); }
+.alignment-associations > .analysis-copy { display:grid; grid-template-columns:1fr 1fr; gap:32px; margin:0 0 24px; }
+.alignment-associations > .analysis-copy p { font-size:1rem; line-height:1.7; margin:0; }
+@media(max-width:900px) {
+ .alignment-analysis-row { grid-template-columns:1fr; gap:22px; padding-block:24px; }
+ .alignment-associations > .analysis-copy { grid-template-columns:1fr; gap:16px; }
+}

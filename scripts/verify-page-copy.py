@@ -23,7 +23,7 @@ ui.update(gradient['module_labels'])
 ui.update('Layer '+str(i) for i in range(28))
 ui.update(format(v,'.2f') for area in ('module_values','layer_values') for task in ('jigsaw','zoomin') for v in gradient[area][task])
 ui.update(format(v,'.1f') for v in (-0.5,-0.1,0,0.2,0.4,0.5,0.6,1))
-credit='This project page’s design and presentation are inspired by Beyond Language Modeling: An Exploration of Multimodal Pretraining. We thank its authors for the inspiration.'
+credit='This project page’s design and presentation are inspired by Beyond Language Modeling: An Exploration of Multimodal Pretraining and Playful Agentic Robot Learning. We thank their authors for the inspiration.'
 class Audit(HTMLParser):
  def __init__(self):
   super().__init__();self.depth=0;self.skip=[];self.visual=[];self.visual_sources=[];self.active=None;self.matched=[];self.author_matched=[];self.teaser_matched=[];self.v12_matched=[];self.images=0;self.description=False;self.errors=[];self.selects=[]

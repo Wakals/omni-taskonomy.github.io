@@ -104,6 +104,7 @@ function RecipeNote() {
   const ids: AuthorId[] = ['recipe_r1', 'recipe_r2', 'recipe_r3', 'recipe_r4', 'recipe_r5', 'recipe_r6'];
   return <aside className="recipe-note" id="training-recipes" role="note" aria-label="Training recipes">
     <div className="recipe-note-intro"><AuthorPassage id="recipe_intro" /><sup>1</sup></div>
+    <AuthorPassage id="recipe_stage_note" />
     <ol className="recipe-list">{ids.map((id, index) => {
       const value = authorExcerpts[id].text;
       const stop = value.indexOf('. ');
@@ -211,16 +212,18 @@ export default function Home() {
 
       <section id="alignment" className="chapter"><div className="shell">
         <Heading id="alignment_heading" number="05" />
-        <aside className="method-note experiment-setup"><Passage id="alignment_setup" /></aside>
+        <div className="alignment-analysis-row"><div className="alignment-explanation"><Passage id="alignment_setup" /><Passage id="alignment_finding" /></div>
         <figure className="interactive-figure alignment-composite">
           <div className="alignment-visuals">
             <GradientBars />
           </div>
           <figcaption className="figure-caption"><span data-author-copy="alignment_bars_caption_web">{formatted(authorExcerpts.alignment_bars_caption_web.text)}</span></figcaption>
         </figure>
-        <GradientTransferScatter />
-        <div className="analysis-copy prose"><Passage id="alignment_results" className="standalone-capitalized" /><Passage id="alignment_lead" /></div>
-        <blockquote className="finding"><Passage id="alignment_finding" /></blockquote>
+        </div>
+        <div className="alignment-associations">
+          <div className="analysis-copy"><Passage id="alignment_results" className="standalone-capitalized" /><Passage id="alignment_lead" /></div>
+          <GradientTransferScatter />
+        </div>
       </div></section>
 
       <section className="citation shell" id="citation" aria-labelledby="citation-heading">
@@ -230,7 +233,7 @@ export default function Home() {
     </main>
     <footer className="shell">
       <span data-manuscript-excerpt="title">{formatted(text('title'))}</span><a href="#top">Back to top ↑</a>
-      <p data-site-credit="design" className="site-credit">This project page’s design and presentation are inspired by <a href="https://beyond-llms.github.io/" target="_blank" rel="noreferrer">Beyond Language Modeling: An Exploration of Multimodal Pretraining</a>. We thank its authors for the inspiration.</p>
+      <p data-site-credit="design" className="site-credit">This project page’s design and presentation are inspired by <a href="https://beyond-llms.github.io/" target="_blank" rel="noreferrer">Beyond Language Modeling: An Exploration of Multimodal Pretraining</a> and <a href="https://playful-rats.github.io/" target="_blank" rel="noreferrer">Playful Agentic Robot Learning</a>. We thank their authors for the inspiration.</p>
     </footer>
   </>;
 }
