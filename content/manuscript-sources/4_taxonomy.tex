@@ -2,7 +2,7 @@
 
 Existing benchmarks typically organize visual tasks by task formulation or output modality, leaving visual generation and understanding tasks separated.
 This makes it difficult to compare and study tasks that rely on similar visual capabilities but produce different outputs.
-We introduce \methodname{}, which organizes I2I tasks and understanding tasks in a shared hierarchy.
+We introduce \methodname{}, a unified taxonomy of I2I tasks and understanding capabilities.
 For a visual understanding sample, we consider the primary visual capability required to solve it; for an I2I task, we consider the visual capability directly supervised by its training objective.
 At the top level, we adopt the three Rs of computer vision~\citep{malik2016three}: \textit{Recognition}, \textit{Reconstruction}, and \textit{Reorganization}.
 I2I training objectives and understanding capabilities remain separate leaves but are placed in the same hierarchy according to these shared visual capabilities.
@@ -11,8 +11,8 @@ I2I training objectives and understanding capabilities remain separate leaves bu
 \centering
 \includegraphics[width=\linewidth]{iclr2026/figures/OmniTaskonomy-standalone.pdf}
 \caption{\textbf{\methodname.}
-A unified taxonomy of visual tasks organized into three broad families: \textit{Recognition}, \textit{Reconstruction}, and \textit{Reorganization}.
-I2I training objectives and understanding capabilities remain separate leaves, but share the same visual hierarchy.}
+A unified taxonomy of I2I tasks and understanding capabilities under the three Rs: \textit{Recognition}, \textit{Reconstruction}, and \textit{Reorganization}.
+I2I tasks and understanding capabilities occupy separate leaves in a shared hierarchy.}
 \label{fig:taskonomy}
 \end{figure}
 

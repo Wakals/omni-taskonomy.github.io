@@ -1,34 +1,116 @@
 {
-  "manuscript_commit": "2034e2e9f120d249def71522acf3db3051480cc0",
+  "manuscript_commit": "f656404f25e085ac9e79e6fb85f2b74cd9fa833d",
   "authors": [
-    {"name":"Jiaxin Ge","marks":"1*","homepage":"https://gejiaxin.org/"},
-    {"name":"Yiming Qin","marks":"2,6*","homepage":"https://wakals.github.io/"},
-    {"name":"Ji Xie","marks":"3","homepage":"https://horizonwind2004.github.io/"},
-    {"name":"Haozhe Jiang","marks":"1","homepage":"https://astro-eric.github.io/"},
-    {"name":"Xiaochuang Han","marks":"4","homepage":"https://xhan77.github.io/"},
-    {"name":"Junyi Zhang","marks":"1","homepage":"https://www.junyi42.com/"},
-    {"name":"Andrew M. Dai","marks":"5","homepage":"https://github.com/a-dai"},
-    {"name":"Yinfei Yang","marks":"5","homepage":"https://sites.google.com/site/yinfeiyang"},
-    {"name":"Jitendra Malik","marks":"1","homepage":"https://people.eecs.berkeley.edu/~malik/"},
-    {"name":"Ranjay Krishna","marks":"4","homepage":"https://ranjaykrishna.com/"},
-    {"name":"Sewon Min","marks":"1","homepage":"https://www.sewonmin.com/"},
-    {"name":"Haiwen Feng","marks":"1,6†","homepage":"https://havenfeng.github.io/"},
-    {"name":"Le Xue","marks":"5†","homepage":"https://www.salesforce.com/blog/author/le-xue/"},
-    {"name":"Baifeng Shi","marks":"1†","homepage":"https://bfshi.github.io/"},
-    {"name":"Trevor Darrell","marks":"1†","homepage":"https://people.eecs.berkeley.edu/~trevor/"},
-    {"name":"XuDong Wang","marks":"1,2†","homepage":"https://xudongfrankwang.github.io/"}
+    {
+      "name": "Jiaxin Ge",
+      "marks": "1*",
+      "homepage": "https://gejiaxin.org/"
+    },
+    {
+      "name": "Yiming Qin",
+      "marks": "2,6*",
+      "homepage": "https://wakals.github.io/"
+    },
+    {
+      "name": "Ji Xie",
+      "marks": "3",
+      "homepage": "https://horizonwind2004.github.io/"
+    },
+    {
+      "name": "Haozhe Jiang",
+      "marks": "1",
+      "homepage": "https://astro-eric.github.io/"
+    },
+    {
+      "name": "Xiaochuang Han",
+      "marks": "4",
+      "homepage": "https://xhan77.github.io/"
+    },
+    {
+      "name": "Junyi Zhang",
+      "marks": "1",
+      "homepage": "https://www.junyi42.com/"
+    },
+    {
+      "name": "Andrew M. Dai",
+      "marks": "5",
+      "homepage": "https://github.com/a-dai"
+    },
+    {
+      "name": "Yinfei Yang",
+      "marks": "5",
+      "homepage": "https://sites.google.com/site/yinfeiyang"
+    },
+    {
+      "name": "Jitendra Malik",
+      "marks": "1",
+      "homepage": "https://people.eecs.berkeley.edu/~malik/"
+    },
+    {
+      "name": "Ranjay Krishna",
+      "marks": "4",
+      "homepage": "https://ranjaykrishna.com/"
+    },
+    {
+      "name": "Sewon Min",
+      "marks": "1",
+      "homepage": "https://www.sewonmin.com/"
+    },
+    {
+      "name": "Haiwen Feng",
+      "marks": "1,6†",
+      "homepage": "https://havenfeng.github.io/"
+    },
+    {
+      "name": "Le Xue",
+      "marks": "5†",
+      "homepage": "https://www.salesforce.com/blog/author/le-xue/"
+    },
+    {
+      "name": "Baifeng Shi",
+      "marks": "1†",
+      "homepage": "https://bfshi.github.io/"
+    },
+    {
+      "name": "Trevor Darrell",
+      "marks": "1†",
+      "homepage": "https://people.eecs.berkeley.edu/~trevor/"
+    },
+    {
+      "name": "XuDong Wang",
+      "marks": "1,2†",
+      "homepage": "https://xudongfrankwang.github.io/"
+    }
   ],
   "affiliations": [
-    {"mark":"1","name":"University of California, Berkeley"},
-    {"mark":"2","name":"Duke University"},
-    {"mark":"3","name":"Carnegie Mellon University"},
-    {"mark":"4","name":"University of Washington"},
-    {"mark":"5","name":"Elorian"},
-    {"mark":"6","name":"Impossible, Inc."}
+    {
+      "mark": "1",
+      "name": "University of California, Berkeley"
+    },
+    {
+      "mark": "2",
+      "name": "Duke University"
+    },
+    {
+      "mark": "3",
+      "name": "Carnegie Mellon University"
+    },
+    {
+      "mark": "4",
+      "name": "University of Washington"
+    },
+    {
+      "mark": "5",
+      "name": "Elorian"
+    },
+    {
+      "mark": "6",
+      "name": "Impossible, Inc."
+    }
   ],
   "notes": [
     "* Equal contribution.",
-    "† Equal advising."
+    "† Equal contribution."
   ],
-  "display_text": "Jiaxin Ge 1* Yiming Qin 2,6* Ji Xie 3 Haozhe Jiang 1 Xiaochuang Han 4 Junyi Zhang 1 Andrew M. Dai 5 Yinfei Yang 5 Jitendra Malik 1 Ranjay Krishna 4 Sewon Min 1 Haiwen Feng 1,6† Le Xue 5† Baifeng Shi 1† Trevor Darrell 1† XuDong Wang 1,2† 1 University of California, Berkeley 2 Duke University 3 Carnegie Mellon University 4 University of Washington 5 Elorian 6 Impossible, Inc. * Equal contribution. † Equal advising."
+  "display_text": "Jiaxin Ge 1* Yiming Qin 2,6* Ji Xie 3 Haozhe Jiang 1 Xiaochuang Han 4 Junyi Zhang 1 Andrew M. Dai 5 Yinfei Yang 5 Jitendra Malik 1 Ranjay Krishna 4 Sewon Min 1 Haiwen Feng 1,6† Le Xue 5† Baifeng Shi 1† Trevor Darrell 1† XuDong Wang 1,2† 1 University of California, Berkeley 2 Duke University 3 Carnegie Mellon University 4 University of Washington 5 Elorian 6 Impossible, Inc. * Equal contribution. † Equal contribution."
 }

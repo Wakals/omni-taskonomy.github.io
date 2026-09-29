@@ -1,5 +1,11 @@
 # Project-page copy contract
 
+## Final arXiv wording corrections (September 28, 2026)
+
+- The author approved synchronizing the final manuscript corrections and replacing I2I "Pretrain" with "Train" in the previously supplied recipe copy. Keep the final contribution notes consistent with the manuscript.
+- The author approved replacing the pending BibTeX placeholder. `content/citation.json` derives the title and author order from the final manuscript, uses year 2026 and the project URL, and deliberately omits an unassigned arXiv identifier. Replace that URL with the authoritative arXiv reference when supplied. This supersedes the earlier pending-citation instruction.
+- Keep manuscript excerpts and their source hashes pinned to the current paper revision. Validate the citation as a separate exact provenance record in the rendered-copy audit.
+
 The user requires manuscript-original wording and forbids GPT summaries or paraphrases.
 
 - All research prose, research headings, findings, captions, image alt text, and metadata must come from contiguous passages in the actual manuscript source. Do not polish, shorten by rewriting, correct grammar, or synthesize claims.

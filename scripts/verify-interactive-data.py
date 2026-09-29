@@ -7,6 +7,7 @@ import sys
 from v12_audit import RAW, CORRECTIONS, ROOT, H, LEAVES
 
 provenance = json.loads((ROOT / "content/current-transfer-provenance.json").read_text())
+measurement_source = "paired_results" if "paired_results" in provenance else "final_transfer_matrix"
 assert provenance["models_including_baseline"] == 20
 assert provenance["i2i_tasks"] == 19
 assert provenance["understanding_capabilities"] == 25
@@ -14,12 +15,12 @@ assert provenance["main_map_capabilities"] == 19
 
 if len(sys.argv) > 1:
     paper = Path(sys.argv[1]).resolve()
-    for key in ("paired_results", "i2i_inventory"):
+    for key in (("paired_results", "i2i_inventory") if measurement_source == "paired_results" else ("final_transfer_matrix", "main_transfer_map")):
         source = paper / provenance[key]["path"]
         assert sha256(source.read_bytes()).hexdigest() == provenance[key]["sha256"]
 
 assert RAW["source"]["paper_commit"] == provenance["paper_commit"]
-assert RAW["source"]["hash"] == "sha256:" + provenance["paired_results"]["sha256"]
+assert RAW["source"]["hash"] == "sha256:" + provenance[measurement_source]["sha256"]
 assert CORRECTIONS["source"]["paper_commit"] == provenance["paper_commit"]
 assert CORRECTIONS["leaf_families"] == {}
 assert CORRECTIONS["i2i_column_order"] == CORRECTIONS["i2i_tree_order"]
@@ -69,13 +70,21 @@ for scope in H["scopes"]:
     scope_id = scope["id"]
     assert len(H["expected"][scope_id]) == len(H["nodes"])
     for node in H["nodes"]:
+        # The final paper matrix contains capability leaves, not family aggregates.
+        if measurement_source == "final_transfer_matrix" and node["type"] != "leaf":
+            continue
         models = H["metrics"][scope_id][node["id"]]
         assert len(models) == 20
-        assert len(H["pvalues"][scope_id][node["id"]]) == 19
+        pvalues = H["pvalues"][scope_id][node["id"]]
+        assert len([model for model in pvalues if model != H["baseline"]]) == 19
+        if H["baseline"] in pvalues:
+            assert pvalues[H["baseline"]] is None
         for pair in models.values():
-            assert 0 <= pair[0] <= pair[1] == H["expected"][scope_id][node["id"]]
+            # PDF-derived entries store percentages as [accuracy, 100].
+            denominator = 100 if measurement_source == "final_transfer_matrix" else H["expected"][scope_id][node["id"]]
+            assert 0 <= pair[0] <= pair[1] == denominator
 
-if len(sys.argv) > 1:
+if len(sys.argv) > 1 and measurement_source == "paired_results":
     paired = json.loads((paper / provenance["paired_results"]["path"]).read_text())
     for row in paired["rows"]:
         actual = H["pvalues"][row["scope"]][row["node_id"]][row["model"]]

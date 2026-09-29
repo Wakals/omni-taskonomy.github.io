@@ -11,7 +11,7 @@
 \label{sec:controlled_settings}
 We first ask whether visual generation can improve visual understanding.
 To isolate the effect of confounding factors, we construct paired I2I and I2T tasks that require solving the same task from the same input, differing only in whether the answer is produced as an image or as text.
-This allows us to directly test whether supervision from an I2I objective transfers to the corresponding I2T task. This setup eliminates differences in annotation quality, image source, and other factors.
+This allows us to directly test whether supervision from an I2I objective transfers to the corresponding I2T task. This design holds the input and underlying visual problem fixed while varying the output modality.
 We study how the training recipe affects transfer, how I2I supervision reduces the need for I2T data, and whether the two objectives correspond at the instance level.
 % Task construction, training details, and full recipe definitions are provided in Appendix~\ref{app:controlled}.
 % \todo{if we add T2I should we test on some other models eg BLIP-3o as well?}
@@ -112,7 +112,7 @@ Beyond aggregated transfer, we ask whether success on paired I2I and I2T tasks a
 We evaluate both I2I and I2T outputs from the same final I2I $\rightarrow$ I2T checkpoint for each of three training seeds, trained on 30k I2I and 1k I2T examples, using our 1k evaluation paired inputs.
 We then compare I2T accuracy conditioned on whether the I2I prediction for the same input is correct.
 As shown in Table~\ref{tab:controlled_instance_alignment}, I2T performance is higher on examples for which the corresponding I2I prediction is correct and lower on those that were wrong.
-This indicates that the correspondence between paired I2I and I2T tasks extends to individual examples. More evaluation details are in Appendix~\ref{app:controlled-eval}
+This indicates that the correspondence between paired I2I and I2T tasks extends to individual examples. More evaluation details are in Appendix~\ref{app:controlled-eval}.
 \par
 \endgroup
 \par\endgroup

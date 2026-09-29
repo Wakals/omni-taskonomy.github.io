@@ -1,0 +1,5 @@
+{
+  "manuscript_commit": "f656404f25e085ac9e79e6fb85f2b74cd9fa833d",
+  "source": "Final manuscript title and author order; project URL. arXiv identifier not yet assigned.",
+  "bibtex": "@misc{ge2026omnitaskonomy,\n  title = {{OmniTaskonomy}: When Does Visual Generation Improve Visual Understanding},\n  author = {Ge, Jiaxin and\n            Qin, Yiming and\n            Xie, Ji and\n            Jiang, Haozhe and\n            Han, Xiaochuang and\n            Zhang, Junyi and\n            Dai, Andrew M. and\n            Yang, Yinfei and\n            Malik, Jitendra and\n            Krishna, Ranjay and\n            Min, Sewon and\n            Feng, Haiwen and\n            Xue, Le and\n            Shi, Baifeng and\n            Darrell, Trevor and\n            Wang, XuDong},\n  year = {2026},\n  url = {https://omni-taskonomy.github.io/}\n}"
+}

@@ -3,6 +3,7 @@ import type { CSSProperties, ReactNode } from 'react';
 import manuscriptContent from '@/content/manuscript-excerpts.json';
 import authorContent from '@/content/author-provided-copy.json';
 import paperMetadata from '@/content/paper-metadata.json';
+import citation from '@/content/citation.json';
 import { InteractiveTaxonomy, InteractiveTransferMap } from '@/components/interactive-figures';
 import { GradientBars } from '@/components/gradient-bars';
 import { GradientTransferScatter } from '@/components/gradient-transfer-scatter';
@@ -224,7 +225,7 @@ export default function Home() {
 
       <section className="citation shell" id="citation" aria-labelledby="citation-heading">
         <h2 id="citation-heading">Citation</h2>
-        <pre aria-label="Pending BibTeX"><code>% BibTeX pending.</code></pre>
+        <pre aria-label="BibTeX citation"><code data-paper-citation="bibtex">{citation.bibtex}</code></pre>
       </section>
     </main>
     <footer className="shell">

@@ -1,6 +1,6 @@
 {
   "source": {
-    "paper_commit": "bac824580f9c7f537eb95fbc17a35970cc5ac13e",
+    "paper_commit": "f656404f25e085ac9e79e6fb85f2b74cd9fa833d",
     "capability_csv_sha256": "dc10e1313461525a89720f605db1f076ec303c1d35530a8f4d7c69720918c40e",
     "task_pairs_csv_sha256": "ab45fc69c1d2c8dfd0295b51b9124ba5838da23ce985f070655216e23aa65c1b",
     "definition": "Post-PCA cosine at the pretrained checkpoint; transfer is accuracy gain over the I2T-only baseline."

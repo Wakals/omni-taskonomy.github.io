@@ -63,11 +63,11 @@ In controlled I2I--I2T pairs, gradient alignment is strongest in early pre-atten
 \end{findingbox}
 \subsection{Does gradient alignment track transfer across tasks?}
 Motivated by the strong alignment observed in Section~\ref{sec:gradient-controlled}, we focus on the understanding branch's pre-attention RMSNorm~\citep{zhang2019rootrmsnorm} parameters, concatenated across all 28 transformer layers.
-We use the original 19-source checkpoints with gradient measurements and all seven understanding capabilities, with more than 500 evaluation examples (Appendix~\ref{app:gradient-minibatch}).
+We analyze all 19 I2I tasks and the seven understanding capabilities with more than 500 evaluation examples (Appendix~\ref{app:gradient-minibatch}).
 For each capability, we sample 500 examples and compute gradients using minibatches of size 64.
 For an I2I source task $s$ and target visual understanding capability $t$, we compute the mean post-PCA gradient cosine ($G_{s,t}$) at the pretrained checkpoint using these parameters.
 We compare this quantity with the downstream transfer gain
-($\Delta_{s,t}$), defined as the target accuracy improvement over the I2T-only baseline after I2I training followed by I2T finetuning.
+($\Delta_{s,t}$), defined as the target accuracy improvement over the I2T-only baseline after I2I training followed by I2T finetuning, averaged over three seeds.
 \paragraph{Which visual understanding capabilities benefit more from visual generation?}
 To compare the overall benefit to each visual understanding capability \(t\), we average alignment and transfer over all 19 sources:
 \[

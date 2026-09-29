@@ -8,6 +8,7 @@ book=json.loads((BASE/'content/manuscript-excerpts.json').read_text())
 excerpts=book['excerpts']
 author_excerpts=json.loads((BASE/'content/author-provided-copy.json').read_text())['excerpts']
 paper_metadata=json.loads((BASE/'content/paper-metadata.json').read_text())
+citation=json.loads((BASE/'content/citation.json').read_text())
 teaser_labels=json.loads((BASE/'content/tldr-teaser.json').read_text())['labels']
 def clean(s): return re.sub(r'\s+',' ',s).strip()
 ui={'Skip to content','Read the manuscript','↗','Top ↑','View full size ↗','→','Manuscript ↗','Back to top ↑','Abstract','Training recipes','Annotation protocol','01','02','03','04','05','TL;DR','Paper','GitHub','Hugging Face','🤗','1','2','3','Finding 1','Finding 2','Finding 3','*'}
@@ -42,6 +43,9 @@ class Audit(HTMLParser):
   v12_key=next(((kind,attrs[kind]) for kind in ('data-v12-copy','data-v12-metric','data-v12-view') if kind in attrs),None)
   metadata_key=attrs.get('data-paper-metadata')
   teaser_key=attrs.get('data-teaser-copy')
+  if attrs.get('data-paper-citation')=='bibtex':
+   assert self.active is None,'Nested provenance records'
+   self.active={'depth':self.depth,'tag':tag,'key':None,'author_key':None,'v12_key':None,'metadata_key':'citation','teaser_key':None,'parts':[]}
   if key or author_key or v12_key or attrs.get('data-site-credit') or metadata_key or teaser_key:
    assert self.active is None,'Nested provenance records'
    self.active={'depth':self.depth,'tag':tag,'key':key,'author_key':author_key,'v12_key':v12_key,'metadata_key':metadata_key,'teaser_key':teaser_key,'parts':[]}
@@ -55,6 +59,7 @@ class Audit(HTMLParser):
    author_key=record['author_key']
    teaser_key=record['teaser_key']
    expected=excerpts[key]['text'] if key else author_excerpts[author_key]['text'] if author_key else teaser_labels[teaser_key] if teaser_key else paper_metadata['display_text'] if record['metadata_key']=='author-block' else credit
+   if record['metadata_key']=='citation':expected=clean(citation['bibtex'])
    if record['v12_key']:
     kind,vkey=record['v12_key']
     expected={'data-v12-copy':v12_audit.copy,'data-v12-metric':v12_audit.metric,'data-v12-view':v12_audit.view}[kind](vkey)
@@ -87,7 +92,9 @@ assert 'overview_caption_short' not in audit.matched
 assert {'ability_generation','ability_transfer','ability_understanding'} <= set(audit.author_matched)
 assert 'class="task-pair"' not in html
 assert 'Original paper figure' not in html and 'class="ut-modalities"' not in html
-assert 'id="citation"' in html and '<code>% BibTeX pending.</code>' in html
+assert 'id="citation"' in html and 'data-paper-citation="bibtex"' in html
+assert citation['manuscript_commit']==book['manuscript_commit']
+assert '% BibTeX pending.' not in html
 assert paper_metadata['manuscript_commit']==book['manuscript_commit']
 assert len(paper_metadata['authors'])==16
 assert all(author.get('homepage','').startswith('https://') for author in paper_metadata['authors'])
