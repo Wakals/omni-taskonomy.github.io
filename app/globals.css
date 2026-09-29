@@ -664,3 +664,15 @@ strong .inline-math .katex { font-weight:700; }
 /* Inline text and math must flow together, not become separate flex items. */
 #alignment .alignment-panel .association-card-caption,
 #alignment .association-card .association-card-caption { display:block; align-content:center; }
+/* One body-text scale throughout the paper narrative and findings. */
+main p[data-manuscript-excerpt], main p[data-author-copy],
+.tldr-questions, .overview-notes p[data-manuscript-excerpt],
+#recipe .recipe-description, #recipe .recipe-note-intro p,
+#alignment .alignment-experiment-setup, #alignment .alignment-experiment-setup p,
+.results-notes p[data-manuscript-excerpt], .method-note p {
+  font-family:var(--body-font); font-size:var(--body-size); font-weight:400; line-height:1.75;
+}
+/* Captions share one secondary scale; small screens show the full scatter plot. */
+#alignment .alignment-panel .association-card-caption,
+#alignment .association-card .association-card-caption { font-size:1rem; }
+@media(max-width:600px) { #alignment .association-plot { min-width:0; width:100%; } }
