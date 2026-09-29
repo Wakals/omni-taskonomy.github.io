@@ -219,14 +219,14 @@ export default function Home() {
           <figure className="alignment-panel"><GradientBars view="layers" /><figcaption className="association-card-caption" data-author-copy="alignment_layers_caption_web">{formatted(authorExcerpts.alignment_layers_caption_web.text)}</figcaption></figure>
         </div>
         <div className="two-columns results-notes alignment-findings">
-          <div><h3 className="standalone-capitalized" data-manuscript-excerpt="alignment_module_heading">{formatted(text('alignment_module_heading'))}</h3><Passage id="alignment_module_result" /></div>
-          <div><h3 className="standalone-capitalized" data-manuscript-excerpt="alignment_layer_heading">{formatted(text('alignment_layer_heading'))}</h3><Passage id="alignment_layer_result" /></div>
+          <div><h3 className="standalone-capitalized" data-author-copy="alignment_module_heading_web">{formatted(authorExcerpts.alignment_module_heading_web.text)}</h3><Passage id="alignment_module_result" /></div>
+          <div><h3 className="standalone-capitalized" data-author-copy="alignment_layer_heading_web">{formatted(authorExcerpts.alignment_layer_heading_web.text)}</h3><Passage id="alignment_layer_result" /></div>
         </div>
         <div className="alignment-second-experiment">
           <div className="alignment-experiment-setup"><Passage id="alignment_transfer_bridge" /><Passage id="alignment_transfer_setup" /></div>
           <GradientTransferScatter />
           <div className="two-columns results-notes alignment-findings">
-            <div><h3 className="standalone-capitalized" data-manuscript-excerpt="alignment_capability_heading">{formatted(text('alignment_capability_heading'))}</h3><Passage id="alignment_results" className="standalone-capitalized" /></div>
+            <div><h3 className="standalone-capitalized" data-author-copy="alignment_capability_heading_web">{formatted(authorExcerpts.alignment_capability_heading_web.text)}</h3><Passage id="alignment_results" className="standalone-capitalized" /></div>
             <div><h3 className="standalone-capitalized" data-manuscript-excerpt="alignment_pair_heading">{formatted(text('alignment_pair_heading'))}</h3><Passage id="alignment_lead" /></div>
           </div>
         </div>

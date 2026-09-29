@@ -70,6 +70,18 @@
     "alignment_layers_caption_web": {
       "text": "Gradient alignment for the controlled Jigsaw and Zoom-In pairs across individual pre-attention RMSNorm layers.",
       "source": "Author requested separate captions for the two panels; split from the manuscript figure caption."
+    },
+    "alignment_module_heading_web": {
+      "text": "Pre-attention RMSNorm parameters matter",
+      "source": "Author-requested finding heading update; plural subject uses matter. Capability title shortened to fit the card."
+    },
+    "alignment_layer_heading_web": {
+      "text": "Earlier transformer layers matter",
+      "source": "Author-requested finding heading update; plural subject uses matter. Capability title shortened to fit the card."
+    },
+    "alignment_capability_heading_web": {
+      "text": "Alignment predicts capability gains",
+      "source": "Author-requested finding heading update; plural subject uses matter. Capability title shortened to fit the card."
     }
   }
 }
