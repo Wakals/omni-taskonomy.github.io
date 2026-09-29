@@ -637,3 +637,16 @@ figcaption, .teaser figcaption,
 #alignment .alignment-experiment-setup { width:100%; max-width:none; margin:0 0 22px; font-size:1rem; line-height:1.65; text-align:left; }
 #alignment .alignment-findings { width:100%; max-width:none; gap:18px; margin:22px 0 0; }
 #alignment .alignment-second-experiment { margin-top:38px; padding-top:30px; border-top:1px solid var(--border); }
+
+/* Matching panel frames and integrated captions in both experiment rows. */
+#alignment .alignment-panel { display:flex; flex-direction:column; min-width:0; margin:0; border:1px solid #dfe7ef; border-radius:12px; overflow:hidden; background:#fff; box-shadow:0 8px 24px #334e690d; }
+#alignment .alignment-panel .gradient-chart { border:0; border-radius:0; box-shadow:none; }
+#alignment .alignment-panel .association-card-caption,
+#alignment .association-card .association-card-caption { display:flex; align-items:center; justify-content:center; min-height:100px; margin:0; padding:14px 18px; border-top:1px solid #e1e9ef; color:#526575; font-family:Georgia,'Times New Roman',serif; font-size:.94rem; font-style:italic; line-height:1.55; text-align:center; }
+#alignment .association-figure { border:0; box-shadow:none; overflow:visible; }
+#alignment .association-figure > .association-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
+#alignment .association-card { border:1px solid #dfe7ef; border-radius:12px; overflow:hidden; box-shadow:0 8px 24px #334e690d; }
+#alignment .association-guide { padding:0 0 14px; border:0; }
+#alignment .alignment-experiment-setup p { display:inline; margin:0; }
+#alignment .alignment-experiment-setup p + p::before { content:' '; }
+@media(max-width:760px) { #alignment .association-figure > .association-grid { grid-template-columns:1fr; } }

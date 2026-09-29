@@ -384,12 +384,22 @@
       }
     },
     "alignment_setup": {
-      "text": "For each task, we sample 500 matched examples and compute I2I and I2T gradients at the pretrained checkpoint.",
+      "text": "For each task, we sample 500 matched examples and compute I2I and I2T gradients at the pretrained checkpoint. Because the two objectives solve the same underlying visual problem from the same input, this setting lets us localize where their optimization signals agree.",
       "source": {
         "file": "iclr2026/sections/6_gradient.tex",
         "start_line": 56,
-        "end_line": 56,
-        "raw_tex": "For each task, we sample 500 matched examples and compute I2I and I2T gradients at the pretrained checkpoint.",
+        "end_line": 57,
+        "raw_tex": "For each task, we sample 500 matched examples and compute I2I and I2T gradients at the pretrained checkpoint.\nBecause the two objectives solve the same underlying visual problem from the same input, this setting lets us localize where their optimization signals agree.",
+        "file_sha256": "acd9fdd18705a60e31f1da6c6bb3f8d30a6c52dfb3d8713ff7b0e91e9498a71a"
+      }
+    },
+    "alignment_transfer_bridge": {
+      "text": "We next examine all 19×7=133 source–target pairs individually.",
+      "source": {
+        "file": "iclr2026/sections/6_gradient.tex",
+        "start_line": 81,
+        "end_line": 81,
+        "raw_tex": "We next examine all $19\\times7=133$ source–target pairs individually.",
         "file_sha256": "acd9fdd18705a60e31f1da6c6bb3f8d30a6c52dfb3d8713ff7b0e91e9498a71a"
       }
     },

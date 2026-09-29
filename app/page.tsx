@@ -212,16 +212,16 @@ export default function Home() {
       <section id="alignment" className="chapter"><div className="shell">
         <Heading id="alignment_heading" number="05" />
         <Passage id="alignment_setup" className="alignment-experiment-setup" />
-        <figure className="interactive-figure alignment-bar-pair">
-          <div className="alignment-bar-grid"><GradientBars view="modules" /><GradientBars view="layers" /></div>
-          <figcaption className="figure-caption"><span data-author-copy="alignment_bars_caption_web">{formatted(authorExcerpts.alignment_bars_caption_web.text)}</span></figcaption>
-        </figure>
+        <div className="alignment-bar-pair alignment-bar-grid">
+          <figure className="alignment-panel"><GradientBars view="modules" /><figcaption className="association-card-caption" data-author-copy="alignment_modules_caption_web">{formatted(authorExcerpts.alignment_modules_caption_web.text)}</figcaption></figure>
+          <figure className="alignment-panel"><GradientBars view="layers" /><figcaption className="association-card-caption" data-author-copy="alignment_layers_caption_web">{formatted(authorExcerpts.alignment_layers_caption_web.text)}</figcaption></figure>
+        </div>
         <div className="two-columns results-notes alignment-findings">
           <div><Passage id="alignment_module_result" /></div>
           <div><Passage id="alignment_layer_result" /></div>
         </div>
         <div className="alignment-second-experiment">
-          <Passage id="alignment_transfer_setup" className="alignment-experiment-setup" />
+          <div className="alignment-experiment-setup"><Passage id="alignment_transfer_bridge" /><Passage id="alignment_transfer_setup" /></div>
           <GradientTransferScatter />
           <div className="two-columns results-notes alignment-findings">
             <div><Passage id="alignment_results" className="standalone-capitalized" /></div>

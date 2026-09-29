@@ -18,7 +18,7 @@ def render(raw):
     while previous != s:
         previous = s
         s = re.sub(r'\\(?:textbf|textit|emph|section|subsection|paragraph|title|xd)\{([^{}]*)\}', r'\1', s)
-    s = s.replace(r'\rightarrow', '→').replace(r'\\', ' ')
+    s = s.replace(r'\times', '×').replace(r'\rightarrow', '→').replace(r'\\', ' ')
     s = s.replace(r'\(', '').replace(r'\)', '').replace(r'\%', '%').replace('~', ' ')
     s = s.replace('---', '—').replace('--', '–').replace('``', '“').replace("''", '”').replace('$', '')
     if re.search(r'\\[A-Za-z]+|[{}]', s): raise ValueError('Unresolved LaTeX: ' + s)
@@ -74,7 +74,8 @@ take('alignment_heading',G,r'\section{What explains visual generation-to-underst
 take('alignment_module_result',G,"For both tasks, alignment is strongest in the understanding branch's pre-attention RMSNorm parameters.")
 take('alignment_layer_result',G,'Examining these parameters layer by layer further shows that the strongest alignment occurs in the earlier transformer layers.')
 take('alignment_transfer_setup',G,'For each capability, we sample 500 examples and compute gradients using minibatches of size 64.')
-take('alignment_setup',G,'For each task, we sample 500 matched examples and compute I2I and I2T gradients at the pretrained checkpoint.')
+take('alignment_setup',G,'For each task, we sample 500 matched examples and compute I2I and I2T gradients at the pretrained checkpoint.','this setting lets us localize where their optimization signals agree.')
+take('alignment_transfer_bridge',G,r'We next examine all $19\times7=133$ source–target pairs individually.')
 take('alignment_results',G,'average alignment and average transfer are strongly positively correlated','larger gains from I2I training.')
 take('alignment_lead',G,'Alignment and transfer are positively correlated across these 133 pairs ($r=0.529$).')
 take('alignment_caption',G,'(a,b) Gradient alignment for the controlled Jigsaw and Zoom-In pairs','all 133 source--target pairs.')
