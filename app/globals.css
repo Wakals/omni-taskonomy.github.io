@@ -25,7 +25,7 @@ h1>span { display:block; }
 .title-second { font-weight:500; }
 .paper-authors { max-width:1040px; margin:27px auto 0; color:#3e5265; font-family:Arial,Helvetica,sans-serif; }
 .author-list,.affiliation-list,.author-notes { display:flex; justify-content:center; flex-wrap:wrap; }
-.author-list { display:grid; grid-template-columns:repeat(8,max-content); gap:2px 11px; align-items:baseline; font-size:15px; font-weight:700; line-height:1.55; }
+.author-list { display:flex; gap:2px 11px; align-items:baseline; font-size:15px; font-weight:700; line-height:1.55; }
 .author { color:#000; white-space:nowrap; }
 .author a { color:#000; text-decoration-thickness:1px; text-decoration-color:transparent; transition:color .15s ease,text-decoration-color .15s ease; }
 .author a:hover { color:#326eb1; text-decoration-color:currentColor; }
@@ -309,7 +309,6 @@ h3 { font-size:1.65rem; line-height:1.2; margin:0 0 17px; color:#365872; }
 .gradient-matrix-detail strong { min-width:100%; }
 @media(max-width:1050px) { .alignment-composite { width:min(780px,100%); margin:24px auto 30px; } .alignment-visuals { display:block; width:100%; } .association-grid { grid-template-columns:1fr; } .association-card + .association-card { border-left:0; border-top:1px solid #e5edf3; } }
 @media(max-width:900px) { .final-association-grid { grid-template-columns:1fr; width:min(760px,100%); } .association-paper-panel .figure-caption { min-height:0; } }
-@media(max-width:1040px) { .author-list { grid-template-columns:repeat(4,max-content); } }
 @media(max-width:600px) { .gradient-chart-head { align-items:flex-start; flex-direction:column; padding:14px; gap:9px; } .gradient-chart-legend { padding:11px 14px; } .gradient-chart-scroll { padding:5px 8px; } .gradient-chart-detail { padding:10px 14px; font-size:.94rem; } .gradient-chart-detail strong { flex-basis:100%; } .association-guide,.association-title,.association-detail,.association-card p.association-card-caption { padding-inline:12px; } .association-title { align-items:flex-start; flex-direction:column; gap:2px; } .association-plot { min-width:440px; } .association-card { overflow-x:auto; scrollbar-width:thin; } .association-card p.association-card-caption { min-height:0; } .gradient-matrix-panel>summary { font-size:1.55rem; } .gradient-matrix-controls { padding:12px; } .gradient-matrix-scroll { padding-inline:6px; } .gradient-matrix-detail { padding:12px; } }
 .acknowledgments { max-width:780px; padding:60px 0 48px; text-align:left; }
 .acknowledgments h2 { font-size:2rem; margin-bottom:19px; text-align:center; }
@@ -434,7 +433,7 @@ footer a { color:#718295; }
 @media print { .ut-tree-toolbar,.ut-map-toolbar,.ut-map-guide,.ut-pinned-detail { display:none; }.ut-map-scroll { overflow:visible; }.ut-cell-value { opacity:1; } }
 
 /* All prose uses one face and size, including mobile and expanded sample text. */
-:root { --body-font:'Times New Roman',Times,'Liberation Serif',serif; --body-size:1.15rem; }
+:root { --body-font:Arial,Helvetica,sans-serif; --body-size:1.15rem; }
 p[data-manuscript-excerpt], p[data-author-copy], .tldr-questions,
 .recipe-description, .recipe-id, .recipe-route,
 figcaption, .teaser figcaption,
@@ -589,7 +588,4 @@ figcaption, .teaser figcaption,
   .affiliation-list { gap:3px 11px; font-size:13px; }
   .author-notes { display:block; font-size:11px; }
   .author-notes span { display:block; margin-top:3px; }
-}
-@media screen and (max-width:540px) {
-  .author-list { grid-template-columns:repeat(2,max-content); gap:3px 9px; }
 }
