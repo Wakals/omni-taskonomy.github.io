@@ -62,6 +62,10 @@
     "ability_transfer": {
       "text": "Ability Transfer",
       "source": "Author-specified text above the diagram arrow."
+    },
+    "taxonomy_lead_web": {
+      "text": "We introduce OmniTaskonomy, a unified taxonomy of generation tasks and understanding capabilities. For a visual understanding sample, we consider the primary visual capability required to solve it; for an I2I task, we consider the visual capability directly supervised by its training objective.",
+      "source": "Author requested generation tasks and understanding capabilities on September 28, 2026; remaining wording follows taxonomy_lead verbatim."
     }
   }
 }

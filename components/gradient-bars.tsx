@@ -6,9 +6,8 @@ import clean from '@/content/jigsaw-zoomin-four-charts.json';
 
 type View = 'modules' | 'layers';
 
-export function GradientBars() {
-  const [view, setView] = useState<View>('modules');
-  const [selected, setSelected] = useState(4);
+export function GradientBars({ view = 'modules' }: { view?: View }) {
+  const [selected, setSelected] = useState(view === 'modules' ? 4 : 3);
   const labels = view === 'modules' ? source.module_labels : clean.perlayer.layers.map(String);
   const fullLabels = view === 'modules' ? clean.concat.labels : clean.perlayer.layers.map(i => 'Layer ' + i);
   const jigsaw = view === 'modules' ? clean.concat.jigsaw : clean.perlayer.jigsaw;
@@ -19,20 +18,16 @@ export function GradientBars() {
   const plotLeft = 52;
   const plotTop = 22;
   const plotHeight = 286;
-  const plotWidth = view === 'modules' ? 630 : 840;
+  const plotWidth = 630;
   const step = plotWidth / labels.length;
   const width = plotLeft + plotWidth + 20;
-  const height = view === 'modules' ? 400 : 372;
+  const height = 400;
   const y = (value: number) => plotTop + (high - value) * plotHeight / (high - low);
   const baseline = y(0);
-  const choose = (next: View) => { setView(next); setSelected(next === 'modules' ? 4 : 3); };
 
   return <div className="gradient-chart" aria-label="Interactive gradient alignment bars" data-visual-source="controlled-gradient-json">
     <div className="gradient-chart-head">
-      <div className="gradient-chart-tabs" role="tablist" aria-label="Gradient alignment view">
-        <button type="button" role="tab" aria-selected={view === 'modules'} onClick={() => choose('modules')}>Module groups</button>
-        <button type="button" role="tab" aria-selected={view === 'layers'} onClick={() => choose('layers')}>RMSNorm layers</button>
-      </div>
+      <strong>{view === 'modules' ? 'Module groups' : 'RMSNorm layers'}</strong>
     </div>
     <div className="gradient-chart-legend"><span><i className="jigsaw" />Jigsaw</span><span><i className="zoomin" />Zoom-In</span></div>
     <div className="gradient-chart-scroll" role="region" aria-label={view === 'modules' ? 'Module alignment bars' : 'RMSNorm layer alignment bars'} tabIndex={0}>
@@ -43,7 +38,7 @@ export function GradientBars() {
         </g>)}
         {labels.map((label, index) => {
           const center = plotLeft + step * (index + .5);
-          const barWidth = view === 'modules' ? 13 : 10;
+          const barWidth = view === 'modules' ? 13 : 6;
           const bars = [{ value: jigsaw[index], x: center - barWidth - 1, kind: 'jigsaw' }, { value: zoomin[index], x: center + 1, kind: 'zoomin' }];
           return <g key={label} className={selected === index ? 'gradient-selected' : ''}>
             {selected === index && <rect x={center - step / 2} y={plotTop} width={step} height={plotHeight} className="gradient-selection" />}

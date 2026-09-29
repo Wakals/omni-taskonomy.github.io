@@ -107,7 +107,7 @@ assert set(audit.teaser_matched)==set(teaser_labels),audit.teaser_matched
 assert 'tldr-crops/jigsaw-i2i.png' not in html and 'tldr-crops/jigsaw-i2t.png' not in html
 assert sum(k=='data-v12-metric' for k,v in audit.v12_matched)==19*19
 assert audit.selects==[],audit.selects
-assert audit.visual_sources==['controlled-gradient-json','section6-gradient-and-transfer-csv'],audit.visual_sources
+assert audit.visual_sources==['controlled-gradient-json','controlled-gradient-json','section6-gradient-and-transfer-csv'],audit.visual_sources
 assert 'Minibatch gradient alignment' not in html
 assert all(v.split('|')[3]=='delta' for k,v in audit.v12_matched if k=='data-v12-metric')
 assert len({v for k,v in audit.v12_matched if k=='data-v12-copy' and v.startswith('leaf|') and v.endswith('|name')})==44

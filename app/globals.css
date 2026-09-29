@@ -619,3 +619,17 @@ figcaption, .teaser figcaption,
 #controlled > .shell > .section-lead { max-width:100%; }
 .recipe-analysis { max-width:950px; margin:28px auto 0; }
 .recipe-analysis p { margin:0 0 16px; line-height:1.75; }
+
+/* Four equally sized panels, with findings in full-width paired cards. */
+.alignment-bar-pair { width:100%; margin:24px 0; }
+.alignment-bar-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
+.alignment-bar-grid .gradient-chart-plot { min-width:0; }
+.alignment-bar-grid .gradient-chart-head { padding:14px 18px; }
+.alignment-bar-grid .gradient-chart-head strong { font-size:1.2rem; font-weight:500; }
+.alignment-bar-grid .gradient-chart-legend { font-size:.9rem; padding:10px 18px; }
+.alignment-bar-grid .gradient-chart-detail { font-size:.85rem; padding:12px 16px; gap:8px 14px; min-height:75px; }
+.alignment-bar-grid .gradient-chart-detail > strong { flex-basis:100%; }
+.alignment-bar-grid .layers .gradient-x-label { font-size:14px; }
+.alignment-findings { margin:26px 0; align-items:stretch; }
+.alignment-scatter-pair { margin-top:26px; }
+@media(max-width:760px) { .alignment-bar-grid { grid-template-columns:1fr; } }

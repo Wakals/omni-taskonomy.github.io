@@ -194,7 +194,7 @@ export default function Home() {
 
       <section id="taxonomy" className="chapter"><div className="shell">
         <Heading id="taxonomy_heading" number="03" />
-        <Passage id="taxonomy_lead" className="section-lead" />
+        <div className="section-lead"><AuthorPassage id="taxonomy_lead_web" highlights={["OmniTaskonomy"]} /></div>
         <InteractiveFigure caption="taxonomy_caption"><InteractiveTaxonomy /></InteractiveFigure>
         <aside className="method-note"><h3>Annotation protocol</h3><Passage id="taxonomy_annotation" /></aside>
       </div></section>
@@ -211,18 +211,16 @@ export default function Home() {
 
       <section id="alignment" className="chapter"><div className="shell">
         <Heading id="alignment_heading" number="05" />
-        <div className="alignment-analysis-row"><div className="alignment-explanation"><Passage id="alignment_setup" /><Passage id="alignment_finding" /></div>
-        <figure className="interactive-figure alignment-composite">
-          <div className="alignment-visuals">
-            <GradientBars />
-          </div>
+        <Passage id="alignment_setup" className="section-lead" />
+        <figure className="interactive-figure alignment-bar-pair">
+          <div className="alignment-bar-grid"><GradientBars view="modules" /><GradientBars view="layers" /></div>
           <figcaption className="figure-caption"><span data-author-copy="alignment_bars_caption_web">{formatted(authorExcerpts.alignment_bars_caption_web.text)}</span></figcaption>
         </figure>
+        <div className="two-columns results-notes alignment-findings">
+          <div><Passage id="alignment_finding" /></div>
+          <div><Passage id="alignment_results" className="standalone-capitalized" /><Passage id="alignment_lead" /></div>
         </div>
-        <div className="alignment-associations">
-          <div className="analysis-copy"><Passage id="alignment_results" className="standalone-capitalized" /><Passage id="alignment_lead" /></div>
-          <GradientTransferScatter />
-        </div>
+        <div className="alignment-scatter-pair"><GradientTransferScatter /></div>
       </div></section>
 
       <section className="citation shell" id="citation" aria-labelledby="citation-heading">
