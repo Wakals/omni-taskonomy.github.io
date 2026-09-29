@@ -1,6 +1,6 @@
 {
-  "manuscript_commit": "f5053cb60ecd5aaefd795937b8a16fe4f58aff56",
-  "sha256": "d447e079170dee839e52e2eaf831f3ade7ede3bc0ca1d1c48bd1d198f65e3f22",
-  "source": "Latest published PDF from upstream e20971a, cross-checked against independently compiled latest Overleaf source",
-  "validation": "No unresolved citations or references; pages 6, 7 and 8 visually checked"
+  "manuscript_commit": "dbcd383dfc2d9f3846e9dc454df3fbb829377296",
+  "sha256": "598afede7ef8d53aa08033376e638087b9f2c645e9723447867a59b5f771fa70",
+  "source": "Independently compiled arXiv archive from latest Overleaf source; original 1,876-example appendix count restored",
+  "validation": "55 pages; no unresolved citations or references; only page 17 changed and visually checked; all 25 appendix source files byte-identical to pre-edit revision 6f97c97"
 }
