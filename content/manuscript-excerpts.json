@@ -353,6 +353,46 @@
         "file_sha256": "acd9fdd18705a60e31f1da6c6bb3f8d30a6c52dfb3d8713ff7b0e91e9498a71a"
       }
     },
+    "alignment_module_heading": {
+      "text": "pre-attention RMSNorm parameters.",
+      "source": {
+        "file": "iclr2026/sections/6_gradient.tex",
+        "start_line": 59,
+        "end_line": 59,
+        "raw_tex": "pre-attention RMSNorm parameters.",
+        "file_sha256": "acd9fdd18705a60e31f1da6c6bb3f8d30a6c52dfb3d8713ff7b0e91e9498a71a"
+      }
+    },
+    "alignment_layer_heading": {
+      "text": "earlier transformer layers.",
+      "source": {
+        "file": "iclr2026/sections/6_gradient.tex",
+        "start_line": 60,
+        "end_line": 60,
+        "raw_tex": "earlier transformer layers.",
+        "file_sha256": "acd9fdd18705a60e31f1da6c6bb3f8d30a6c52dfb3d8713ff7b0e91e9498a71a"
+      }
+    },
+    "alignment_capability_heading": {
+      "text": "Which visual understanding capabilities benefit more from visual generation?",
+      "source": {
+        "file": "iclr2026/sections/6_gradient.tex",
+        "start_line": 71,
+        "end_line": 71,
+        "raw_tex": "\\paragraph{Which visual understanding capabilities benefit more from visual generation?}",
+        "file_sha256": "acd9fdd18705a60e31f1da6c6bb3f8d30a6c52dfb3d8713ff7b0e91e9498a71a"
+      }
+    },
+    "alignment_pair_heading": {
+      "text": "Does alignment track transfer across task pairs?",
+      "source": {
+        "file": "iclr2026/sections/6_gradient.tex",
+        "start_line": 80,
+        "end_line": 80,
+        "raw_tex": "\\paragraph{Does alignment track transfer across task pairs?}",
+        "file_sha256": "acd9fdd18705a60e31f1da6c6bb3f8d30a6c52dfb3d8713ff7b0e91e9498a71a"
+      }
+    },
     "alignment_module_result": {
       "text": "For both tasks, alignment is strongest in the understanding branch's pre-attention RMSNorm parameters.",
       "source": {
@@ -414,12 +454,12 @@
       }
     },
     "alignment_lead": {
-      "text": "Alignment and transfer are positively correlated across these 133 pairs (r=0.529).",
+      "text": "Alignment and transfer are positively correlated across these 133 pairs (r=0.529). Together, these results identify gradient alignment as an optimization-level signal associated with generation-to-understanding transfer.",
       "source": {
         "file": "iclr2026/sections/6_gradient.tex",
         "start_line": 83,
-        "end_line": 83,
-        "raw_tex": "Alignment and transfer are positively correlated across these 133 pairs ($r=0.529$).",
+        "end_line": 84,
+        "raw_tex": "Alignment and transfer are positively correlated across these 133 pairs ($r=0.529$).\nTogether, these results identify gradient alignment as an optimization-level signal associated with generation-to-understanding transfer.",
         "file_sha256": "acd9fdd18705a60e31f1da6c6bb3f8d30a6c52dfb3d8713ff7b0e91e9498a71a"
       }
     },

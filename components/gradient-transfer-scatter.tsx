@@ -1,6 +1,6 @@
 import source from '@/content/gradient-transfer-scatter.json';
 import authorCopy from '@/content/author-provided-copy.json';
-import { coloredTerms } from '@/components/colored-terms';
+import { coloredTerms, mathNumbers } from '@/components/colored-terms';
 
 type Family = keyof typeof source.families;
 type CapabilityPoint = (typeof source.capability.points)[number];
@@ -74,7 +74,7 @@ function HoverTip({ x, y, width, lines, label }: { x: number; y: number; width: 
 
 function CapabilityScatter() {
   return <article className="association-card">
-    <div className="association-title"><strong>Transfer by capability</strong><span>r = {source.capability.correlation.toFixed(3)}</span></div>
+    <div className="association-title"><strong>Transfer by capability</strong><span>{mathNumbers(`r = ${source.capability.correlation.toFixed(3)}`)}</span></div>
     <ScatterFrame kind="capability">{({ x, y, domain }) => <>
       <Regression domain={domain} line={source.capability.regression} x={x} y={y} />
       {source.capability.points.map((point: CapabilityPoint) => {
@@ -95,7 +95,7 @@ function CapabilityScatter() {
 
 function PairScatter() {
   return <article className="association-card">
-    <div className="association-title"><strong>Transfer by task pair</strong><span>133 pairs · r = {source.pairs.correlation.toFixed(3)}</span></div>
+    <div className="association-title"><strong>Transfer by task pair</strong><span>{mathNumbers(`133 pairs · r = ${source.pairs.correlation.toFixed(3)}`)}</span></div>
     <ScatterFrame kind="pairs">{({ x, y, domain }) => <>
       <path className="association-ellipse" d={source.pairs.ellipse.map((point, index) => `${index ? 'L' : 'M'}${x(point[0])},${y(point[1])}`).join(' ') + ' Z'} />
       <Regression domain={domain} line={source.pairs.regression} x={x} y={y} />

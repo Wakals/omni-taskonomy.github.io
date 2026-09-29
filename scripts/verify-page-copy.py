@@ -17,7 +17,7 @@ ui.update({'Visual Generation · I2I','Visual Understanding · I2T',
  'Hover to magnify · click to pin','Negative','Positive','p < 0.05','I2I supervision task',
  'I2T capability','−15 pp','+15 pp','Close'})
 ui.update({'Swipe to explore', 'Swipe to explore · tap a cell', 'Citation', '% BibTeX pending.', 'Module groups', 'RMSNorm layers', 'Full figure ↗', 'Source code ↗', 'Jigsaw', 'Zoom-In', 'Minibatch gradient alignment'})
-ui.add('Outlined: p < 0.05 (two-sided paired permutation test vs. I2T-only)')
+ui.update({'Outlined: p < 0.05 (two-sided paired permutation test vs. I2T-only)', 'Outlined:', '(two-sided paired permutation test vs. I2T-only)'})
 gradient=json.loads((BASE/'content/gradient-bars-v13.json').read_text())
 ui.update(gradient['module_labels'])
 ui.update('Layer '+str(i) for i in range(28))

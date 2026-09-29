@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 import katex from 'katex';
 
-function mathNumbers(value: string): ReactNode {
+export function mathNumbers(value: string): ReactNode {
   const pattern = /(?<![\w.])((?:[rp]\s*[=<>]\s*)?[+−±-]?\d+(?:,\d{3})*(?:\.\d+)?(?:\s*[×=]\s*\d+(?:\.\d+)?)*(?:%|k)?)(?!\w|\.\d)/g;
   return value.split(pattern).map((part, index) => {
     if (index % 2 === 0) return part;

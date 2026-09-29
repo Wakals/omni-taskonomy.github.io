@@ -41,8 +41,10 @@ const emphasis: Partial<Record<ExcerptId, string[]>> = {
   related_example: ['Localization', 'object pointing', '+2.5', '+2.0'],
   depth_example: ['Z-depth', 'metric 3D relation', 'Jigsaw', '2D ordering'],
   cross_results: ['Inpainting', '2.5D segmentation'],
-  alignment_results: ['r=0.795'],
-  alignment_lead: ['r=0.529'],
+  alignment_module_result: ['pre-attention RMSNorm parameters'],
+  alignment_layer_result: ['earlier transformer layers'],
+  alignment_results: ['strongly positively correlated', 'r=0.795'],
+  alignment_lead: ['positively correlated', 'r=0.529', 'optimization-level signal'],
 };
 // Split and wrap existing characters only: emphasis never creates or edits copy.
 function formatted(value: string, highlights: string[] = []): ReactNode {
@@ -217,15 +219,15 @@ export default function Home() {
           <figure className="alignment-panel"><GradientBars view="layers" /><figcaption className="association-card-caption" data-author-copy="alignment_layers_caption_web">{formatted(authorExcerpts.alignment_layers_caption_web.text)}</figcaption></figure>
         </div>
         <div className="two-columns results-notes alignment-findings">
-          <div><Passage id="alignment_module_result" /></div>
-          <div><Passage id="alignment_layer_result" /></div>
+          <div><h3 className="standalone-capitalized" data-manuscript-excerpt="alignment_module_heading">{formatted(text('alignment_module_heading'))}</h3><Passage id="alignment_module_result" /></div>
+          <div><h3 className="standalone-capitalized" data-manuscript-excerpt="alignment_layer_heading">{formatted(text('alignment_layer_heading'))}</h3><Passage id="alignment_layer_result" /></div>
         </div>
         <div className="alignment-second-experiment">
           <div className="alignment-experiment-setup"><Passage id="alignment_transfer_bridge" /><Passage id="alignment_transfer_setup" /></div>
           <GradientTransferScatter />
           <div className="two-columns results-notes alignment-findings">
-            <div><Passage id="alignment_results" className="standalone-capitalized" /></div>
-            <div><Passage id="alignment_lead" /></div>
+            <div><h3 className="standalone-capitalized" data-manuscript-excerpt="alignment_capability_heading">{formatted(text('alignment_capability_heading'))}</h3><Passage id="alignment_results" className="standalone-capitalized" /></div>
+            <div><h3 className="standalone-capitalized" data-manuscript-excerpt="alignment_pair_heading">{formatted(text('alignment_pair_heading'))}</h3><Passage id="alignment_lead" /></div>
           </div>
         </div>
       </div></section>

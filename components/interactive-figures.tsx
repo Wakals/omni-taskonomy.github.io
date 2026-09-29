@@ -1,4 +1,5 @@
 'use client';
+import { mathNumbers } from '@/components/colored-terms';
 
 import { useEffect, useRef, useState, type CSSProperties, type KeyboardEvent } from 'react';
 import { ChevronDown, Plus, X } from 'lucide-react';
@@ -112,7 +113,7 @@ export function InteractiveTransferMap() {
     next?.scrollIntoView({ block: 'nearest', inline: 'nearest' });
   }
   return <div className="ut-figure ut-transfer" aria-label="Interactive transfer heatmap">
-    <div className="ut-map-guide"><span className="pointer-hint">Hover to magnify · click to pin</span><span className="touch-hint">Swipe to explore · tap a cell</span><span className="ut-color-key"><span><i className="ut-swatch negative" />Negative</span><span><i className="ut-swatch positive" />Positive</span><span><i className="ut-swatch significant" />Outlined: p &lt; 0.05 (two-sided paired permutation test vs. I2T-only)</span></span></div>
+    <div className="ut-map-guide"><span className="pointer-hint">Hover to magnify · click to pin</span><span className="touch-hint">Swipe to explore · tap a cell</span><span className="ut-color-key"><span><i className="ut-swatch negative" />Negative</span><span><i className="ut-swatch positive" />Positive</span><span><i className="ut-swatch significant" />{mathNumbers('Outlined: p < 0.05 (two-sided paired permutation test vs. I2T-only)')}</span></span></div>
     <TooltipProvider delay={70}>
       <div className="ut-map-scroll" ref={grid} tabIndex={0} role="region" aria-label="Transfer matrix; use arrow keys to move between cells">
         <table className="ut-map">

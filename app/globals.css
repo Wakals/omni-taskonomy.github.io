@@ -654,3 +654,6 @@ figcaption, .teaser figcaption,
 .inline-math { white-space:nowrap; }
 .inline-math .katex { font-size:1em; }
 strong .inline-math .katex { font-weight:700; }
+/* Inline text and math must flow together, not become separate flex items. */
+#alignment .alignment-panel .association-card-caption,
+#alignment .association-card .association-card-caption { display:block; align-content:center; }
