@@ -109,3 +109,10 @@ The user requires manuscript-original wording and forbids GPT summaries or parap
 - The only rendered teaser strings are the figure's own labels (`Jigsaw I2I`, `Jigsaw I2T`, `('reorder', [3, 2, 1, 0])`) and patch indices 0–3, recorded in `content/tldr-teaser.json` and rendered with `data-teaser-copy`. The ability-transfer diagram keeps its registered author copy. Do not add captions or narration to the animation.
 - The server renders the completed state; the loop starts and ends on it. Keep the pause control, off-screen pausing, and the static completed state under `prefers-reduced-motion`.
 - Run `python scripts/build-tldr-teaser.py --check` with the other checks before publishing.
+
+## Animated controlled-settings figure (September 28, 2026)
+
+- The author requested replacing the static controlled-settings figure in the "Does visual generation help visual understanding?" section with the supplied animated GIF. Serve `public/figures/controlled-tasks.gif` byte-for-byte unchanged; its hash, size, frame count and duration are pinned in `content/controlled-tasks-animation.json`.
+- Keep the existing caption and alt text (`controlled_caption_web`). The GIF's own labels and colors are part of the author's figure; do not recolor or re-letter them.
+- Readers who reduce motion see `controlled-tasks-still.png`, the GIF's own longest-held completed frame, through `<picture>`. Leave the paper-rendered `controlled-tasks.png` in place as a source asset.
+- Run `python scripts/verify-controlled-animation.py --check` with the other checks before publishing.

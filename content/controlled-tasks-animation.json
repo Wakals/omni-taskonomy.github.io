@@ -1,0 +1,21 @@
+{
+  "request": "Author request on September 28, 2026: replace the static controlled-settings figure in the \"Does visual generation help visual understanding?\" section with the author's animated GIF.",
+  "animation": {
+    "file": "controlled-tasks.gif",
+    "source": "Author-supplied animation of the controlled-settings figure panel (a), served byte-for-byte unchanged.",
+    "sha256": "74ce7165dd0fd420b3b0040fa81921d766088be24b7535905112bdc3ab5da189",
+    "size": [
+      1480,
+      256
+    ],
+    "frames": 214,
+    "duration_ms": 7600
+  },
+  "still": {
+    "file": "controlled-tasks-still.png",
+    "source": "Frame 199 of the animation, its longest-held completed state, shown under prefers-reduced-motion.",
+    "frame": 199,
+    "sha256": "0b04eea0913f8bc1e2ed0b54d3f621978c5c5b2949bd4dc3aed3476dacf06dc6"
+  },
+  "replaces": "controlled-tasks.png on the page. The paper-rendered PNG stays in public/figures as a source asset pinned by content/current-paper-figures.json."
+}

@@ -108,6 +108,8 @@ assert 'href="https://huggingface.co/collections/Wakals/omnitaskonomy"' in html
 assert set(audit.author_matched)==set(author_excerpts),audit.author_matched
 assert set(audit.teaser_matched)==set(teaser_labels),audit.teaser_matched
 assert 'tldr-crops/jigsaw-i2i.png' not in html and 'tldr-crops/jigsaw-i2t.png' not in html
+assert 'src="/figures/controlled-tasks.gif"' in html and 'srcSet="/figures/controlled-tasks-still.png"' in html
+assert 'src="/figures/controlled-tasks.png"' not in html
 assert sum(k=='data-v12-metric' for k,v in audit.v12_matched)==19*19
 assert audit.selects==[],audit.selects
 assert audit.visual_sources==['controlled-gradient-json','controlled-gradient-json','section6-gradient-and-transfer-csv'],audit.visual_sources

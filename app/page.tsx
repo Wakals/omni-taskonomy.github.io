@@ -3,6 +3,7 @@ import type { CSSProperties, ReactNode } from 'react';
 import manuscriptContent from '@/content/manuscript-excerpts.json';
 import authorContent from '@/content/author-provided-copy.json';
 import paperMetadata from '@/content/paper-metadata.json';
+import controlledAnimation from '@/content/controlled-tasks-animation.json';
 import citation from '@/content/citation.json';
 import { InteractiveTaxonomy, InteractiveTransferMap } from '@/components/interactive-figures';
 import { GradientBars } from '@/components/gradient-bars';
@@ -119,13 +120,16 @@ function RecipeNote() {
 function Heading({ id, number }: { id: ExcerptId; number: string }) {
   return <div className="section-heading"><span className="section-index" aria-hidden="true">{number}</span><h2 data-manuscript-excerpt={id} data-source={source(id)}>{formatted(text(id))}</h2></div>;
 }
-function Figure({ name, caption, captionOverride, width, height, eager = false, className = '', note, showCaption = true }: { name: string; caption: ExcerptId; captionOverride?: AuthorId; width: number; height: number; eager?: boolean; className?: string; note?: string; showCaption?: boolean }) {
+function Figure({ name, file = `${name}.png`, still, caption, captionOverride, width, height, eager = false, className = '', note, showCaption = true }: { name: string; file?: string; still?: string; caption: ExcerptId; captionOverride?: AuthorId; width: number; height: number; eager?: boolean; className?: string; note?: string; showCaption?: boolean }) {
   const captionValue = captionOverride ? authorExcerpts[captionOverride].text : text(caption);
+  const src = `/figures/${file}`;
+  const image = <img src={src} alt={captionValue} width={width} height={height} loading={eager ? 'eager' : 'lazy'} />;
   return <figure className={className}>
     <div className="figure-frame" style={{ '--figure-mobile-width': width > 1500 ? '820px' : '740px' } as CSSProperties}>
       <div className="figure-viewport" tabIndex={0} role="region" aria-label="Scrollable figure">
-        <a className="figure-link" href={`/figures/${name}.png`} target="_blank" rel="noreferrer" aria-label="Open full-resolution figure">
-          <img src={`/figures/${name}.png`} alt={captionValue} width={width} height={height} loading={eager ? 'eager' : 'lazy'} />
+        <a className="figure-link" href={src} target="_blank" rel="noreferrer" aria-label="Open full-resolution figure">
+          {/* An animated figure falls back to its own completed frame for readers who reduce motion. */}
+          {still ? <picture><source media="(prefers-reduced-motion: reduce)" srcSet={`/figures/${still}`} />{image}</picture> : image}
         </a>
       </div>
     </div>
@@ -182,7 +186,7 @@ export default function Home() {
       <section id="controlled" className="chapter"><div className="shell">
         <Heading id="controlled_heading" number="01" />
         <Passage id="controlled_lead" className="section-lead" />
-        <Figure name="controlled-tasks" caption="controlled_caption" captionOverride="controlled_caption_web" width={2593} height={405} />
+        <Figure name="controlled-tasks" file={controlledAnimation.animation.file} still={controlledAnimation.still.file} caption="controlled_caption" captionOverride="controlled_caption_web" width={controlledAnimation.animation.size[0]} height={controlledAnimation.animation.size[1]} />
 
       </div></section>
 
