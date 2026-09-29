@@ -1,6 +1,6 @@
 {
   "manuscript_project": "https://www.overleaf.com/project/69d99c42c6f3e61ae13f54f1",
-  "manuscript_commit": "5b7b59f2afbd1d246088e8929f915e960652ad0f",
+  "manuscript_commit": "84ba6b43b3ee04804daeec5e8fbf064571202b22",
   "rendering": "Contiguous source excerpts with only LaTeX typography and method macro expanded.",
   "excerpts": {
     "title": {
@@ -10,7 +10,7 @@
         "start_line": 86,
         "end_line": 86,
         "raw_tex": "\\title{\\methodname: When Does Visual\\\\Generation Improve Visual Understanding\\par\\vspace{0.55em}}",
-        "file_sha256": "228507d28efbb50a7e9ad2825d54a9f4866708e01faef74b6c53cf7243c2cefe"
+        "file_sha256": "e214c65640c0a790926a17f363687905edb531816870e0667878989d7e43b479"
       }
     },
     "description": {
@@ -20,7 +20,7 @@
         "start_line": 18,
         "end_line": 18,
         "raw_tex": "We ask: when and how does visual generation supervision improve visual understanding?",
-        "file_sha256": "5e4a583cc767d8f5c1568253f64fb9862753c4170d5c6e08ebe08a1c5a0c4592"
+        "file_sha256": "2dadd0872ca8aa66cd077003429b344ddcacfe75bcf5612dd56d8dfc23ef2cfd"
       }
     },
     "tldr_question_1": {

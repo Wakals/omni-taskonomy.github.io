@@ -1,6 +1,6 @@
 {
-  "manuscript_commit": "5b7b59f2afbd1d246088e8929f915e960652ad0f",
-  "sha256": "da96d3137f6388183a708eef1b66861140e45f3d3a1fc0011cdd96962d42be60",
-  "source": "Independently compiled arXiv archive from the latest Overleaf source; Impossible Research affiliation and internship footnote updated",
-  "validation": "55 pages; no unresolved citations or references; author page visually checked; appendix sources unchanged"
+  "manuscript_commit": "84ba6b43b3ee04804daeec5e8fbf064571202b22",
+  "sha256": "891095099799e6801acb03ad34b22c4c2e85971ea7ec354851f797e9bc3aaee8",
+  "source": "Compiled from the arxiv-latex-cleaner output; author name updated to Andrew Dai",
+  "validation": "55 pages; all extracted page text unchanged except the requested author name; no unresolved references or citations"
 }
