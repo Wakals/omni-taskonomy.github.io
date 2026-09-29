@@ -1,5 +1,5 @@
 {
-  "manuscript_commit": "f5053cb60ecd5aaefd795937b8a16fe4f58aff56",
+  "manuscript_commit": "5b7b59f2afbd1d246088e8929f915e960652ad0f",
   "authors": [
     {
       "name": "Jiaxin Ge",
@@ -105,12 +105,12 @@
     },
     {
       "mark": "6",
-      "name": "Impossible, Inc."
+      "name": "Impossible Research"
     }
   ],
   "notes": [
     "* Equal contribution.",
     "† Equal contribution."
   ],
-  "display_text": "Jiaxin Ge 1* Yiming Qin 2,6* Ji Xie 3 Haozhe Jiang 1 Xiaochuang Han 4 Junyi Zhang 1 Andrew M. Dai 5 Yinfei Yang 5 Jitendra Malik 1 Ranjay Krishna 4 Sewon Min 1 Haiwen Feng 1,6† Le Xue 5† Baifeng Shi 1† Trevor Darrell 1† XuDong Wang 1,2† 1 University of California, Berkeley 2 Duke University 3 Carnegie Mellon University 4 University of Washington 5 Elorian 6 Impossible, Inc. * Equal contribution. † Equal contribution."
+  "display_text": "Jiaxin Ge 1* Yiming Qin 2,6* Ji Xie 3 Haozhe Jiang 1 Xiaochuang Han 4 Junyi Zhang 1 Andrew M. Dai 5 Yinfei Yang 5 Jitendra Malik 1 Ranjay Krishna 4 Sewon Min 1 Haiwen Feng 1,6† Le Xue 5† Baifeng Shi 1† Trevor Darrell 1† XuDong Wang 1,2† 1 University of California, Berkeley 2 Duke University 3 Carnegie Mellon University 4 University of Washington 5 Elorian 6 Impossible Research * Equal contribution. † Equal contribution."
 }

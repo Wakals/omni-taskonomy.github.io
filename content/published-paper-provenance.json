@@ -1,6 +1,6 @@
 {
-  "manuscript_commit": "dbcd383dfc2d9f3846e9dc454df3fbb829377296",
-  "sha256": "598afede7ef8d53aa08033376e638087b9f2c645e9723447867a59b5f771fa70",
-  "source": "Independently compiled arXiv archive from latest Overleaf source; original 1,876-example appendix count restored",
-  "validation": "55 pages; no unresolved citations or references; only page 17 changed and visually checked; all 25 appendix source files byte-identical to pre-edit revision 6f97c97"
+  "manuscript_commit": "5b7b59f2afbd1d246088e8929f915e960652ad0f",
+  "sha256": "da96d3137f6388183a708eef1b66861140e45f3d3a1fc0011cdd96962d42be60",
+  "source": "Independently compiled arXiv archive from the latest Overleaf source; Impossible Research affiliation and internship footnote updated",
+  "validation": "55 pages; no unresolved citations or references; author page visually checked; appendix sources unchanged"
 }

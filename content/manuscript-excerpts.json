@@ -1,6 +1,6 @@
 {
   "manuscript_project": "https://www.overleaf.com/project/69d99c42c6f3e61ae13f54f1",
-  "manuscript_commit": "f5053cb60ecd5aaefd795937b8a16fe4f58aff56",
+  "manuscript_commit": "5b7b59f2afbd1d246088e8929f915e960652ad0f",
   "rendering": "Contiguous source excerpts with only LaTeX typography and method macro expanded.",
   "excerpts": {
     "title": {
@@ -10,7 +10,7 @@
         "start_line": 86,
         "end_line": 86,
         "raw_tex": "\\title{\\methodname: When Does Visual\\\\Generation Improve Visual Understanding\\par\\vspace{0.55em}}",
-        "file_sha256": "5baed541eb0126f680374347eb65434753eeb367571c0b32c40ed494df4f8020"
+        "file_sha256": "228507d28efbb50a7e9ad2825d54a9f4866708e01faef74b6c53cf7243c2cefe"
       }
     },
     "description": {
@@ -30,7 +30,7 @@
         "start_line": 56,
         "end_line": 56,
         "raw_tex": "what training curriculum enables visual generation to improve visual understanding?",
-        "file_sha256": "bcd5ff185818d7a6b57c17d3d8b09dbafd96e8151da20125e592e83e37f41d03"
+        "file_sha256": "b6215463910c6f4be2ce9278459391204d98a6916dde014d31218e0315b4b8e1"
       }
     },
     "tldr_question_2": {
@@ -40,17 +40,17 @@
         "start_line": 71,
         "end_line": 71,
         "raw_tex": "which visual generation tasks help which understanding tasks?",
-        "file_sha256": "bcd5ff185818d7a6b57c17d3d8b09dbafd96e8151da20125e592e83e37f41d03"
+        "file_sha256": "b6215463910c6f4be2ce9278459391204d98a6916dde014d31218e0315b4b8e1"
       }
     },
     "tldr_question_3": {
-      "text": "What explains transfer from visual generation to understanding?",
+      "text": "What explains the success or failure of transfer between these generation and understanding tasks?",
       "source": {
         "file": "iclr2026/sections/1_introduction_clean.tex",
         "start_line": 90,
         "end_line": 90,
-        "raw_tex": "What explains transfer from visual generation to understanding?",
-        "file_sha256": "bcd5ff185818d7a6b57c17d3d8b09dbafd96e8151da20125e592e83e37f41d03"
+        "raw_tex": "What explains the success or failure of transfer between these generation and understanding tasks?",
+        "file_sha256": "b6215463910c6f4be2ce9278459391204d98a6916dde014d31218e0315b4b8e1"
       }
     },
     "finding_a": {
@@ -90,7 +90,7 @@
         "start_line": 8,
         "end_line": 8,
         "raw_tex": "When and how does visual generation improve visual understanding?",
-        "file_sha256": "bcd5ff185818d7a6b57c17d3d8b09dbafd96e8151da20125e592e83e37f41d03"
+        "file_sha256": "b6215463910c6f4be2ce9278459391204d98a6916dde014d31218e0315b4b8e1"
       }
     },
     "controlled_heading": {
@@ -210,7 +210,7 @@
         "start_line": 1,
         "end_line": 1,
         "raw_tex": "\\section{\\methodname: A unified taxonomy of visual capabilities}",
-        "file_sha256": "852d3cd0edb79bd6125ff6a1d838b929eb93cc221474a51d636193dcc1f62226"
+        "file_sha256": "65c3f6af9913818086fb40aec3b3ae891f81816053c9b76c2121706a53a822d5"
       }
     },
     "taxonomy_lead": {
@@ -220,7 +220,7 @@
         "start_line": 5,
         "end_line": 6,
         "raw_tex": "We introduce \\methodname{}, a unified taxonomy of I2I tasks and understanding capabilities.\nFor a visual understanding sample, we consider the primary visual capability required to solve it; for an I2I task, we consider the visual capability directly supervised by its training objective.",
-        "file_sha256": "852d3cd0edb79bd6125ff6a1d838b929eb93cc221474a51d636193dcc1f62226"
+        "file_sha256": "65c3f6af9913818086fb40aec3b3ae891f81816053c9b76c2121706a53a822d5"
       }
     },
     "taxonomy_caption": {
@@ -230,7 +230,7 @@
         "start_line": 14,
         "end_line": 15,
         "raw_tex": "A unified taxonomy of I2I tasks and understanding capabilities under the three Rs: \\textit{Recognition}, \\textit{Reconstruction}, and \\textit{Reorganization}.\nI2I tasks and understanding capabilities occupy separate leaves in a shared hierarchy.",
-        "file_sha256": "852d3cd0edb79bd6125ff6a1d838b929eb93cc221474a51d636193dcc1f62226"
+        "file_sha256": "65c3f6af9913818086fb40aec3b3ae891f81816053c9b76c2121706a53a822d5"
       }
     },
     "taxonomy_annotation": {
@@ -240,7 +240,7 @@
         "start_line": 51,
         "end_line": 53,
         "raw_tex": "Once the taxonomy is fixed, we reassign each eligible benchmark sample to one of the finalized understanding leaves.\nThree VLM judges independently annotate each sample using the image, question, answer choices, reference answer, and the same capability definitions.\nWe retain an example when at least two of the three judges assign it to the same capability and exclude examples without a majority, yielding 9,444 samples.",
-        "file_sha256": "852d3cd0edb79bd6125ff6a1d838b929eb93cc221474a51d636193dcc1f62226"
+        "file_sha256": "65c3f6af9913818086fb40aec3b3ae891f81816053c9b76c2121706a53a822d5"
       }
     },
     "transfer_heading": {
@@ -510,7 +510,7 @@
         "start_line": 1,
         "end_line": 1,
         "raw_tex": "\\methodname",
-        "file_sha256": "852d3cd0edb79bd6125ff6a1d838b929eb93cc221474a51d636193dcc1f62226"
+        "file_sha256": "65c3f6af9913818086fb40aec3b3ae891f81816053c9b76c2121706a53a822d5"
       }
     },
     "nav_transfer": {

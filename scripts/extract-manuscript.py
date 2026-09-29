@@ -40,7 +40,7 @@ take('title','main.tex',r'\title{\methodname: When Does Visual\\Generation Impro
 take('description',A,r'We ask: when and how does visual generation supervision improve visual understanding?')
 take('tldr_question_1',I,r'what training curriculum enables visual generation to improve visual understanding?')
 take('tldr_question_2',I,r'which visual generation tasks help which understanding tasks?')
-take('tldr_question_3',I,r'What explains transfer from visual generation to understanding?')
+take('tldr_question_3',I,r'What explains the success or failure of transfer between these generation and understanding tasks?')
 take('finding_a',P,'An initial I2I training stage that updates parameters shared with the I2T objective provides a useful initialization for subsequent I2T learning.')
 take('finding_b',X,'Visual generation supervision yields significant gains for specific understanding capabilities, both within and across task families.','while depth and surface-normal prediction improve metric 3D relation.')
 take('alignment_finding',G,'Gradient alignment is concentrated in early pre-attention normalization layers and is positively associated with downstream transfer across both understanding capabilities and individual source-target pairs.')
