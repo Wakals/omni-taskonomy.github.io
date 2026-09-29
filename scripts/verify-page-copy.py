@@ -85,7 +85,7 @@ with urllib.request.urlopen(url) as response:
 audit=Audit();audit.feed(html)
 assert not audit.errors,json.dumps(audit.errors,ensure_ascii=False,indent=2)
 assert audit.description and audit.images==3,(audit.description,audit.images)
-assert len(audit.matched)>=35,audit.matched
+assert len(audit.matched)>=32,audit.matched
 assert {'tldr_question_1','tldr_question_2','tldr_question_3'} <= set(audit.matched)
 assert 'tldr_taxonomy_compact' not in audit.matched
 assert 'overview_caption_short' not in audit.matched

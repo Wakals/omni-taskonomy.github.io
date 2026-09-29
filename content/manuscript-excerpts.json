@@ -104,12 +104,12 @@
       }
     },
     "controlled_lead": {
-      "text": "To isolate the effect of confounding factors, we construct paired I2I and I2T tasks that require solving the same task from the same input, differing only in whether the answer is produced as an image or as text. This allows us to directly test whether supervision from an I2I objective transfers to the corresponding I2T task. This design holds the input and underlying visual problem fixed while varying the output modality.",
+      "text": "To isolate the effect of confounding factors, we construct paired I2I and I2T tasks that require solving the same task from the same input, differing only in whether the answer is produced as an image or as text.",
       "source": {
         "file": "iclr2026/sections/3_poc.tex",
         "start_line": 13,
-        "end_line": 14,
-        "raw_tex": "To isolate the effect of confounding factors, we construct paired I2I and I2T tasks that require solving the same task from the same input, differing only in whether the answer is produced as an image or as text.\nThis allows us to directly test whether supervision from an I2I objective transfers to the corresponding I2T task. This design holds the input and underlying visual problem fixed while varying the output modality.",
+        "end_line": 13,
+        "raw_tex": "To isolate the effect of confounding factors, we construct paired I2I and I2T tasks that require solving the same task from the same input, differing only in whether the answer is produced as an image or as text.",
         "file_sha256": "c3a678a062b65c07612844454243096fcac83807e3d20132facfa0ae2e7e84c8"
       }
     },
@@ -204,12 +204,12 @@
       }
     },
     "taxonomy_lead": {
-      "text": "Existing benchmarks typically organize visual tasks by task formulation or output modality, leaving visual generation and understanding tasks separated. This makes it difficult to compare and study tasks that rely on similar visual capabilities but produce different outputs. We introduce OmniTaskonomy, a unified taxonomy of I2I tasks and understanding capabilities. For a visual understanding sample, we consider the primary visual capability required to solve it; for an I2I task, we consider the visual capability directly supervised by its training objective.",
+      "text": "We introduce OmniTaskonomy, a unified taxonomy of I2I tasks and understanding capabilities.",
       "source": {
         "file": "iclr2026/sections/4_taxonomy.tex",
-        "start_line": 3,
-        "end_line": 6,
-        "raw_tex": "Existing benchmarks typically organize visual tasks by task formulation or output modality, leaving visual generation and understanding tasks separated.\nThis makes it difficult to compare and study tasks that rely on similar visual capabilities but produce different outputs.\nWe introduce \\methodname{}, a unified taxonomy of I2I tasks and understanding capabilities.\nFor a visual understanding sample, we consider the primary visual capability required to solve it; for an I2I task, we consider the visual capability directly supervised by its training objective.",
+        "start_line": 5,
+        "end_line": 5,
+        "raw_tex": "We introduce \\methodname{}, a unified taxonomy of I2I tasks and understanding capabilities.",
         "file_sha256": "852d3cd0edb79bd6125ff6a1d838b929eb93cc221474a51d636193dcc1f62226"
       }
     },

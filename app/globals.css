@@ -605,3 +605,13 @@ figcaption, .teaser figcaption,
  .alignment-analysis-row { grid-template-columns:1fr; gap:22px; padding-block:24px; }
  .alignment-associations > .analysis-copy { grid-template-columns:1fr; gap:16px; }
 }
+
+/* Consistent modality emphasis and natural heading wrapping. */
+.term-generation,.term-understanding,.route-generation,.route-understanding { font-weight:700; }
+.section-heading,#alignment .section-heading { max-width:100%; }
+.section-heading h2,#alignment .section-heading h2 { text-wrap:wrap; font-size:clamp(1.9rem,3vw,2.5rem); }
+#recipe .recipe-note { margin-top:22px; }
+#recipe .recipe-note-intro { margin-bottom:18px; }
+#recipe .recipe-description { font-size:1rem; line-height:1.65; }
+#recipe .recipe-route { font-size:1.05rem; }
+#recipe .section-lead { margin-top:24px; margin-bottom:0; }

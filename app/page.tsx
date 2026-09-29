@@ -103,14 +103,13 @@ function RecipeRoute({ value }: { value: string }) {
 function RecipeNote() {
   const ids: AuthorId[] = ['recipe_r1', 'recipe_r2', 'recipe_r3', 'recipe_r4', 'recipe_r5', 'recipe_r6'];
   return <aside className="recipe-note" id="training-recipes" role="note" aria-label="Training recipes">
-    <div className="recipe-note-intro"><AuthorPassage id="recipe_intro" /><sup>1</sup></div>
-    <AuthorPassage id="recipe_stage_note" />
+    <div className="recipe-note-intro"><AuthorPassage id="recipe_intro" /></div>
     <ol className="recipe-list">{ids.map((id, index) => {
       const value = authorExcerpts[id].text;
       const stop = value.indexOf('. ');
       return <li key={id} className={`recipe-item recipe-${index + 1}`} data-author-copy={id}>
         <div className="recipe-item-header"><RecipeRoute value={value.slice(0, stop + 1)} /></div>{' '}
-        <p className="recipe-description">{formatted(value.slice(stop + 2), ['updating the shared understanding weights', 'shared understanding weights frozen'])}</p>
+        <p className="recipe-description">{formatted(value.slice(stop + 2))}</p>
       </li>;
     })}</ol>
   </aside>;
@@ -182,15 +181,15 @@ export default function Home() {
         <Heading id="controlled_heading" number="01" />
         <Passage id="controlled_lead" className="section-lead" />
         <Figure name="controlled-tasks" caption="controlled_caption" captionOverride="controlled_caption_web" width={2593} height={405} />
-        <div className="two-columns supporting-copy"><Passage id="controlled_inputs" /><Passage id="controlled_output" /></div>
+
       </div></section>
 
       <section id="recipe" className="chapter chapter-tinted"><div className="shell">
         <Heading id="recipe_heading" number="02" />
         <RecipeNote />
-        <Figure name="scaling" caption="scaling_caption" captionOverride="scaling_caption_web" width={2573} height={856} note="training-recipes" />
+        <Figure name="scaling" caption="scaling_caption" captionOverride="scaling_caption_web" width={2573} height={856} />
         <Passage id="recipe_result" className="section-lead" />
-        <blockquote className="finding"><Passage id="recipe_finding" /></blockquote>
+
       </div></section>
 
       <section id="taxonomy" className="chapter"><div className="shell">

@@ -62,10 +62,6 @@
     "ability_transfer": {
       "text": "Ability Transfer",
       "source": "Author-specified text above the diagram arrow."
-    },
-    "recipe_stage_note": {
-      "text": "We use → to denote sequential training stages. Mixed denotes joint training with both I2I and I2T data in each batch. I2I denotes training on visual generation data while updating parameters shared with the I2T objective. Frozen I2I denotes visual generation training in which these shared parameters are frozen, and only visual generation-specific parameters are updated.",
-      "source": "Verbatim manuscript definitions, Overleaf f656404, iclr2026/sections/3_poc.tex:55-58; LaTeX typography rendered."
     }
   }
 }
