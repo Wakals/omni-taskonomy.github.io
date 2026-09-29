@@ -163,6 +163,16 @@
         "file_sha256": "c3a678a062b65c07612844454243096fcac83807e3d20132facfa0ae2e7e84c8"
       }
     },
+    "recipe_analysis": {
+      "text": "I2I → I2T and I2I → Mixed scale consistently as the I2I data increases. Both recipes begin with an I2I-only training stage that updates parameters shared with I2T. In contrast, freezing these weights during the I2I training stage or directly mixing the two objectives from the beginning leads to weaker or less stable gains.",
+      "source": {
+        "file": "iclr2026/sections/3_poc.tex",
+        "start_line": 61,
+        "end_line": 63,
+        "raw_tex": "I2I $\\rightarrow$ I2T and I2I $\\rightarrow$ Mixed scale consistently as the I2I data increases.\nBoth recipes begin with an I2I-only training stage that updates parameters shared with I2T.\nIn contrast, freezing these weights during the I2I training stage or directly mixing the two objectives from the beginning leads to weaker or less stable gains.",
+        "file_sha256": "c3a678a062b65c07612844454243096fcac83807e3d20132facfa0ae2e7e84c8"
+      }
+    },
     "recipe_result": {
       "text": "We therefore use I2I → I2T as the default recipe in subsequent experiments.",
       "source": {
@@ -204,12 +214,12 @@
       }
     },
     "taxonomy_lead": {
-      "text": "We introduce OmniTaskonomy, a unified taxonomy of I2I tasks and understanding capabilities.",
+      "text": "We introduce OmniTaskonomy, a unified taxonomy of I2I tasks and understanding capabilities. For a visual understanding sample, we consider the primary visual capability required to solve it; for an I2I task, we consider the visual capability directly supervised by its training objective.",
       "source": {
         "file": "iclr2026/sections/4_taxonomy.tex",
         "start_line": 5,
-        "end_line": 5,
-        "raw_tex": "We introduce \\methodname{}, a unified taxonomy of I2I tasks and understanding capabilities.",
+        "end_line": 6,
+        "raw_tex": "We introduce \\methodname{}, a unified taxonomy of I2I tasks and understanding capabilities.\nFor a visual understanding sample, we consider the primary visual capability required to solve it; for an I2I task, we consider the visual capability directly supervised by its training objective.",
         "file_sha256": "852d3cd0edb79bd6125ff6a1d838b929eb93cc221474a51d636193dcc1f62226"
       }
     },

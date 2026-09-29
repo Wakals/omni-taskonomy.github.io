@@ -615,3 +615,7 @@ figcaption, .teaser figcaption,
 #recipe .recipe-description { font-size:1rem; line-height:1.65; }
 #recipe .recipe-route { font-size:1.05rem; }
 #recipe .section-lead { margin-top:24px; margin-bottom:0; }
+
+#controlled > .shell > .section-lead { max-width:100%; }
+.recipe-analysis { max-width:950px; margin:28px auto 0; }
+.recipe-analysis p { margin:0 0 16px; line-height:1.75; }

@@ -188,7 +188,7 @@ export default function Home() {
         <Heading id="recipe_heading" number="02" />
         <RecipeNote />
         <Figure name="scaling" caption="scaling_caption" captionOverride="scaling_caption_web" width={2573} height={856} />
-        <Passage id="recipe_result" className="section-lead" />
+        <div className="recipe-analysis"><Passage id="recipe_analysis" /><Passage id="recipe_result" /></div>
 
       </div></section>
 
