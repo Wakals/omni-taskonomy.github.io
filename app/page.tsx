@@ -230,7 +230,7 @@ export default function Home() {
           <div className="alignment-experiment-setup"><Passage id="alignment_transfer_bridge" /><Passage id="alignment_transfer_setup" /></div>
           <GradientTransferScatter />
           <div className="two-columns results-notes alignment-findings">
-            <div><h3 className="standalone-capitalized" data-author-copy="alignment_capability_heading_web">{formatted(authorExcerpts.alignment_capability_heading_web.text)}</h3><AuthorPassage id="alignment_results_web" highlights={["generation"]} /></div>
+            <div><h3 className="standalone-capitalized" data-author-copy="alignment_capability_heading_web">{formatted(authorExcerpts.alignment_capability_heading_web.text)}</h3><AuthorPassage id="alignment_results_web" highlights={["Understanding", "generation", "I2I", "strongly positively correlated", "r=0.795"]} /></div>
             <div><h3 className="standalone-capitalized" data-manuscript-excerpt="alignment_pair_heading">{formatted(text('alignment_pair_heading'))}</h3><Passage id="alignment_lead" /></div>
           </div>
         </div>
