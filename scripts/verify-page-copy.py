@@ -103,11 +103,13 @@ assert len(paper_metadata['authors'])==16
 assert all(author.get('homepage','').startswith('https://') for author in paper_metadata['authors'])
 assert all(f'href="{author["homepage"]}"' in html for author in paper_metadata['authors'])
 assert 'href="/paper.pdf"' in html
-assert 'href="https://github.com/omni-taskonomy/omni-taskonomy.github.io"' in html
+assert 'href="https://github.com/para-lost/OmniTaskonomy/tree/main"' in html
 assert 'href="https://huggingface.co/collections/Wakals/omnitaskonomy"' in html
 assert set(audit.author_matched)==set(author_excerpts),audit.author_matched
 assert set(audit.teaser_matched)==set(teaser_labels),audit.teaser_matched
 assert 'tldr-crops/jigsaw-i2i.png' not in html and 'tldr-crops/jigsaw-i2t.png' not in html
+assert 'src="/figures/controlled-tasks.gif"' in html and 'srcSet="/figures/controlled-tasks-still.png"' in html
+assert 'src="/figures/controlled-tasks.png"' not in html
 assert sum(k=='data-v12-metric' for k,v in audit.v12_matched)==19*19
 assert audit.selects==[],audit.selects
 assert audit.visual_sources==['controlled-gradient-json','controlled-gradient-json','section6-gradient-and-transfer-csv'],audit.visual_sources

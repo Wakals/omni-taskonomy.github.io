@@ -82,6 +82,10 @@
     "alignment_capability_heading_web": {
       "text": "Alignment predicts capability gains",
       "source": "Author-requested finding heading update; plural subject uses matter. Capability title shortened to fit the card."
+    },
+    "alignment_results_web": {
+      "text": "Understanding capabilities whose gradients are more compatible with generation objectives also tend to receive larger gains from I2I training.",
+      "source": "Author requested a shorter finding; completed receive larger gains from I2I training for grammatical completeness."
     }
   }
 }
