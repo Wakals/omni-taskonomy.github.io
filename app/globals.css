@@ -633,3 +633,7 @@ figcaption, .teaser figcaption,
 .alignment-findings { margin:26px 0; align-items:stretch; }
 .alignment-scatter-pair { margin-top:26px; }
 @media(max-width:760px) { .alignment-bar-grid { grid-template-columns:1fr; } }
+
+#alignment .alignment-experiment-setup { width:100%; max-width:none; margin:0 0 22px; font-size:1rem; line-height:1.65; text-align:left; }
+#alignment .alignment-findings { width:100%; max-width:none; gap:18px; margin:22px 0 0; }
+#alignment .alignment-second-experiment { margin-top:38px; padding-top:30px; border-top:1px solid var(--border); }

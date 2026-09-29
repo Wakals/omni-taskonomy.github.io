@@ -211,16 +211,23 @@ export default function Home() {
 
       <section id="alignment" className="chapter"><div className="shell">
         <Heading id="alignment_heading" number="05" />
-        <Passage id="alignment_setup" className="section-lead" />
+        <Passage id="alignment_setup" className="alignment-experiment-setup" />
         <figure className="interactive-figure alignment-bar-pair">
           <div className="alignment-bar-grid"><GradientBars view="modules" /><GradientBars view="layers" /></div>
           <figcaption className="figure-caption"><span data-author-copy="alignment_bars_caption_web">{formatted(authorExcerpts.alignment_bars_caption_web.text)}</span></figcaption>
         </figure>
         <div className="two-columns results-notes alignment-findings">
-          <div><Passage id="alignment_finding" /></div>
-          <div><Passage id="alignment_results" className="standalone-capitalized" /><Passage id="alignment_lead" /></div>
+          <div><Passage id="alignment_module_result" /></div>
+          <div><Passage id="alignment_layer_result" /></div>
         </div>
-        <div className="alignment-scatter-pair"><GradientTransferScatter /></div>
+        <div className="alignment-second-experiment">
+          <Passage id="alignment_transfer_setup" className="alignment-experiment-setup" />
+          <GradientTransferScatter />
+          <div className="two-columns results-notes alignment-findings">
+            <div><Passage id="alignment_results" className="standalone-capitalized" /></div>
+            <div><Passage id="alignment_lead" /></div>
+          </div>
+        </div>
       </div></section>
 
       <section className="citation shell" id="citation" aria-labelledby="citation-heading">

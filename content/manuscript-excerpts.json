@@ -353,6 +353,36 @@
         "file_sha256": "acd9fdd18705a60e31f1da6c6bb3f8d30a6c52dfb3d8713ff7b0e91e9498a71a"
       }
     },
+    "alignment_module_result": {
+      "text": "For both tasks, alignment is strongest in the understanding branch's pre-attention RMSNorm parameters.",
+      "source": {
+        "file": "iclr2026/sections/6_gradient.tex",
+        "start_line": 59,
+        "end_line": 59,
+        "raw_tex": "For both tasks, alignment is strongest in the understanding branch's pre-attention RMSNorm parameters.",
+        "file_sha256": "acd9fdd18705a60e31f1da6c6bb3f8d30a6c52dfb3d8713ff7b0e91e9498a71a"
+      }
+    },
+    "alignment_layer_result": {
+      "text": "Examining these parameters layer by layer further shows that the strongest alignment occurs in the earlier transformer layers.",
+      "source": {
+        "file": "iclr2026/sections/6_gradient.tex",
+        "start_line": 60,
+        "end_line": 60,
+        "raw_tex": "Examining these parameters layer by layer further shows that the strongest alignment occurs in the earlier transformer layers.",
+        "file_sha256": "acd9fdd18705a60e31f1da6c6bb3f8d30a6c52dfb3d8713ff7b0e91e9498a71a"
+      }
+    },
+    "alignment_transfer_setup": {
+      "text": "For each capability, we sample 500 examples and compute gradients using minibatches of size 64.",
+      "source": {
+        "file": "iclr2026/sections/6_gradient.tex",
+        "start_line": 67,
+        "end_line": 67,
+        "raw_tex": "For each capability, we sample 500 examples and compute gradients using minibatches of size 64.",
+        "file_sha256": "acd9fdd18705a60e31f1da6c6bb3f8d30a6c52dfb3d8713ff7b0e91e9498a71a"
+      }
+    },
     "alignment_setup": {
       "text": "For each task, we sample 500 matched examples and compute I2I and I2T gradients at the pretrained checkpoint.",
       "source": {
