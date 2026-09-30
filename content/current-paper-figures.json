@@ -28,8 +28,8 @@
     "scaling.png": {
       "source_pdf": "iclr2026/figures/scaling_results_4panel_hierarchy_v8.pdf",
       "source_sha256": "8e315b293775f74e00c3672c85771d413266d80856fe16fae463da8a5d732878",
-      "render": "pdftoppm -r 180, full page",
-      "output_sha256": "29a3706002b748b1736b2ec1dc5d58a52dfc181ea1966b367641554ce7ee375a"
+      "render": "Author-supplied 3111x1035 PNG export (September 29, 2026), replacing the earlier pdftoppm -r 180 full-page render of the source PDF.",
+      "output_sha256": "d2fe9d095cf9b67b939c66a685848ae71088a2929a891e78c212d464c73ce4f6"
     }
   }
 }

@@ -3,10 +3,10 @@
   "animation": {
     "file": "controlled-tasks.gif",
     "source": "Author-supplied animation of the controlled-settings figure panel (a), served byte-for-byte unchanged.",
-    "sha256": "74ce7165dd0fd420b3b0040fa81921d766088be24b7535905112bdc3ab5da189",
+    "sha256": "7db87daffde3f4386225049f183d976ca5d8b7d100afb5b67663a8bc4b16b3d2",
     "size": [
       1480,
-      256
+      224
     ],
     "frames": 214,
     "duration_ms": 7600
@@ -15,7 +15,10 @@
     "file": "controlled-tasks-still.png",
     "source": "Frame 199 of the animation, its longest-held completed state, shown under prefers-reduced-motion.",
     "frame": 199,
-    "sha256": "0b04eea0913f8bc1e2ed0b54d3f621978c5c5b2949bd4dc3aed3476dacf06dc6"
+    "sha256": "79d4ef72fcb9ddebcd399f41133c88617c45b47cf510bcbedee7a59190586c2b"
   },
-  "replaces": "controlled-tasks.png on the page. The paper-rendered PNG stays in public/figures as a source asset pinned by content/current-paper-figures.json."
+  "replaces": "controlled-tasks.png on the page. The paper-rendered PNG stays in public/figures as a source asset pinned by content/current-paper-figures.json.",
+  "revisions": [
+    "September 29, 2026: the author replaced the GIF with a version without the in-image \"(a) Controlled Settings\" title (1480x256 to 1480x224); frames, timing and the completed-frame index are unchanged."
+  ]
 }
